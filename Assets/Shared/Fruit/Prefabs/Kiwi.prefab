@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 205000011425727650}
   - component: {fileID: 65000012312222778}
   - component: {fileID: 114723543035565124}
+  - component: {fileID: 65772305231960382}
   m_Layer: 0
   m_Name: Kiwi
   m_TagString: Untagged
@@ -96,8 +97,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013319535190}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 238.93112, y: 5.86, z: 129.24435}
+  m_LocalScale: {x: 25, y: 25, z: 25}
   m_Children:
   - {fileID: 4000010827971596}
   - {fileID: 4000012043803100}
@@ -198,6 +199,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.052674174, y: 0.047236618, z: 0.06999999}
   m_Center: {x: 0.000042781234, y: 0.023618309, z: -0.00024713762}
+--- !u!65 &65772305231960382
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013319535190}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.5, z: 0.5}
+  m_Center: {x: 0.00004278123, y: 0.02361831, z: -0.0002471376}
 --- !u!114 &114723543035565124
 MonoBehaviour:
   m_ObjectHideFlags: 1
