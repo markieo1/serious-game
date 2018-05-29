@@ -8,3 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scripts/Scene/Old/LoadingScene.unity
     guid: b9091ec277e05a149b8a4092b5f2922f
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Rooms/MainMenu/MainMenu.unity
+    guid: 9f9575b73e57327448dc7b4575df4c78
+  - enabled: 1
+    path: Assets/Rooms/Bedroom/Bedroom.unity
+    guid: a3da5dd3c5a738647a4ed24e4f8c52c6
+  - enabled: 1
+    path: Assets/Rooms/Hallway/Hallway.unity
+    guid: 7af4ffdc75041f440aaa52f8b3ef9a96
