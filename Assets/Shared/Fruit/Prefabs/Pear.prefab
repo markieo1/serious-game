@@ -55,6 +55,7 @@ GameObject:
   - component: {fileID: 4000013089370440}
   - component: {fileID: 205000012269396850}
   - component: {fileID: 65000010828692110}
+  - component: {fileID: 114192573360849158}
   m_Layer: 0
   m_Name: Pear
   m_TagString: Untagged
@@ -197,6 +198,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.08400971, y: 0.15003213, z: 0.08027937}
   m_Center: {x: -0.0003721863, y: 0.0749509, z: 0.0007176511}
+--- !u!114 &114192573360849158
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013251634520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e927ba5641407c4fa106f6168588473, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  carbohydrates: 0
 --- !u!205 &205000012269396850
 LODGroup:
   m_ObjectHideFlags: 1

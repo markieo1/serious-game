@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 4000012737768072}
   - component: {fileID: 205000011425727650}
   - component: {fileID: 65000012312222778}
+  - component: {fileID: 114723543035565124}
   m_Layer: 0
   m_Name: Kiwi
   m_TagString: Untagged
@@ -197,6 +198,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.052674174, y: 0.047236618, z: 0.06999999}
   m_Center: {x: 0.000042781234, y: 0.023618309, z: -0.00024713762}
+--- !u!114 &114723543035565124
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013319535190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e927ba5641407c4fa106f6168588473, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  carbohydrates: 0
 --- !u!205 &205000011425727650
 LODGroup:
   m_ObjectHideFlags: 1
