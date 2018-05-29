@@ -56,6 +56,7 @@ GameObject:
   - component: {fileID: 205000011201749446}
   - component: {fileID: 65000012155365366}
   - component: {fileID: 114507413560573408}
+  - component: {fileID: 65392780112801444}
   m_Layer: 0
   m_Name: Apple
   m_TagString: Untagged
@@ -71,7 +72,7 @@ Transform:
   m_GameObject: {fileID: 1000013678658166}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 25, y: 25, z: 25}
   m_Children:
   - {fileID: 4000013711606732}
   - {fileID: 4000013381597554}
@@ -198,6 +199,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.09203893, y: 0.10557197, z: 0.093840025}
   m_Center: {x: 0.00030497648, y: 0.05283799, z: 0.000054053962}
+--- !u!65 &65392780112801444
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013678658166}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.5, z: 0.5}
+  m_Center: {x: 0.0003049765, y: 0.05283799, z: 0.00005405396}
 --- !u!114 &114507413560573408
 MonoBehaviour:
   m_ObjectHideFlags: 1
