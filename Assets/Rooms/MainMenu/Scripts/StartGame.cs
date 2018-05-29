@@ -9,7 +9,7 @@ public class StartGame : MonoBehaviour
 	[Scene]
 	public string NewScene;
 
-	public void Start_Click()
+	public void LoadNewScene()
 	{												  
 		SceneManager.LoadScene(LoadingScene, LoadSceneMode.Single);
 		LoadingManager.Instance.SetSceneToLoad(NewScene);
