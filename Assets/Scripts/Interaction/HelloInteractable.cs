@@ -2,19 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HelloInteractable : InteractableBase {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
-	public override void OnInteract() {
+public class HelloInteractable : InteractableBase
+{
+	public override void OnEnterInteractionRegion()
+	{
 		Debug.Log("Hello, interact!");
 	}
 }

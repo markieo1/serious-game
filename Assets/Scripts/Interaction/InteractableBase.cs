@@ -6,6 +6,19 @@ using UnityEngine;
 
 public abstract class InteractableBase : MonoBehaviour
 {
+	/// <summary>
+	/// Called when an collider enters the interaction region.
+	/// </summary>
+	public abstract void OnEnterInteractionRegion();
+
+	/// <summary>
+	/// Called when an collider exists the interaction region.
+	/// </summary>
+	public virtual void OnExitInteractionRegion() { }
+
+	/// <summary>
+	/// Gets or sets the collider.
+	/// </summary>
 	private Collider Collider { get; set; }
 
 	private void Start()
@@ -25,8 +38,11 @@ public abstract class InteractableBase : MonoBehaviour
 	}
 	private void OnTriggerEnter(Collider other)
 	{
-		OnInteract();
+		OnEnterInteractionRegion();
 	}
 
-	public abstract void OnInteract();
+	private void OnTriggerExit(Collider other)
+	{
+		OnExitInteractionRegion();
+	}
 }

@@ -7,7 +7,7 @@ public class FoodInteractable : InteractableBase
 	public GameObject player;
 	public float carbohydrates;
 
-	public override void OnInteract()
+	public override void OnEnterInteractionRegion()
 	{
 		// TODO: Implement the interaction possibilties
 		throw new System.NotImplementedException();
