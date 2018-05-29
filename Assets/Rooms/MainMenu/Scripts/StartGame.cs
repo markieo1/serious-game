@@ -1,26 +1,23 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Events;
 
 public class StartGame : MonoBehaviour
 {
-	private Scene _gameScene;
-	private Scene _loadScene;
+	private LoadingManager _loadingManager;
+
+	[Scene]
+	public string LoadingScene;
+
+	[Scene]
+	public string NewScene;
 
 	public void Start_Click()
 	{
-		// TODO: Modify Screennames (loading and entry screen)
-		_gameScene = SceneManager.GetSceneByName("GameScene");
-		_loadScene = SceneManager.GetSceneByName("LoadScene");
+		_loadingManager.SetSceneToLoad(NewScene);
 	}
 
-	private void Update()
+	private void Start()
 	{
-		if (_gameScene.isLoaded)
-		{
-			SceneManager.UnloadSceneAsync(_loadScene);
-		}
+		_loadingManager = LoadingManager.Instance;
 	}
 }
