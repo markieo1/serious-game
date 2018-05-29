@@ -14,7 +14,9 @@ public abstract class InteractableBase : MonoBehaviour
 	/// <summary>
 	/// Called when an collider exists the interaction region.
 	/// </summary>
-	public virtual void OnExitInteractionRegion() { }
+	public abstract void OnExitInteractionRegion();
+
+	protected bool IsInInteractionRegion { get; set; }
 
 	/// <summary>
 	/// Gets or sets the collider.
@@ -36,13 +38,16 @@ public abstract class InteractableBase : MonoBehaviour
 			throw new NotSupportedException(string.Format("An collider as trigger is required to support interactable, object: {0}", name));
 		}
 	}
+
 	private void OnTriggerEnter(Collider other)
 	{
+		IsInInteractionRegion = true;
 		OnEnterInteractionRegion();
 	}
 
 	private void OnTriggerExit(Collider other)
 	{
+		IsInInteractionRegion = false;
 		OnExitInteractionRegion();
 	}
 }
