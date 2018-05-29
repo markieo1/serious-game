@@ -9,12 +9,12 @@ public abstract class InteractableBase : MonoBehaviour
 	/// <summary>
 	/// Called when an collider enters the interaction region.
 	/// </summary>
-	public abstract void OnEnterInteractionRegion();
+	public virtual void OnEnterInteractionRegion() { }
 
 	/// <summary>
 	/// Called when an collider exists the interaction region.
 	/// </summary>
-	public abstract void OnExitInteractionRegion();
+	public virtual void OnExitInteractionRegion() { }
 
 	protected bool IsInInteractionRegion { get; set; }
 
