@@ -7,8 +7,54 @@ ModelImporter:
   fileIDToRecycleName:
     100000: Bedroom
     100002: //RootNode
+    100004: Accessories
+    100006: Airconditioner
+    100008: Armature
+    100010: Bed
+    100012: Bookshelf
+    100014: Chair
+    100016: Corkboard
+    100018: CorkboardEdge
+    100020: Desk
+    100022: Door
+    100024: Door 1
+    100026: Doorknob
+    100028: Doorknob_end
+    100030: GameConsole
+    100032: GameController
+    100034: Lamp
+    100036: RoomGeometry
+    100038: RoomRoot
+    100040: Rug
+    100042: Speakers
+    100044: Table
+    100046: TV
+    100048: Wardrobe
     400000: Bedroom
     400002: //RootNode
+    400004: Accessories
+    400006: Airconditioner
+    400008: Armature
+    400010: Bed
+    400012: Bookshelf
+    400014: Chair
+    400016: Corkboard
+    400018: CorkboardEdge
+    400020: Desk
+    400022: Door
+    400024: Door 1
+    400026: Doorknob
+    400028: Doorknob_end
+    400030: GameConsole
+    400032: GameController
+    400034: Lamp
+    400036: RoomGeometry
+    400038: RoomRoot
+    400040: Rug
+    400042: Speakers
+    400044: Table
+    400046: TV
+    400048: Wardrobe
     2100000: New
     2100002: Untitled.001
     2100004: Untitled.002
@@ -38,8 +84,62 @@ ModelImporter:
     2100052: corkboard 1
     2100054: corkboard 2
     2300000: Bedroom
+    2300002: Accessories
+    2300004: Airconditioner
+    2300006: Bed
+    2300008: Bookshelf
+    2300010: Chair
+    2300012: Corkboard
+    2300014: CorkboardEdge
+    2300016: Desk
+    2300018: Door
+    2300020: GameConsole
+    2300022: GameController
+    2300024: Lamp
+    2300026: RoomGeometry
+    2300028: Rug
+    2300030: Speakers
+    2300032: Table
+    2300034: TV
+    2300036: Wardrobe
     3300000: Bedroom
+    3300002: Accessories
+    3300004: Airconditioner
+    3300006: Bed
+    3300008: Bookshelf
+    3300010: Chair
+    3300012: Corkboard
+    3300014: CorkboardEdge
+    3300016: Desk
+    3300018: Door
+    3300020: GameConsole
+    3300022: GameController
+    3300024: Lamp
+    3300026: RoomGeometry
+    3300028: Rug
+    3300030: Speakers
+    3300032: Table
+    3300034: TV
+    3300036: Wardrobe
     4300000: Bedroom
+    4300002: Door
+    4300004: Corkboard
+    4300006: Accessories
+    4300008: Table
+    4300010: GameController
+    4300012: GameConsole
+    4300014: TV
+    4300016: Airconditioner
+    4300018: Lamp
+    4300020: Chair
+    4300022: Speakers
+    4300024: Desk
+    4300026: Wardrobe
+    4300028: Rug
+    4300030: Bookshelf
+    4300032: Bed
+    4300034: RoomGeometry
+    4300036: CorkboardEdge
   externalObjects:
   - first:
       type: UnityEngine:Material
