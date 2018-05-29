@@ -48,12 +48,28 @@ public abstract class InteractableBase : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
+		List<InteractableBase> interactables = other.gameObject.GetAbstractions<InteractableBase>();
+
+		if (interactables.Any())
+		{
+			// We are interacting with an other interable, so ignore
+			return;
+		}
+
 		IsInInteractionRegion = true;
 		OnEnterInteractionRegion();
 	}
 
 	private void OnTriggerExit(Collider other)
 	{
+		List<InteractableBase> interactables = other.gameObject.GetAbstractions<InteractableBase>();
+
+		if (interactables.Any())
+		{
+			// We are interacting with an other interable, so ignore
+			return;
+		}
+
 		IsInInteractionRegion = false;
 		OnExitInteractionRegion();
 	}
