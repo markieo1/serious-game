@@ -5,7 +5,7 @@ using UnityEngine;
 public class FoodInteractable : InteractableBase
 {
 	public GameObject player;
-	public int carbohydrates;
+	public float carbohydrates;
 
 	public override void OnInteract()
 	{
