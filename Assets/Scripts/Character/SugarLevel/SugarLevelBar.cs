@@ -24,12 +24,12 @@ public class SugarLevelBar : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		ChangeSugarLevel(0.2f);
+
 	}
 
 	public void ChangeSugarLevel(float amount)
 	{
-		SugarLevel -= amount;
+		SugarLevel += amount;
 		SugarBar.value = SugarLevel;
 		if (SugarLevel <= 0)
 		{
