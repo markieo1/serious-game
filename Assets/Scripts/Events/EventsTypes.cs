@@ -6,6 +6,7 @@ using System.Text;
 public enum EventsTypes
 {
 	Unknown,
-	SugarLevelChanged,
+	SugarLevelChanged,	  
+	OpenInteractionSelector
 }
 
