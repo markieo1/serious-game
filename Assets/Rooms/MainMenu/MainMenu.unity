@@ -1331,6 +1331,7 @@ GameObject:
   - component: {fileID: 1878365577}
   - component: {fileID: 1878365576}
   - component: {fileID: 1878365579}
+  - component: {fileID: 1878365580}
   m_Layer: 5
   m_Name: BoySelectButton
   m_TagString: Untagged
@@ -1407,6 +1408,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1878365580}
+        m_MethodName: SelectBoy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1878365577
@@ -1455,6 +1467,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LoadingScene: Loading
   NewScene: Bedroom
+--- !u!114 &1878365580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1878365574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b769e9eb2f8d78246ac1fddfd473e599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1903494894
 GameObject:
   m_ObjectHideFlags: 0
@@ -1503,6 +1526,8 @@ GameObject:
   - component: {fileID: 2068788919}
   - component: {fileID: 2068788918}
   - component: {fileID: 2068788917}
+  - component: {fileID: 2068788920}
+  - component: {fileID: 2068788916}
   m_Layer: 5
   m_Name: GirlSelectButton
   m_TagString: Untagged
@@ -1529,6 +1554,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -70}
   m_SizeDelta: {x: 250, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2068788916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2068788914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4deea21fa2c2694cadf16970c68d9b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LoadingScene: Loading
+  NewScene: Bedroom
 --- !u!114 &2068788917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1567,7 +1605,29 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2068788918}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2068788920}
+        m_MethodName: SelectGirl
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2068788916}
+        m_MethodName: LoadNewScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2068788918
@@ -1603,3 +1663,14 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2068788914}
+--- !u!114 &2068788920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2068788914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b769e9eb2f8d78246ac1fddfd473e599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
