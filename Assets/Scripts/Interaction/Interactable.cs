@@ -43,7 +43,12 @@ public class Interactable : MonoBehaviour
 	{
 		if (other.IsPlayer())
 		{
-			// TODO: Notify systems from interaction possiblities.
+			// Notify systems from interaction possiblities.
+			EventBase @event = new EnterInteractionRegionEvent()
+			{
+				Interactions = Interactions
+			};
+			EventManager.TriggerEvent(@event);
 		}
 	}
 
@@ -51,7 +56,9 @@ public class Interactable : MonoBehaviour
 	{
 		if (other.IsPlayer())
 		{
-			// TODO: Notify systems there are no interaction possiblities.
+			// Notify systems there are no interaction possiblities.
+			EventBase @event = new ExitInteractionRegionEvent();
+			EventManager.TriggerEvent(@event);
 		}
 	}
 }
