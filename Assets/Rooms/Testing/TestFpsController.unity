@@ -610,6 +610,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1478906805}
+  - component: {fileID: 1478906806}
   m_Layer: 5
   m_Name: SugarBarUI
   m_TagString: Untagged
@@ -634,9 +635,23 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 83.5, y: 13.7}
+  m_AnchoredPosition: {x: 83.5, y: 13.700012}
   m_SizeDelta: {x: 227, y: 27.5}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1478906806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1478906804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd5dce778dddc9a42ab2e6275634c222, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SugarBar: {fileID: 1550418992}
+  MaxSugarLevel: 100
+  SugarLevel: 50
 --- !u!1 &1550418990
 GameObject:
   m_ObjectHideFlags: 0
@@ -843,24 +858,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1858105281 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 149790, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 2}
-  m_PrefabInternal: {fileID: 1858105280}
---- !u!114 &1858105282
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1858105281}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd5dce778dddc9a42ab2e6275634c222, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SugarBar: {fileID: 1550418992}
-  MaxSugarLevel: 100
-  SugarLevel: 50
 --- !u!1 &2122424066
 GameObject:
   m_ObjectHideFlags: 0
