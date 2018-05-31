@@ -41,5 +41,17 @@ public class Interactable : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
+		if (other.IsPlayer())
+		{
+			// TODO: Notify systems from interaction possiblities.
+		}
+	}
+
+	private void OnTriggerExit(Collider other)
+	{
+		if (other.IsPlayer())
+		{
+			// TODO: Notify systems there are no interaction possiblities.
+		}
 	}
 }
