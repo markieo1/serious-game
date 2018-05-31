@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class SugarLevelBar : MonoBehaviour
@@ -11,6 +13,25 @@ public class SugarLevelBar : MonoBehaviour
 	public float SugarLevel;
 
 	private Image _targetBar;
+
+	//private Action<EventParam> sugarLevelListener;
+
+	void Awake()
+	{
+		//sugarLevelListener = new UnityAction<object>(ChangeSugarLevel);
+	}
+
+	void OnEnable()
+	{
+		//EventManager.StartListening("SugarLevelChanged", ChangeSugarLevel);
+		EventManager.StartListening("SugarLevelChanged", ChangeSugarLevel);
+	}
+
+	void OnDisable()
+	{
+		//EventManager.StopListening("SugarLevelChanged", ChangeSugarLevel);
+		EventManager.StopListening("SugarLevelChanged", ChangeSugarLevel);
+	}
 
 	// Use this for initialization
 	void Start()
@@ -27,17 +48,20 @@ public class SugarLevelBar : MonoBehaviour
 
 	}
 
-	public void ChangeSugarLevel(float amount)
+	public void ChangeSugarLevel(Hashtable eventParams)
 	{
-		SugarLevel += amount;
-		SugarBar.value = SugarLevel;
-		if (SugarLevel <= 0)
+		if (eventParams.ContainsKey("SugarLevel"))
 		{
-			SugarLevel = 0;
+			SugarLevel += float.Parse(eventParams["SugarLevel"].ToString());
 			SugarBar.value = SugarLevel;
-		}
+			if (SugarLevel <= 0)
+			{
+				SugarLevel = 0;
+				SugarBar.value = SugarLevel;
+			}
 
-		MatchHPbarColor();
+			MatchHPbarColor();
+		}
 	}
 
 	void MatchHPbarColor()
