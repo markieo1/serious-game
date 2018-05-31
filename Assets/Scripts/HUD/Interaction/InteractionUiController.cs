@@ -29,7 +29,7 @@ public class InteractionUiController : MonoBehaviour
 		}
 	}
 
-	private List<Interaction> Interactions;
+	private Interaction[] Interactions;
 	private List<GameObject> ObjectPool;
 
 	private const int INITIAL_OBJECTS = 5;
@@ -55,8 +55,8 @@ public class InteractionUiController : MonoBehaviour
 
 	private void Awake()
 	{
-		Interactions = new List<Interaction>();
-		ObjectPool = new List<GameObject>();
+		Interactions = new Interaction[0];
+		ObjectPool = new List<GameObject>(INITIAL_OBJECTS);
 	}
 
 	private void Start()
@@ -91,8 +91,7 @@ public class InteractionUiController : MonoBehaviour
 		EnterInteractionRegionEvent @event = eventBase as EnterInteractionRegionEvent;
 
 		// .Interactions contains the possiblities
-		Interactions.Clear();
-		Interactions.AddRange(@event.Interactions);
+		Interactions = @event.Interactions;
 
 		UpdateItemList();
 	}
@@ -100,7 +99,7 @@ public class InteractionUiController : MonoBehaviour
 	private void OnInteractionRegionExit(EventBase eventBase)
 	{
 		// There are no items to display anymore
-		Interactions.Clear();
+		Interactions = new Interaction[0];
 		UpdateItemList();
 
 		Close();
