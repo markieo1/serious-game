@@ -14,32 +14,22 @@ public class SugarLevelBar : MonoBehaviour
 
 	private Image _targetBar;
 
-	//private Action<EventParam> sugarLevelListener;
-
-	void Awake()
-	{
-		//sugarLevelListener = new UnityAction<object>(ChangeSugarLevel);
-	}
-
-	void OnEnable()
-	{
-		//EventManager.StartListening("SugarLevelChanged", ChangeSugarLevel);
-		EventManager.StartListening(EventsTypes.SugarLevelChanged, ChangeSugarLevel);
-	}
-
 	void OnDisable()
 	{
-		//EventManager.StopListening("SugarLevelChanged", ChangeSugarLevel);
 		EventManager.StopListening(EventsTypes.SugarLevelChanged, ChangeSugarLevel);
 	}
 
 	// Use this for initialization
 	void Start()
 	{
+		EventManager.StartListening(EventsTypes.SugarLevelChanged, ChangeSugarLevel);
+
 		SugarBar.maxValue = MaxSugarLevel;
 		SugarBar.value = SugarLevel;
 		if (SugarBar.fillRect != null) _targetBar =
 			SugarBar.fillRect.GetComponent<Image>();
+
+		MatchHPbarColor();
 	}
 
 	// Update is called once per frame
