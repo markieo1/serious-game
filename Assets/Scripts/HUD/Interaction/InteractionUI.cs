@@ -70,7 +70,7 @@ public class InteractionUI : MonoBehaviour
 
 			// Get the interactionitem controller
 			var itemController = newItem.GetComponent<InteractionItemController>();
-			itemController.SetAction(interaction.Action);
+			itemController.SetInteraction(interaction);
 		}
 	}
 }
