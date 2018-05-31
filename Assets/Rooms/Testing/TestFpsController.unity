@@ -960,8 +960,8 @@ GameObject:
   - component: {fileID: 1039657695}
   - component: {fileID: 1039657694}
   - component: {fileID: 1039657693}
-  - component: {fileID: 1039657692}
   - component: {fileID: 1039657691}
+  - component: {fileID: 1039657692}
   m_Layer: 0
   m_Name: Apple
   m_TagString: Untagged
@@ -985,15 +985,17 @@ BoxCollider:
 --- !u!114 &1039657692
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114507413560573408, guid: 8fa35cdad352cfa4297d3be64705ecf1,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1039657690}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 38c29bafd6429a24a926068558ccdba0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Interactions:
+  - Action: Eat
+    Reactions: {fileID: 0}
 --- !u!65 &1039657693
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1742,6 +1744,10 @@ Prefab:
     - target: {fileID: 408730, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 2}
       propertyPath: m_LocalScale.z
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 149790, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 2}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 2}
