@@ -24,13 +24,13 @@ public class SugarLevelBar : MonoBehaviour
 	void OnEnable()
 	{
 		//EventManager.StartListening("SugarLevelChanged", ChangeSugarLevel);
-		EventManager.StartListening("SugarLevelChanged", ChangeSugarLevel);
+		EventManager.StartListening(EventsTypes.SugarLevelChanged, ChangeSugarLevel);
 	}
 
 	void OnDisable()
 	{
 		//EventManager.StopListening("SugarLevelChanged", ChangeSugarLevel);
-		EventManager.StopListening("SugarLevelChanged", ChangeSugarLevel);
+		EventManager.StopListening(EventsTypes.SugarLevelChanged, ChangeSugarLevel);
 	}
 
 	// Use this for initialization
@@ -48,11 +48,12 @@ public class SugarLevelBar : MonoBehaviour
 
 	}
 
-	public void ChangeSugarLevel(Hashtable eventParams)
+	public void ChangeSugarLevel(EventBase @event)
 	{
-		if (eventParams.ContainsKey("SugarLevel"))
+		if (@event.GetEventType() == EventsTypes.SugarLevelChanged)
 		{
-			SugarLevel += float.Parse(eventParams["SugarLevel"].ToString());
+			SugarChangedEvent sugarChangedEvent = @event as SugarChangedEvent;
+			SugarLevel += sugarChangedEvent.Value;
 			SugarBar.value = SugarLevel;
 			if (SugarLevel <= 0)
 			{

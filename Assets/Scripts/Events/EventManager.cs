@@ -1,14 +1,13 @@
-﻿using System.Collections.Generic;
-using UnityEngine.Events;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
-using System.Collections;
-using Assets.Scripts.Events;
 
-public class EventManager : MonoBehaviour {
+public class EventManager : MonoBehaviour
+{
 
 	private static EventManager eventManager;
 
-	private Dictionary<string, EventBase> eventDictionary;
+	private Dictionary<EventsTypes, List<Action<EventBase>>> eventDictionary;
 
 	public static EventManager instance
 	{
@@ -36,56 +35,52 @@ public class EventManager : MonoBehaviour {
 	{
 		if (eventDictionary == null)
 		{
-			eventDictionary = new Dictionary<string, EventBase>();
+			eventDictionary = new Dictionary<EventsTypes, List<Action<EventBase>>>();
 		}
 	}
 
-	public static void StartListening(string eventName, UnityAction<Hashtable> listener)
+	public static void StartListening(EventsTypes type, Action<EventBase> listener)
 	{
-		EventBase thisEvent = null;
-		if (instance.eventDictionary.TryGetValue(eventName, out thisEvent))
+		List<Action<EventBase>> listeners;
+		if (instance.eventDictionary.TryGetValue(type, out listeners))
 		{
-			thisEvent.AddListener(listener);
+			listeners.Add(listener);
 		}
 		else
 		{
-			thisEvent = new EventBase();
-			thisEvent.AddListener(listener);
-			instance.eventDictionary.Add(eventName, thisEvent);
+			listeners = new List<Action<EventBase>>();
+			listeners.Add(listener);
+			instance.eventDictionary.Add(type, listeners);
 		}
 	}
 
-	public static void StopListening(string eventName, UnityAction<Hashtable> listener)
+	public static void StopListening(EventsTypes type, Action<EventBase> listener)
 	{
-		if (eventManager == null) return;
-		EventBase thisEvent = null;
-		if (instance.eventDictionary.TryGetValue(eventName, out thisEvent))
+		List<Action<EventBase>> listeners;
+		if (instance.eventDictionary.TryGetValue(type, out listeners))
 		{
-			thisEvent.RemoveListener(listener);
+			listeners.Remove(listener);
 		}
 	}
 
-	public static void TriggerEvent(string eventName, Hashtable eventParams = default(Hashtable))
+	public static void TriggerEvent(EventBase @event)
 	{
-		EventBase thisEvent = null;
-		if (instance.eventDictionary.TryGetValue(eventName, out thisEvent))
+		List<Action<EventBase>> listeners;
+		if (instance.eventDictionary.TryGetValue(@event.GetEventType(), out listeners))
 		{
-			thisEvent.Invoke(eventParams);
+			listeners.ForEach(x => x.Invoke(@event));
 		}
-	}
-
-	public static void TriggerEvent(string eventName)
-	{
-		TriggerEvent(eventName, null);
 	}
 
 	// Use this for initialization
-	void Start () {
-		
+	void Start()
+	{
+
 	}
-	
+
 	// Update is called once per frame
-	void Update () {
-		
+	void Update()
+	{
+
 	}
 }
