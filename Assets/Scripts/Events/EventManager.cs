@@ -4,35 +4,20 @@ using UnityEngine;
 
 public class EventManager : MonoBehaviour
 {
-
-	private static EventManager eventManager;
+	public static EventManager Instance { get; private set; }
 
 	private Dictionary<EventsTypes, List<Action<EventBase>>> eventDictionary;
 
-	public static EventManager instance
+	private void Awake()
 	{
-		get
+		if (Instance != null && Instance != this)
 		{
-			if (!eventManager)
-			{
-				eventManager = FindObjectOfType(typeof(EventManager)) as EventManager;
-
-				if (!eventManager)
-				{
-					Debug.LogError("There needs to be one active EventManger script on a GameObject in your scene.");
-				}
-				else
-				{
-					eventManager.Init();
-				}
-			}
-
-			return eventManager;
+			Destroy(gameObject);
+			return;
 		}
-	}
 
-	void Init()
-	{
+		Instance = this;
+
 		if (eventDictionary == null)
 		{
 			eventDictionary = new Dictionary<EventsTypes, List<Action<EventBase>>>();
@@ -42,7 +27,7 @@ public class EventManager : MonoBehaviour
 	public static void StartListening(EventsTypes type, Action<EventBase> listener)
 	{
 		List<Action<EventBase>> listeners;
-		if (instance.eventDictionary.TryGetValue(type, out listeners))
+		if (Instance.eventDictionary.TryGetValue(type, out listeners))
 		{
 			listeners.Add(listener);
 		}
@@ -50,14 +35,14 @@ public class EventManager : MonoBehaviour
 		{
 			listeners = new List<Action<EventBase>>();
 			listeners.Add(listener);
-			instance.eventDictionary.Add(type, listeners);
+			Instance.eventDictionary.Add(type, listeners);
 		}
 	}
 
 	public static void StopListening(EventsTypes type, Action<EventBase> listener)
 	{
 		List<Action<EventBase>> listeners;
-		if (instance.eventDictionary.TryGetValue(type, out listeners))
+		if (Instance.eventDictionary.TryGetValue(type, out listeners))
 		{
 			listeners.Remove(listener);
 		}
@@ -66,21 +51,9 @@ public class EventManager : MonoBehaviour
 	public static void TriggerEvent(EventBase @event)
 	{
 		List<Action<EventBase>> listeners;
-		if (instance.eventDictionary.TryGetValue(@event.GetEventType(), out listeners))
+		if (Instance.eventDictionary.TryGetValue(@event.GetEventType(), out listeners))
 		{
 			listeners.ForEach(x => x.Invoke(@event));
 		}
-	}
-
-	// Use this for initialization
-	void Start()
-	{
-
-	}
-
-	// Update is called once per frame
-	void Update()
-	{
-
 	}
 }
