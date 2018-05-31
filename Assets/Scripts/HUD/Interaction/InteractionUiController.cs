@@ -21,10 +21,37 @@ public class InteractionUiController : MonoBehaviour
 	/// </summary>
 	public RectTransform ContentPanel;
 
+	private bool CanOpen
+	{
+		get
+		{
+			return Interactions.Any();
+		}
+	}
+
 	private List<Interaction> Interactions;
 	private List<GameObject> ObjectPool;
 
 	private const int INITIAL_OBJECTS = 5;
+
+	/// <summary>
+	/// Opens this instance.
+	/// </summary>
+	public void Open()
+	{
+		if (CanOpen)
+		{
+			InteractionUI.SetActive(true);
+		}
+	}
+
+	/// <summary>
+	/// Closes this instance.
+	/// </summary>
+	public void Close()
+	{
+		InteractionUI.SetActive(false);
+	}
 
 	private void Awake()
 	{
@@ -75,8 +102,13 @@ public class InteractionUiController : MonoBehaviour
 		// There are no items to display anymore
 		Interactions.Clear();
 		UpdateItemList();
+
+		Close();
 	}
 
+	/// <summary>
+	/// Initializes the object pool.
+	/// </summary>
 	private void InitObjectPool()
 	{
 		for (int i = 0; i < INITIAL_OBJECTS; i++)
@@ -86,6 +118,9 @@ public class InteractionUiController : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// Updates the item list.
+	/// </summary>
 	private void UpdateItemList()
 	{
 		// First de-activate the complete pool
@@ -104,10 +139,23 @@ public class InteractionUiController : MonoBehaviour
 	private void OnOpenInteractionSelector(EventBase eventBase)
 	{
 		// Check if active, if so we should hide
-		bool isActive = InteractionUI.activeInHierarchy;
-		InteractionUI.SetActive(!isActive);
+		bool isOpen = InteractionUI.activeInHierarchy;
+
+
+		if (isOpen)
+		{
+			Close();
+		}
+		else
+		{
+			Open();
+		}
 	}
 
+	/// <summary>
+	/// Gets the next in pool.
+	/// </summary>
+	/// <returns></returns>
 	private GameObject GetNextInPool()
 	{
 		GameObject obj = ObjectPool.FirstOrDefault(x => !x.activeInHierarchy);
@@ -123,6 +171,10 @@ public class InteractionUiController : MonoBehaviour
 		return obj;
 	}
 
+	/// <summary>
+	/// Creates the empty interaction item.
+	/// </summary>
+	/// <returns></returns>
 	private GameObject CreateEmptyInteractionItem()
 	{
 		GameObject newItem = Instantiate(InteractionItem);
