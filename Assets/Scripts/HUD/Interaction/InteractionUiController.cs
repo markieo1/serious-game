@@ -7,11 +7,6 @@ using UnityEngine;
 public class InteractionUiController : MonoBehaviour
 {
 	/// <summary>
-	/// The interaction UI
-	/// </summary>
-	public GameObject InteractionUI;
-
-	/// <summary>
 	/// The interaction item
 	/// </summary>
 	public GameObject InteractionItem;
@@ -21,6 +16,17 @@ public class InteractionUiController : MonoBehaviour
 	/// </summary>
 	public RectTransform ContentPanel;
 
+	/// <summary>
+	/// The display initially
+	/// </summary>
+	public bool DisplayInitially = false;
+
+	/// <summary>
+	/// Gets a value indicating whether this instance can open.
+	/// </summary>
+	/// <value>
+	///   <c>true</c> if this instance can open; otherwise, <c>false</c>.
+	/// </value>
 	private bool CanOpen
 	{
 		get
@@ -41,7 +47,7 @@ public class InteractionUiController : MonoBehaviour
 	{
 		if (CanOpen)
 		{
-			InteractionUI.SetActive(true);
+			gameObject.SetActive(true);
 		}
 	}
 
@@ -50,7 +56,7 @@ public class InteractionUiController : MonoBehaviour
 	/// </summary>
 	public void Close()
 	{
-		InteractionUI.SetActive(false);
+		gameObject.SetActive(false);
 	}
 
 	private void Awake()
@@ -61,15 +67,12 @@ public class InteractionUiController : MonoBehaviour
 
 	private void Start()
 	{
-		if (!InteractionUI)
-		{
-			throw new NotSupportedException("InteractionUI is needed to display interaction items");
-		}
-
 		if (!ContentPanel)
 		{
 			throw new NotSupportedException("ContentPanel is needed to display interaction items");
 		}
+
+		gameObject.SetActive(DisplayInitially);
 
 		EventManager.StartListening(EventsTypes.EnterInteractionRegion, OnInteractionRegionEntered);
 		EventManager.StartListening(EventsTypes.ExitInteractionRegion, OnInteractionRegionExit);
@@ -138,7 +141,7 @@ public class InteractionUiController : MonoBehaviour
 	private void OnOpenInteractionSelector(EventBase eventBase)
 	{
 		// Check if active, if so we should hide
-		bool isOpen = InteractionUI.activeInHierarchy;
+		bool isOpen = gameObject.activeInHierarchy;
 
 
 		if (isOpen)
