@@ -6,9 +6,12 @@ using UnityEngine.Experimental.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
+	/// <summary>
+	/// Updates this instance.
+	/// </summary>
 	private void Update()
 	{
-		bool value = Input.GetButton("Interact");
+		bool value = Input.GetButtonDown("Interact");
 
 		if (value)
 		{
