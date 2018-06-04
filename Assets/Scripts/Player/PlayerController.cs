@@ -50,11 +50,7 @@ public class PlayerController : MonoBehaviour
 	/// <param name="sugar">The sugar.</param>
 	public void Eat(float sugar)
 	{
-		CharacterData.BloodSugarLevel += sugar;
-		EventManager.TriggerEvent(new SugarChangedEvent()
-		{
-			Value = CharacterData.BloodSugarLevel
-		});
+		CharacterData.IncrementBloodSugar(sugar);
 	}
 
 	/// <summary>
