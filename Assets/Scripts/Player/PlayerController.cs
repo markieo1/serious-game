@@ -43,4 +43,31 @@ public class PlayerController : MonoBehaviour
 		EventManager.StopListening(EventsTypes.EnterInteractionRegion, EnteringInteractionRegionEvent);
 		EventManager.StopListening(EventsTypes.ExitInteractionRegion, ExitInteractionRegionEvent);
 	}
+
+	/// <summary>
+	/// Eats, which adjusts the sugar level.
+	/// </summary>
+	/// <param name="sugar">The sugar.</param>
+	public void Eat(float sugar)
+	{
+		throw new NotImplementedException("Eating is not implemented yet.");
+	}
+
+	/// <summary>
+	/// Gets the player.
+	/// </summary>
+	/// <returns></returns>
+	public static PlayerController GetPlayer()
+	{
+		GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+
+		// Ensure the player obj has an player controller. 
+		PlayerController controller = playerObj.GetComponent<PlayerController>();
+		if (!controller)
+		{
+			throw new MissingComponentException("Player controller not found, on gameobject with tag \"Player\"");
+		}
+
+		return controller;
+	}
 }
