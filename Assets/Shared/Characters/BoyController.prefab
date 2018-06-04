@@ -460,6 +460,7 @@ GameObject:
   - component: {fileID: 136880160850730074}
   - component: {fileID: 114668861911309246}
   - component: {fileID: 114291276713867280}
+  - component: {fileID: 114341347621341710}
   m_Layer: 0
   m_Name: BoyController
   m_TagString: Untagged
@@ -1923,6 +1924,20 @@ MonoBehaviour:
   m_MoveSpeedMultiplier: 1
   m_AnimSpeedMultiplier: 1
   m_GroundCheckDistance: 0.2
+--- !u!114 &114341347621341710
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1397964138731538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02434c4716732014ab81e6102be47328, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DecayPerSecond: 0.1
+  WalkingDecayMultiplier: 1
+  RunningDecayMultiplier: 2
 --- !u!114 &114668861911309246
 MonoBehaviour:
   m_ObjectHideFlags: 1
