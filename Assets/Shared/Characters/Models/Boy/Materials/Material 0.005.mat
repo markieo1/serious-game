@@ -67,7 +67,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Ramp:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: dda255c6e7ca25c4da940fccb27f832d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TileOverlay:
@@ -109,7 +109,7 @@ Material:
     - _outline_tint: 0.5
     - _outline_width: 0.2
     m_Colors:
-    - _Color: {r: 0.9980392, g: 0.9980392, b: 0.9980392, a: 0.001960814}
+    - _Color: {r: 1, g: 1, b: 1, a: 0.003921569}
     - _CubemapRotationSpeed: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
     - _StaticToonLight: {r: 0, g: 3, b: 0, a: 0}
