@@ -12,8 +12,8 @@ public class PlayerController : MonoBehaviour
 
 	private void Start()
 	{
-		EventManager.StartListening(EventsTypes.EnterInteractionRegion, EnteringInteractionRegionEvent);
-		EventManager.StartListening(EventsTypes.ExitInteractionRegion, ExitInteractionRegionEvent);
+		EventManager.StartListening<EnterInteractionRegionEvent>(EnteringInteractionRegionEvent);
+		EventManager.StartListening<ExitInteractionRegionEvent>(ExitInteractionRegionEvent);
 	}
 
 	/// <summary>
@@ -38,9 +38,40 @@ public class PlayerController : MonoBehaviour
 		hasInteractions = false;
 	}
 
-	private void OnDestroy()
+	private void OnDisable()
 	{
-		EventManager.StopListening(EventsTypes.EnterInteractionRegion, EnteringInteractionRegionEvent);
-		EventManager.StopListening(EventsTypes.ExitInteractionRegion, ExitInteractionRegionEvent);
+		EventManager.StopListening<EnterInteractionRegionEvent>(EnteringInteractionRegionEvent);
+		EventManager.StopListening<ExitInteractionRegionEvent>(ExitInteractionRegionEvent);
+	}
+
+	/// <summary>
+	/// Eats, which adjusts the sugar level.
+	/// </summary>
+	/// <param name="sugar">The sugar.</param>
+	public void Eat(float sugar)
+	{
+		CharacterData.BloodSugarLevel += sugar;
+		EventManager.TriggerEvent(new SugarChangedEvent()
+		{
+			Value = CharacterData.BloodSugarLevel
+		});
+	}
+
+	/// <summary>
+	/// Gets the player.
+	/// </summary>
+	/// <returns></returns>
+	public static PlayerController GetPlayer()
+	{
+		GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+
+		// Ensure the player obj has an player controller. 
+		PlayerController controller = playerObj.GetComponent<PlayerController>();
+		if (!controller)
+		{
+			throw new MissingComponentException("Player controller not found, on gameobject with tag \"Player\"");
+		}
+
+		return controller;
 	}
 }

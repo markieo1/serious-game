@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 4722920543556934}
   - component: {fileID: 114218744003231878}
   m_Layer: 0
-  m_Name: Reactions
+  m_Name: EatReactions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -252,7 +252,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b86a8d42731b3a24582d30b6068c8b05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reactions: []
+  reactions:
+  - {fileID: 11400000, guid: 7b491e86b15a8e24f8c6ff7d5d8cdb57, type: 2}
 --- !u!114 &114713759518356210
 MonoBehaviour:
   m_ObjectHideFlags: 1

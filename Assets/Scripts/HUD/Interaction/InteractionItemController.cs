@@ -10,6 +10,7 @@ public class InteractionItemController : MonoBehaviour, IPointerClickHandler
 	public Text ActionText;
 
 	private Interaction Interaction;
+	private InteractionUiController UiController;
 
 	void Start()
 	{
@@ -19,10 +20,23 @@ public class InteractionItemController : MonoBehaviour, IPointerClickHandler
 		}
 	}
 
+	/// <summary>
+	/// Sets the interaction.
+	/// </summary>
+	/// <param name="interaction">The interaction.</param>
 	public void SetInteraction(Interaction interaction)
 	{
 		Interaction = interaction;
 		ActionText.text = interaction.Action;
+	}
+
+	/// <summary>
+	/// Sets the UI controller.
+	/// </summary>
+	/// <param name="uiController">The UI controller.</param>
+	public void SetUiController(InteractionUiController uiController)
+	{
+		UiController = uiController;
 	}
 
 	public void OnPointerClick(PointerEventData eventData)
@@ -31,6 +45,9 @@ public class InteractionItemController : MonoBehaviour, IPointerClickHandler
 		{
 			// We are being touched, lets interact
 			Interaction.Interact();
+
+			// Now we must close the ui, since it makes no sense to keep it open
+			UiController.Close();
 		}
 	}
 }

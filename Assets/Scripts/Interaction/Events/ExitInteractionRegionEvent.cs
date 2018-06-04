@@ -4,8 +4,4 @@ using UnityEngine;
 
 public class ExitInteractionRegionEvent : EventBase
 {
-	public override EventsTypes GetEventType()
-	{
-		return EventsTypes.ExitInteractionRegion;
-	}
 }

@@ -6,7 +6,7 @@ public class EventManager : MonoBehaviour
 {
 	public static EventManager Instance { get; private set; }
 
-	private Dictionary<EventsTypes, List<Action<EventBase>>> eventDictionary;
+	private Dictionary<Type, List<Action<EventBase>>> eventDictionary;
 
 	private void Awake()
 	{
@@ -20,38 +20,63 @@ public class EventManager : MonoBehaviour
 
 		if (eventDictionary == null)
 		{
-			eventDictionary = new Dictionary<EventsTypes, List<Action<EventBase>>>();
+			eventDictionary = new Dictionary<Type, List<Action<EventBase>>>();
 		}
 	}
 
-	public static void StartListening(EventsTypes type, Action<EventBase> listener)
+	private void OnDestroy()
+	{
+		// Clear the event dictionary
+		eventDictionary.Clear();
+	}
+
+	/// <summary>
+	/// Starts the listening.
+	/// </summary>
+	/// <typeparam name="T"></typeparam>
+	/// <param name="listener">The listener.</param>
+	public static void StartListening<T>(Action<T> listener) where T : EventBase
 	{
 		List<Action<EventBase>> listeners;
-		if (Instance.eventDictionary.TryGetValue(type, out listeners))
+		Action<EventBase> internalListener = (e) => listener((T)e);
+
+		if (Instance.eventDictionary.TryGetValue(typeof(T), out listeners))
 		{
-			listeners.Add(listener);
+			listeners.Add(internalListener);
 		}
 		else
 		{
 			listeners = new List<Action<EventBase>>();
-			listeners.Add(listener);
-			Instance.eventDictionary.Add(type, listeners);
+			listeners.Add(internalListener);
+			Instance.eventDictionary.Add(typeof(T), listeners);
 		}
 	}
 
-	public static void StopListening(EventsTypes type, Action<EventBase> listener)
+	/// <summary>
+	/// Stops the listening.
+	/// </summary>
+	/// <typeparam name="T"></typeparam>
+	/// <param name="listener">The listener.</param>
+	public static void StopListening<T>(Action<T> listener) where T : EventBase
 	{
 		List<Action<EventBase>> listeners;
-		if (Instance.eventDictionary.TryGetValue(type, out listeners))
+		Action<EventBase> internalListener = (e) => listener((T)e);
+
+		if (Instance.eventDictionary.TryGetValue(typeof(T), out listeners))
 		{
-			listeners.Remove(listener);
+			listeners.Remove(internalListener);
 		}
 	}
 
-	public static void TriggerEvent(EventBase @event)
+	/// <summary>
+	/// Triggers the event.
+	/// </summary>
+	/// <typeparam name="T"></typeparam>
+	/// <param name="event">The event.</param>
+	public static void TriggerEvent<T>(T @event) where T : EventBase
 	{
 		List<Action<EventBase>> listeners;
-		if (Instance.eventDictionary.TryGetValue(@event.GetEventType(), out listeners))
+		if (Instance.eventDictionary.TryGetValue(typeof(T), out listeners))
 		{
 			listeners.ForEach(x => x.Invoke(@event));
 		}
