@@ -8,9 +8,4 @@ public class EnterInteractionRegionEvent : EventBase
 	/// Gets or sets the possible interactions.
 	/// </summary>
 	public Interaction[] Interactions { get; set; }
-
-	public override EventsTypes GetEventType()
-	{
-		return EventsTypes.EnterInteractionRegion;
-	}
 }
