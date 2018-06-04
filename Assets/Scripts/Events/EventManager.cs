@@ -24,6 +24,17 @@ public class EventManager : MonoBehaviour
 		}
 	}
 
+	private void OnDestroy()
+	{
+		// Clear the event dictionary
+		eventDictionary.Clear();
+	}
+
+	/// <summary>
+	/// Starts the listening.
+	/// </summary>
+	/// <typeparam name="T"></typeparam>
+	/// <param name="listener">The listener.</param>
 	public static void StartListening<T>(Action<T> listener) where T : EventBase
 	{
 		List<Action<EventBase>> listeners;
@@ -41,6 +52,11 @@ public class EventManager : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// Stops the listening.
+	/// </summary>
+	/// <typeparam name="T"></typeparam>
+	/// <param name="listener">The listener.</param>
 	public static void StopListening<T>(Action<T> listener) where T : EventBase
 	{
 		List<Action<EventBase>> listeners;
@@ -52,6 +68,11 @@ public class EventManager : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// Triggers the event.
+	/// </summary>
+	/// <typeparam name="T"></typeparam>
+	/// <param name="event">The event.</param>
 	public static void TriggerEvent<T>(T @event) where T : EventBase
 	{
 		List<Action<EventBase>> listeners;
