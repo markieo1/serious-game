@@ -34,12 +34,6 @@ public class SugarLevelBar : MonoBehaviour
 		MatchHPbarColor();
 	}
 
-	// Update is called once per frame
-	void Update()
-	{
-
-	}
-
 	public void ChangeSugarLevel(SugarChangedEvent @event)
 	{
 		SugarLevel = @event.Value;
