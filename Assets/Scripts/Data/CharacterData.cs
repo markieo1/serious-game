@@ -13,6 +13,18 @@ public static class CharacterData
 	/// Gets or sets the blood sugar level.
 	/// </summary>
 	public static float BloodSugarLevel { get; set; }
+
+	public static void IncrementBloodSugar(float sugar)
+	{
+		CharacterData.BloodSugarLevel += sugar;
+		EventManager.TriggerEvent(new SugarChangedEvent(sugar));
+	}
+
+	public static void DecrementBloodSugar(float sugar)
+	{
+		CharacterData.BloodSugarLevel -= sugar;
+		EventManager.TriggerEvent(new SugarChangedEvent(sugar));
+	}
 }
 
 public enum CharacterSelection
