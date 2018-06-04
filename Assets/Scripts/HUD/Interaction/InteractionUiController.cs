@@ -138,6 +138,7 @@ public class InteractionUiController : MonoBehaviour
 			// Get the interactionitem controller
 			var itemController = newItem.GetComponent<InteractionItemController>();
 			itemController.SetInteraction(interaction);
+			itemController.SetUiController(this);
 		}
 	}
 
