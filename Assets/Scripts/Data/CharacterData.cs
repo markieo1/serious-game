@@ -12,7 +12,7 @@ public static class CharacterData
 	/// <summary>
 	/// Gets or sets the blood sugar level.
 	/// </summary>
-	public static float BloodSugarLevel { get; set; }
+	public static float BloodSugarLevel { get; private set; }
 
 	public static void IncrementBloodSugar(float sugar)
 	{
