@@ -79,32 +79,30 @@ public class InteractionUiController : MonoBehaviour
 			throw new NotSupportedException("An CanvasGroup is required to show/hide the interaction ui.");
 		}
 
-		EventManager.StartListening(EventsTypes.EnterInteractionRegion, OnInteractionRegionEntered);
-		EventManager.StartListening(EventsTypes.ExitInteractionRegion, OnInteractionRegionExit);
-		EventManager.StartListening(EventsTypes.OpenInteractionSelector, OnOpenInteractionSelector);
+		EventManager.StartListening<EnterInteractionRegionEvent>(OnInteractionRegionEntered);
+		EventManager.StartListening<ExitInteractionRegionEvent>(OnInteractionRegionExit);
+		EventManager.StartListening<OpenInteractionSelectorEvent>(OnOpenInteractionSelector);
 
 		InitObjectPool();
 	}
 
 	private void OnDestroy()
 	{
-		EventManager.StopListening(EventsTypes.EnterInteractionRegion, OnInteractionRegionEntered);
-		EventManager.StopListening(EventsTypes.ExitInteractionRegion, OnInteractionRegionExit);
-		EventManager.StopListening(EventsTypes.OpenInteractionSelector, OnOpenInteractionSelector);
+		EventManager.StopListening<EnterInteractionRegionEvent>(OnInteractionRegionEntered);
+		EventManager.StopListening<ExitInteractionRegionEvent>(OnInteractionRegionExit);
+		EventManager.StopListening<OpenInteractionSelectorEvent>(OnOpenInteractionSelector);
 	}
 
-	private void OnInteractionRegionEntered(EventBase eventBase)
+	private void OnInteractionRegionEntered(EnterInteractionRegionEvent @event)
 	{
 		// There is a possiblity to update the items
-		EnterInteractionRegionEvent @event = eventBase as EnterInteractionRegionEvent;
-
 		// .Interactions contains the possiblities
 		Interactions = @event.Interactions;
 
 		UpdateItemList();
 	}
 
-	private void OnInteractionRegionExit(EventBase eventBase)
+	private void OnInteractionRegionExit(EventBase @event)
 	{
 		// There are no items to display anymore
 		Interactions = new Interaction[0];
@@ -147,7 +145,7 @@ public class InteractionUiController : MonoBehaviour
 	{
 		// Check if active, if so we should hide
 		bool isOpen = CanvasGroup.alpha > 0;
-		
+
 		if (isOpen)
 		{
 			Close();

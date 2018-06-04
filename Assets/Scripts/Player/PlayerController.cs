@@ -12,8 +12,8 @@ public class PlayerController : MonoBehaviour
 
 	private void Start()
 	{
-		EventManager.StartListening(EventsTypes.EnterInteractionRegion, EnteringInteractionRegionEvent);
-		EventManager.StartListening(EventsTypes.ExitInteractionRegion, ExitInteractionRegionEvent);
+		EventManager.StartListening<EnterInteractionRegionEvent>(EnteringInteractionRegionEvent);
+		EventManager.StartListening<ExitInteractionRegionEvent>(ExitInteractionRegionEvent);
 	}
 
 	/// <summary>
@@ -38,10 +38,10 @@ public class PlayerController : MonoBehaviour
 		hasInteractions = false;
 	}
 
-	private void OnDestroy()
+	private void OnDisable()
 	{
-		EventManager.StopListening(EventsTypes.EnterInteractionRegion, EnteringInteractionRegionEvent);
-		EventManager.StopListening(EventsTypes.ExitInteractionRegion, ExitInteractionRegionEvent);
+		EventManager.StopListening<EnterInteractionRegionEvent>(EnteringInteractionRegionEvent);
+		EventManager.StopListening<ExitInteractionRegionEvent>(ExitInteractionRegionEvent);
 	}
 
 	/// <summary>
@@ -51,6 +51,10 @@ public class PlayerController : MonoBehaviour
 	public void Eat(float sugar)
 	{
 		CharacterData.BloodSugarLevel += sugar;
+		EventManager.TriggerEvent(new SugarChangedEvent()
+		{
+			Value = CharacterData.BloodSugarLevel
+		});
 	}
 
 	/// <summary>
