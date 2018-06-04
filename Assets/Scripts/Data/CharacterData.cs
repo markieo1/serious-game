@@ -7,6 +7,9 @@ using UnityEngine;
 /// </summary>
 public static class CharacterData
 {
+	/// <summary>
+	/// Gets or sets the character selection.
+	/// </summary>
 	public static CharacterSelection CharacterSelection { get; set; }
 
 	/// <summary>
@@ -14,16 +17,30 @@ public static class CharacterData
 	/// </summary>
 	public static float BloodSugarLevel { get; private set; }
 
+	static CharacterData()
+	{
+		BloodSugarLevel = 100;
+		EventManager.TriggerEvent(new SugarChangedEvent(BloodSugarLevel));
+	}
+
+	/// <summary>
+	/// Increments the blood sugar.
+	/// </summary>
+	/// <param name="sugar">The sugar.</param>
 	public static void IncrementBloodSugar(float sugar)
 	{
 		CharacterData.BloodSugarLevel += sugar;
-		EventManager.TriggerEvent(new SugarChangedEvent(sugar));
+		EventManager.TriggerEvent(new SugarChangedEvent(CharacterData.BloodSugarLevel));
 	}
 
+	/// <summary>
+	/// Decrements the blood sugar.
+	/// </summary>
+	/// <param name="sugar">The sugar.</param>
 	public static void DecrementBloodSugar(float sugar)
 	{
 		CharacterData.BloodSugarLevel -= sugar;
-		EventManager.TriggerEvent(new SugarChangedEvent(sugar));
+		EventManager.TriggerEvent(new SugarChangedEvent(CharacterData.BloodSugarLevel));
 	}
 }
 
