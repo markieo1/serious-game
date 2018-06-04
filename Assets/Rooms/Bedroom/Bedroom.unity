@@ -871,6 +871,11 @@ Prefab:
       propertyPath: DecayPerSecond
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 95024212352175326, guid: 8314d35d44bc1fa46a16e9fcfd065537,
+        type: 2}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: a793b3bff1d4123429a01f0b153d94e8, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8314d35d44bc1fa46a16e9fcfd065537, type: 2}
   m_IsPrefabParent: 0
