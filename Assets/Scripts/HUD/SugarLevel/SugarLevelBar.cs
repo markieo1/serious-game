@@ -40,7 +40,7 @@ public class SugarLevelBar : MonoBehaviour
 
 	public void ChangeSugarLevel(SugarChangedEvent @event)
 	{
-		SugarLevel += @event.Value;
+		SugarLevel = @event.Value;
 		SugarBar.value = SugarLevel;
 		if (SugarLevel <= 0)
 		{
