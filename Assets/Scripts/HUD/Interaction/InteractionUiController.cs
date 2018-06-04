@@ -17,9 +17,9 @@ public class InteractionUiController : MonoBehaviour
 	public RectTransform ContentPanel;
 
 	/// <summary>
-	/// The display initially
+	/// The canvas group
 	/// </summary>
-	public bool DisplayInitially = false;
+	public CanvasGroup CanvasGroup;
 
 	/// <summary>
 	/// Gets a value indicating whether this instance can open.
@@ -47,7 +47,8 @@ public class InteractionUiController : MonoBehaviour
 	{
 		if (CanOpen)
 		{
-			gameObject.SetActive(true);
+			CanvasGroup.alpha = 1;
+			CanvasGroup.interactable = true;
 		}
 	}
 
@@ -56,7 +57,8 @@ public class InteractionUiController : MonoBehaviour
 	/// </summary>
 	public void Close()
 	{
-		gameObject.SetActive(false);
+		CanvasGroup.alpha = 0;
+		CanvasGroup.interactable = false;
 	}
 
 	private void Awake()
@@ -72,34 +74,35 @@ public class InteractionUiController : MonoBehaviour
 			throw new NotSupportedException("ContentPanel is needed to display interaction items");
 		}
 
-		gameObject.SetActive(DisplayInitially);
+		if (!CanvasGroup)
+		{
+			throw new NotSupportedException("An CanvasGroup is required to show/hide the interaction ui.");
+		}
 
-		EventManager.StartListening(EventsTypes.EnterInteractionRegion, OnInteractionRegionEntered);
-		EventManager.StartListening(EventsTypes.ExitInteractionRegion, OnInteractionRegionExit);
-		EventManager.StartListening(EventsTypes.OpenInteractionSelector, OnOpenInteractionSelector);
+		EventManager.StartListening<EnterInteractionRegionEvent>(OnInteractionRegionEntered);
+		EventManager.StartListening<ExitInteractionRegionEvent>(OnInteractionRegionExit);
+		EventManager.StartListening<OpenInteractionSelectorEvent>(OnOpenInteractionSelector);
 
 		InitObjectPool();
 	}
 
 	private void OnDestroy()
 	{
-		EventManager.StopListening(EventsTypes.EnterInteractionRegion, OnInteractionRegionEntered);
-		EventManager.StopListening(EventsTypes.ExitInteractionRegion, OnInteractionRegionExit);
-		EventManager.StopListening(EventsTypes.OpenInteractionSelector, OnOpenInteractionSelector);
+		EventManager.StopListening<EnterInteractionRegionEvent>(OnInteractionRegionEntered);
+		EventManager.StopListening<ExitInteractionRegionEvent>(OnInteractionRegionExit);
+		EventManager.StopListening<OpenInteractionSelectorEvent>(OnOpenInteractionSelector);
 	}
 
-	private void OnInteractionRegionEntered(EventBase eventBase)
+	private void OnInteractionRegionEntered(EnterInteractionRegionEvent @event)
 	{
 		// There is a possiblity to update the items
-		EnterInteractionRegionEvent @event = eventBase as EnterInteractionRegionEvent;
-
 		// .Interactions contains the possiblities
 		Interactions = @event.Interactions;
 
 		UpdateItemList();
 	}
 
-	private void OnInteractionRegionExit(EventBase eventBase)
+	private void OnInteractionRegionExit(EventBase @event)
 	{
 		// There are no items to display anymore
 		Interactions = new Interaction[0];
@@ -135,14 +138,14 @@ public class InteractionUiController : MonoBehaviour
 			// Get the interactionitem controller
 			var itemController = newItem.GetComponent<InteractionItemController>();
 			itemController.SetInteraction(interaction);
+			itemController.SetUiController(this);
 		}
 	}
 
 	private void OnOpenInteractionSelector(EventBase eventBase)
 	{
 		// Check if active, if so we should hide
-		bool isOpen = gameObject.activeInHierarchy;
-
+		bool isOpen = CanvasGroup.alpha > 0;
 
 		if (isOpen)
 		{
