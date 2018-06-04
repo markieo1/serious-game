@@ -9,7 +9,7 @@ public static class CharacterData
 {
 	public static CharacterSelection CharacterSelection { get; set; }
 
-	public static double BloodSugarLevel { get; set; }
+	public static float BloodSugarLevel { get; set; }
 }
 
 public enum CharacterSelection

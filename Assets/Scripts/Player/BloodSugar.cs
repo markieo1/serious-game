@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,33 +8,33 @@ public class BloodSugar : MonoBehaviour {
 	/// <summary>
 	/// How much the blood sugar level should decay per second.
 	/// </summary>
-	public double DecayPerSecond;
+	public float DecayPerSecond;
 
 	/// <summary>
 	/// How much to multiply the blood sugar decay by when walking.
 	/// </summary>
-	public double WalkingDecayMultiplier;
+	public float WalkingDecayMultiplier;
 
 	/// <summary>
 	/// How much to multiply the blood sugar decay by when running.
 	/// </summary>
-	public double RunningDecayMultiplier;
+	public float RunningDecayMultiplier;
+
+	private Animator animator;
 
 	// Use this for initialization
 	void Start () {
-		
+		CharacterData.BloodSugarLevel = 100;
+		this.animator = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
 	void Update()
 	{
-		double decay = DecayPerSecond * Time.deltaTime;
+		float decay = DecayPerSecond * Time.deltaTime;
 
 		CharacterData.BloodSugarLevel -= decay;
-	}
 
-	public double GetBloodSugar()
-	{
-		return CharacterData.BloodSugarLevel;
+		animator.SetFloat("BloodSugar", CharacterData.BloodSugarLevel);
 	}
 }
