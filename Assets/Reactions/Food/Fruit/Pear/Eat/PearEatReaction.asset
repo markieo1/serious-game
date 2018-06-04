@@ -8,6 +8,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1073e75f0c8aa8942909bdf6c366f43f, type: 3}
-  m_Name: New Example Reaction
+  m_Script: {fileID: 11500000, guid: 5e18c872186b8b2478064f8f030c5297, type: 3}
+  m_Name: PearEatReaction
   m_EditorClassIdentifier: 
+  Sugar: 5

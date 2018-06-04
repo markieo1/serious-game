@@ -16,13 +16,13 @@ public class SugarLevelBar : MonoBehaviour
 
 	void OnDisable()
 	{
-		EventManager.StopListening(EventsTypes.SugarLevelChanged, ChangeSugarLevel);
+		EventManager.StopListening<SugarChangedEvent>(ChangeSugarLevel);
 	}
 
 	// Use this for initialization
 	void Start()
 	{
-		EventManager.StartListening(EventsTypes.SugarLevelChanged, ChangeSugarLevel);
+		EventManager.StartListening<SugarChangedEvent>(ChangeSugarLevel);
 
 		SugarBar.maxValue = MaxSugarLevel;
 		SugarBar.value = SugarLevel;
@@ -38,21 +38,17 @@ public class SugarLevelBar : MonoBehaviour
 
 	}
 
-	public void ChangeSugarLevel(EventBase @event)
+	public void ChangeSugarLevel(SugarChangedEvent @event)
 	{
-		if (@event.GetEventType() == EventsTypes.SugarLevelChanged)
+		SugarLevel += @event.Value;
+		SugarBar.value = SugarLevel;
+		if (SugarLevel <= 0)
 		{
-			SugarChangedEvent sugarChangedEvent = @event as SugarChangedEvent;
-			SugarLevel += sugarChangedEvent.Value;
+			SugarLevel = 0;
 			SugarBar.value = SugarLevel;
-			if (SugarLevel <= 0)
-			{
-				SugarLevel = 0;
-				SugarBar.value = SugarLevel;
-			}
-
-			MatchHPbarColor();
 		}
+
+		MatchHPbarColor();
 	}
 
 	void MatchHPbarColor()
