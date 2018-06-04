@@ -1,33 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
-using UnityEngine;
 
-public class EventManager : MonoBehaviour
+public class EventManager
 {
-	public static EventManager Instance { get; private set; }
+	private static EventManager mInstance;
 
-	private Dictionary<Type, List<Action<EventBase>>> eventDictionary;
-
-	private void Awake()
+	/// <summary>
+	/// Gets the instance.
+	/// </summary>
+	public static EventManager Instance
 	{
-		if (Instance != null && Instance != this)
+		get
 		{
-			Destroy(gameObject);
-			return;
-		}
+			if (mInstance == null)
+			{
+				mInstance = new EventManager();
+			}
 
-		Instance = this;
-
-		if (eventDictionary == null)
-		{
-			eventDictionary = new Dictionary<Type, List<Action<EventBase>>>();
+			return mInstance;
 		}
 	}
 
-	private void OnDestroy()
+	private Dictionary<Type, List<Action<EventBase>>> eventDictionary;
+
+	private EventManager()
 	{
-		// Clear the event dictionary
-		eventDictionary.Clear();
+		eventDictionary = new Dictionary<Type, List<Action<EventBase>>>();
 	}
 
 	/// <summary>
