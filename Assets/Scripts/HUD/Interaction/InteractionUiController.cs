@@ -17,9 +17,9 @@ public class InteractionUiController : MonoBehaviour
 	public RectTransform ContentPanel;
 
 	/// <summary>
-	/// The display initially
+	/// The canvas group
 	/// </summary>
-	public bool DisplayInitially = false;
+	public CanvasGroup CanvasGroup;
 
 	/// <summary>
 	/// Gets a value indicating whether this instance can open.
@@ -47,7 +47,8 @@ public class InteractionUiController : MonoBehaviour
 	{
 		if (CanOpen)
 		{
-			gameObject.SetActive(true);
+			CanvasGroup.alpha = 1;
+			CanvasGroup.interactable = true;
 		}
 	}
 
@@ -56,7 +57,8 @@ public class InteractionUiController : MonoBehaviour
 	/// </summary>
 	public void Close()
 	{
-		gameObject.SetActive(false);
+		CanvasGroup.alpha = 0;
+		CanvasGroup.interactable = false;
 	}
 
 	private void Awake()
@@ -72,7 +74,10 @@ public class InteractionUiController : MonoBehaviour
 			throw new NotSupportedException("ContentPanel is needed to display interaction items");
 		}
 
-		gameObject.SetActive(DisplayInitially);
+		if (!CanvasGroup)
+		{
+			throw new NotSupportedException("An CanvasGroup is required to show/hide the interaction ui.");
+		}
 
 		EventManager.StartListening(EventsTypes.EnterInteractionRegion, OnInteractionRegionEntered);
 		EventManager.StartListening(EventsTypes.ExitInteractionRegion, OnInteractionRegionExit);
@@ -141,9 +146,8 @@ public class InteractionUiController : MonoBehaviour
 	private void OnOpenInteractionSelector(EventBase eventBase)
 	{
 		// Check if active, if so we should hide
-		bool isOpen = gameObject.activeInHierarchy;
-
-
+		bool isOpen = CanvasGroup.alpha > 0;
+		
 		if (isOpen)
 		{
 			Close();
