@@ -7,5 +7,8 @@ public enum EventsTypes
 {
 	Unknown,
 	SugarLevelChanged,
+	EnterInteractionRegion,
+	ExitInteractionRegion,
+	OpenInteractionSelector
 }
 

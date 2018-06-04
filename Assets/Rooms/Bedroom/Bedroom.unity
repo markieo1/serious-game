@@ -417,6 +417,22 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400046, guid: d5533d13f20da3e45bd2da8da81de9b4, type: 3}
   m_PrefabInternal: {fileID: 1313569443}
+--- !u!1 &1397244592 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100020, guid: d5533d13f20da3e45bd2da8da81de9b4, type: 3}
+  m_PrefabInternal: {fileID: 1313569443}
+--- !u!65 &1397244596
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1397244592}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.017422557, y: 0.028225591, z: 0.023199355}
+  m_Center: {x: -0.03902031, y: 0.032507673, z: 0.011574077}
 --- !u!1 &1576678215
 GameObject:
   m_ObjectHideFlags: 0
