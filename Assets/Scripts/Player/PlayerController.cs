@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
 	/// <param name="sugar">The sugar.</param>
 	public void Eat(float sugar)
 	{
-		throw new NotImplementedException("Eating is not implemented yet.");
+		CharacterData.BloodSugarLevel += sugar;
 	}
 
 	/// <summary>
