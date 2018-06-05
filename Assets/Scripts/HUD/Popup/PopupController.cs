@@ -15,6 +15,11 @@ public class PopupController : MonoBehaviour
 	/// </summary>
 	public CanvasGroup CanvasGroup;
 
+	private void Start()
+	{
+		HidePopup();
+	}
+
 	private void OnEnable()
 	{
 		EventManager.StartListening<ShowPopupEvent>(OnShowPopup);
