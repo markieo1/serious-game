@@ -13,6 +13,7 @@ public class LoadingManager : MonoBehaviour
 	public static LoadingManager Instance { get; private set; }
 
 	private string nextScene;
+	private string spawnPoint;
 
 	private void Awake()
 	{
@@ -48,5 +49,20 @@ public class LoadingManager : MonoBehaviour
 		}
 
 		return nextScene;
+	}
+
+	public void SetSpawnPoint(string spawn)
+	{
+		spawnPoint = spawn;
+	}
+
+	public string GetSpawnPoint()
+	{
+		if (string.IsNullOrEmpty(spawnPoint))
+		{
+			throw new NotSupportedException("Spawn point is not set, please correct this in the editor.");
+		}
+
+		return spawnPoint;
 	}
 }
