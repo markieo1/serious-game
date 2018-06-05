@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Eyeball_copy
-  m_Shader: {fileID: 4800000, guid: 60367acac30e7a844a72da89fb9f8d6f, type: 3}
+  m_Shader: {fileID: 4800000, guid: 514dfd4ba0a369f4b8021d452befb034, type: 3}
   m_ShaderKeywords: _DYNAMICTOONLIGHTING_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -67,7 +67,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Ramp:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: dda255c6e7ca25c4da940fccb27f832d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TileOverlay:
