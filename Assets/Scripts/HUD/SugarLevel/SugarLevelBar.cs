@@ -11,7 +11,9 @@ public class SugarLevelBar : MonoBehaviour
 	public Slider SugarBar;
 	public float MaxSugarLevel;
 	public float SugarLevel;
-
+	public Color HighColor;
+	public Color GoodColor;
+	public Color LowColor;
 	private Image _targetBar;
 
 	void OnDisable()
@@ -32,15 +34,9 @@ public class SugarLevelBar : MonoBehaviour
 		MatchHPbarColor();
 	}
 
-	// Update is called once per frame
-	void Update()
-	{
-
-	}
-
 	public void ChangeSugarLevel(SugarChangedEvent @event)
 	{
-		SugarLevel += @event.Value;
+		SugarLevel = @event.Value;
 		SugarBar.value = SugarLevel;
 		if (SugarLevel <= 0)
 		{
@@ -56,15 +52,15 @@ public class SugarLevelBar : MonoBehaviour
 		var currentHealthPercentage = (SugarLevel * 100) / SugarBar.maxValue;
 		if (currentHealthPercentage >= 75)
 		{
-			_targetBar.color = Color.red;
+			_targetBar.color = HighColor;
 		}
 		else if (currentHealthPercentage < 75 && currentHealthPercentage >= 25)
 		{
-			_targetBar.color = Color.green;
+			_targetBar.color = GoodColor;
 		}
 		else if (currentHealthPercentage < 25)
 		{
-			_targetBar.color = Color.blue;
+			_targetBar.color = LowColor;
 		}
 	}
 }

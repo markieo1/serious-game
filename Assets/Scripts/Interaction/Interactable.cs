@@ -44,10 +44,7 @@ public class Interactable : MonoBehaviour
 		if (other.IsPlayer())
 		{
 			// Notify systems from interaction possiblities.
-			EventManager.TriggerEvent(new EnterInteractionRegionEvent()
-			{
-				Interactions = Interactions
-			});
+			EventManager.TriggerEvent(new EnterInteractionRegionEvent(Interactions));
 		}
 	}
 
