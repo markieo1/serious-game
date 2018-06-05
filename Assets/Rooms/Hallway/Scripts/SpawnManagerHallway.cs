@@ -1,20 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-public class SpawnPoints : MonoBehaviour
+public class SpawnManagerHallway : MonoBehaviour
 {
-	public GameObject player;
-	public GameObject spawnA;
+
+	public GameObject Player;
+	public List<GameObject> SpawnPoints;
 
 	// Use this for initialization
 	void Start()
 	{
-		string spawn = LoadingManager.Instance.GetSpawnPoint();
+		string spawnTag = LoadingManager.Instance.GetSpawnPoint();
 
-		if (spawn == spawnA.tag)
+		GameObject spawnObject = SpawnPoints.FirstOrDefault(s => s.tag == spawnTag);
+
+		if (spawnObject != null)
 		{
-			SetPlayerToSpawn(player, spawnA);
+			SetPlayerToSpawn(Player, spawnObject);
 		}
 	}
 

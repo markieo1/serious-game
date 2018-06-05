@@ -4,7 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - SpawnA
+  - FrontDoor
+  - BotDoorA
+  - BotDoorB
+  - BotDoorC
+  - TopDoor
   layers:
   - Default
   - TransparentFX
