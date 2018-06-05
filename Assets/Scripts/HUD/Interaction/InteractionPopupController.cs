@@ -7,7 +7,7 @@ public class InteractionPopupController : MonoBehaviour
 	/// <summary>
 	/// The information message
 	/// </summary>
-	public string InfoMessage;
+	public string InfoMessage = "Press the \"Interact\" button to open the interaction menu.";
 
 	// Use this for initialization
 	void Start()
