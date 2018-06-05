@@ -1,0 +1,817 @@
+fileFormatVersion: 2
+guid: 895c0ad11c0293f4ca657668d32572a0
+timeCreated: 1528202610
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: AlarmButton
+    100002: Blender
+    100004: Bottle
+    100006: BoxInTray
+    100008: CabinetDividers
+    100010: CeilingLights
+    100012: Cheerios
+    100014: CoffeePotsLid
+    100016: CuttingBoard
+    100018: DecorativeBottles
+    100020: FanMount
+    100022: Floor
+    100024: FloorBox
+    100026: Fridge
+    100028: GlassDoor
+    100030: HallwayPlynthTransition
+    100032: Kettle
+    100034: //RootNode
+    100036: Knives
+    100038: Microwave
+    100040: MiddleStool1
+    100042: MiddleStool2
+    100044: MiddleTable
+    100046: OliveOil
+    100048: OliveOilInsides
+    100050: OvenMitt
+    100052: Pan
+    100054: Peanuts
+    100056: PepperShaker
+    100058: Phone
+    100060: Plant
+    100062: Rack
+    100064: RollingFoodTray
+    100066: SaltShaker
+    100068: Scale
+    100070: SeedsBag
+    100072: SoapBottles
+    100074: SpiceBottle
+    100076: Sponge
+    100078: SpongeHolder
+    100080: SugarCubesBox
+    100082: Toaster
+    100084: TomatoCans
+    100086: TopCabinets
+    100088: TrashCan
+    100090: TrayPlates
+    100092: WallCabinet
+    100094: WallCloset
+    100096: Walls
+    100098: WindowCabinet
+    100100: WindowCabinetDividers
+    100102: WindowPlantPot
+    100104: WoodenKitchenStuff
+    400000: AlarmButton
+    400002: Blender
+    400004: Bottle
+    400006: BoxInTray
+    400008: CabinetDividers
+    400010: CeilingLights
+    400012: Cheerios
+    400014: CoffeePotsLid
+    400016: CuttingBoard
+    400018: DecorativeBottles
+    400020: FanMount
+    400022: Floor
+    400024: FloorBox
+    400026: Fridge
+    400028: GlassDoor
+    400030: HallwayPlynthTransition
+    400032: Kettle
+    400034: //RootNode
+    400036: Knives
+    400038: Microwave
+    400040: MiddleStool1
+    400042: MiddleStool2
+    400044: MiddleTable
+    400046: OliveOil
+    400048: OliveOilInsides
+    400050: OvenMitt
+    400052: Pan
+    400054: Peanuts
+    400056: PepperShaker
+    400058: Phone
+    400060: Plant
+    400062: Rack
+    400064: RollingFoodTray
+    400066: SaltShaker
+    400068: Scale
+    400070: SeedsBag
+    400072: SoapBottles
+    400074: SpiceBottle
+    400076: Sponge
+    400078: SpongeHolder
+    400080: SugarCubesBox
+    400082: Toaster
+    400084: TomatoCans
+    400086: TopCabinets
+    400088: TrashCan
+    400090: TrayPlates
+    400092: WallCabinet
+    400094: WallCloset
+    400096: Walls
+    400098: WindowCabinet
+    400100: WindowCabinetDividers
+    400102: WindowPlantPot
+    400104: WoodenKitchenStuff
+    2100000: Material 58
+    2100002: Material 66
+    2100004: Material 102
+    2100006: Material 76
+    2100008: Material 12
+    2100010: Material 100
+    2100012: Material 99
+    2100014: Material 9
+    2100016: Material 96
+    2100018: Material 95
+    2100020: Material 90
+    2100022: Material 63
+    2100024: Material 46
+    2100026: Material 88
+    2100028: Material 87
+    2100030: Material 45
+    2100032: Material 85
+    2100034: Material 83
+    2100036: Material 79
+    2100038: Material 75
+    2100040: Material 73
+    2100042: Material 72
+    2100044: Material 70
+    2100046: Material 67
+    2100048: Material 0
+    2100050: Material 74
+    2100052: Material 65
+    2100054: Material 64
+    2100056: Material 62
+    2100058: Material 61
+    2100060: Material 60
+    2100062: Material 59
+    2100064: Material 54
+    2100066: Material 31
+    2100068: Material 51
+    2100070: Material 50
+    2100072: Material 49
+    2100074: Material 44
+    2100076: Material 43
+    2100078: Material 34
+    2100080: Material 40
+    2100082: Material 56
+    2100084: Material 39
+    2100086: Material 37
+    2100088: Material 36
+    2100090: Material 35
+    2100092: Material 32
+    2100094: Material 27
+    2100096: Material 69
+    2100098: Material 71
+    2100100: Material 8
+    2100102: Material 22
+    2100104: Material 98
+    2100106: Material 21
+    2100108: Material 20
+    2100110: Material 89
+    2100112: Material 41
+    2100114: Material 47
+    2100116: Material 2
+    2100118: Material 78
+    2100120: Material 38
+    2100122: Material 25
+    2100124: Material 3
+    2100126: Material 82
+    2100128: Material 91
+    2100130: Material 16
+    2100132: Material 15
+    2100134: Material 14
+    2100136: Material 13
+    2100138: Material 10
+    2100140: Material 7
+    2100142: Material 93
+    2100144: Material 53
+    2100146: Material 19
+    2100148: Material 80
+    2100150: Material 6
+    2100152: Material 5
+    2100154: Material 4
+    2300000: AlarmButton
+    2300002: Blender
+    2300004: Bottle
+    2300006: BoxInTray
+    2300008: CabinetDividers
+    2300010: CeilingLights
+    2300012: Cheerios
+    2300014: CoffeePotsLid
+    2300016: CuttingBoard
+    2300018: DecorativeBottles
+    2300020: FanMount
+    2300022: Floor
+    2300024: FloorBox
+    2300026: Fridge
+    2300028: GlassDoor
+    2300030: HallwayPlynthTransition
+    2300032: Kettle
+    2300034: Knives
+    2300036: Microwave
+    2300038: MiddleStool1
+    2300040: MiddleStool2
+    2300042: MiddleTable
+    2300044: OliveOil
+    2300046: OliveOilInsides
+    2300048: OvenMitt
+    2300050: Pan
+    2300052: Peanuts
+    2300054: PepperShaker
+    2300056: Phone
+    2300058: Plant
+    2300060: Rack
+    2300062: RollingFoodTray
+    2300064: SaltShaker
+    2300066: Scale
+    2300068: SeedsBag
+    2300070: SoapBottles
+    2300072: SpiceBottle
+    2300074: Sponge
+    2300076: SpongeHolder
+    2300078: SugarCubesBox
+    2300080: Toaster
+    2300082: TomatoCans
+    2300084: TopCabinets
+    2300086: TrashCan
+    2300088: TrayPlates
+    2300090: WallCabinet
+    2300092: WallCloset
+    2300094: Walls
+    2300096: WindowCabinet
+    2300098: WindowCabinetDividers
+    2300100: WindowPlantPot
+    2300102: WoodenKitchenStuff
+    3300000: AlarmButton
+    3300002: Blender
+    3300004: Bottle
+    3300006: BoxInTray
+    3300008: CabinetDividers
+    3300010: CeilingLights
+    3300012: Cheerios
+    3300014: CoffeePotsLid
+    3300016: CuttingBoard
+    3300018: DecorativeBottles
+    3300020: FanMount
+    3300022: Floor
+    3300024: FloorBox
+    3300026: Fridge
+    3300028: GlassDoor
+    3300030: HallwayPlynthTransition
+    3300032: Kettle
+    3300034: Knives
+    3300036: Microwave
+    3300038: MiddleStool1
+    3300040: MiddleStool2
+    3300042: MiddleTable
+    3300044: OliveOil
+    3300046: OliveOilInsides
+    3300048: OvenMitt
+    3300050: Pan
+    3300052: Peanuts
+    3300054: PepperShaker
+    3300056: Phone
+    3300058: Plant
+    3300060: Rack
+    3300062: RollingFoodTray
+    3300064: SaltShaker
+    3300066: Scale
+    3300068: SeedsBag
+    3300070: SoapBottles
+    3300072: SpiceBottle
+    3300074: Sponge
+    3300076: SpongeHolder
+    3300078: SugarCubesBox
+    3300080: Toaster
+    3300082: TomatoCans
+    3300084: TopCabinets
+    3300086: TrashCan
+    3300088: TrayPlates
+    3300090: WallCabinet
+    3300092: WallCloset
+    3300094: Walls
+    3300096: WindowCabinet
+    3300098: WindowCabinetDividers
+    3300100: WindowPlantPot
+    3300102: WoodenKitchenStuff
+    4300000: Plant
+    4300002: CeilingLights
+    4300004: FanMount
+    4300006: CuttingBoard
+    4300008: Rack
+    4300010: Cheerios
+    4300012: SoapBottles
+    4300014: WallCloset
+    4300016: Phone
+    4300018: Toaster
+    4300020: WallCabinet
+    4300022: MiddleStool2
+    4300024: Bottle
+    4300026: Scale
+    4300028: Knives
+    4300030: GlassDoor
+    4300032: Pan
+    4300034: TopCabinets
+    4300036: Kettle
+    4300038: Peanuts
+    4300040: SeedsBag
+    4300042: OvenMitt
+    4300044: Microwave
+    4300046: TomatoCans
+    4300048: WindowPlantPot
+    4300050: WindowCabinet
+    4300052: TrayPlates
+    4300054: OliveOil
+    4300056: TrashCan
+    4300058: Blender
+    4300060: PepperShaker
+    4300062: SpongeHolder
+    4300064: SaltShaker
+    4300066: SugarCubesBox
+    4300068: Sponge
+    4300070: WindowCabinetDividers
+    4300072: MiddleTable
+    4300074: CoffeePotsLid
+    4300076: DecorativeBottles
+    4300078: WoodenKitchenStuff
+    4300080: BoxInTray
+    4300082: SpiceBottle
+    4300084: Walls
+    4300086: AlarmButton
+    4300088: Floor
+    4300090: RollingFoodTray
+    4300092: FloorBox
+    4300094: CabinetDividers
+    4300096: Fridge
+    4300098: OliveOilInsides
+    4300100: MiddleStool1
+    4300102: HallwayPlynthTransition
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 0
+    second: {fileID: 2100000, guid: 0e1da3c71f769b04f890b5dd4d8d0351, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 10
+    second: {fileID: 2100000, guid: f21066a686c5d6e4abdbf595af894405, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 100
+    second: {fileID: 2100000, guid: e2ea88762b899d64a90997c61aeb1869, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 102
+    second: {fileID: 2100000, guid: a47ee68680c784747bd1c6aca4e00e26, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 12
+    second: {fileID: 2100000, guid: f79b8213e51e92a4daf8ff53a6a898a3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 13
+    second: {fileID: 2100000, guid: ad5ded0823a89454f887d1a2c70cfccd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 14
+    second: {fileID: 2100000, guid: a2e9516880b08754c8ee6559e881f73e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 15
+    second: {fileID: 2100000, guid: 45551dc9610158a48b5390f57b3c1f7f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 16
+    second: {fileID: 2100000, guid: acd58d8ba80aefe42ac6eaf0a1887a0c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 19
+    second: {fileID: 2100000, guid: 9a675d7ea5f2d7d498f1ac7fffd9fca3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 2
+    second: {fileID: 2100000, guid: 42623905b0210c747860dc2ae55d436e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 20
+    second: {fileID: 2100000, guid: eb7f2f0988ed3a044bb8a4c77efe625b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 21
+    second: {fileID: 2100000, guid: 96be4bce59498da479471b69ea559d20, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 22
+    second: {fileID: 2100000, guid: 857402dadb69097458d5245ac0c6e478, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 25
+    second: {fileID: 2100000, guid: c331c1ec45057894da34f8d12626a152, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 27
+    second: {fileID: 2100000, guid: ff6eb6182e406d747b38695adbb65a84, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 3
+    second: {fileID: 2100000, guid: 3e6035acb2b99344fbcce91337fac318, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 31
+    second: {fileID: 2100000, guid: a71f948c2a4dba44484737fce990f9fe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 32
+    second: {fileID: 2100000, guid: ded64585015009043805913a0c85bc7a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 34
+    second: {fileID: 2100000, guid: 4d18dfb510b04864988850e7e5d77b37, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 35
+    second: {fileID: 2100000, guid: 96dfa570cf6cb334db2cfc895bccd940, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 36
+    second: {fileID: 2100000, guid: bf59d7f49730b7c48b0427aa2c3564e0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 37
+    second: {fileID: 2100000, guid: e54309884bc658148b94f04f7a65d78e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 38
+    second: {fileID: 2100000, guid: fcf5be30187f62346ae65095b4d7bc0e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 39
+    second: {fileID: 2100000, guid: 6c5172ed6f0423b499a5fa5cc4b97cab, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 4
+    second: {fileID: 2100000, guid: 5354bab6db84b044e8d8c18ccbdb6bbe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 40
+    second: {fileID: 2100000, guid: d473c0895aa013c4c99495d7a33f59b0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 41
+    second: {fileID: 2100000, guid: b996d0566703e28449691267251c4891, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 43
+    second: {fileID: 2100000, guid: 3602a6da7f37df844b6bf7e49248ab15, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 44
+    second: {fileID: 2100000, guid: 803ce87ec9cf5864ca957173e1dd3c40, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 45
+    second: {fileID: 2100000, guid: aa7077beb38bbd848961c9ad6022df75, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 46
+    second: {fileID: 2100000, guid: 521586e7e0c8e3441af8e1ef43ee79d3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 47
+    second: {fileID: 2100000, guid: 33272d64dd6450c4cab4a7db84592b31, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 49
+    second: {fileID: 2100000, guid: 98240c9ea031f424eb3647022bb6ebdf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 5
+    second: {fileID: 2100000, guid: 925ed40d08d57464885cd8191a069bbb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 50
+    second: {fileID: 2100000, guid: 593b37f3b9f721149a52b76f8201b3d0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 51
+    second: {fileID: 2100000, guid: 5922e552ca9dbc447822c93341426b02, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 53
+    second: {fileID: 2100000, guid: 98a7ae394f664504594ddb43e827bd7e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 54
+    second: {fileID: 2100000, guid: 74f58f322d87a934893e6567c9cf3644, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 56
+    second: {fileID: 2100000, guid: e71e675f0c878db409a5424b97aa45e6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 58
+    second: {fileID: 2100000, guid: 26271ce54fa3902449ac93dc8535829b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 59
+    second: {fileID: 2100000, guid: 966f5c66dc8f52c47ac38f88c781b8e0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 6
+    second: {fileID: 2100000, guid: c7212a0b5b5afbe4d9e779009b7fbbd6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 60
+    second: {fileID: 2100000, guid: d8f8add22bf7b5b4da2a705bcb06b407, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 61
+    second: {fileID: 2100000, guid: f726c10a51ad9ee4896774c4aff387e9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 62
+    second: {fileID: 2100000, guid: 1b00b70923cf974448525f2ad59eec43, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 63
+    second: {fileID: 2100000, guid: ec113eabd34af374b9fde112f93c86b6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 64
+    second: {fileID: 2100000, guid: c384281ef5234eb45acc092c8e8eeb79, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 65
+    second: {fileID: 2100000, guid: 65a1b374b8ff0354ab3b764642a8ee3f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 66
+    second: {fileID: 2100000, guid: 615c8900bb6f32e478375aa3d4c03a0a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 67
+    second: {fileID: 2100000, guid: 271936af059c7b0478102e0687545e6c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 69
+    second: {fileID: 2100000, guid: d50fe775fcfd02b45a3e4679c23150bb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 7
+    second: {fileID: 2100000, guid: 5e14769b6a5c5cc4ebdd5179e03f98b2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 70
+    second: {fileID: 2100000, guid: ac98c8c4a8917d446b3513cf7a7786c1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 71
+    second: {fileID: 2100000, guid: db0cb31931ae3ef4abfc9a71a1b9445c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 72
+    second: {fileID: 2100000, guid: 591bc8941663342498521a95e032ed15, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 73
+    second: {fileID: 2100000, guid: 129de0e6843eb8d43b6f617f28f86bdf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 74
+    second: {fileID: 2100000, guid: 7a0defc554781b741a3599f5b724bdd1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 75
+    second: {fileID: 2100000, guid: 4cd6ed877588ec04596cfac666ea598a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 76
+    second: {fileID: 2100000, guid: 88e5aff551c94c14ba4857bb0f42fbff, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 78
+    second: {fileID: 2100000, guid: ad5cec67661638a4aa9b803c732fd38d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 79
+    second: {fileID: 2100000, guid: 1224f48da6eade84097bc525f1cb862e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 8
+    second: {fileID: 2100000, guid: 8baadc3c8838e2444b41fa8899da611c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 80
+    second: {fileID: 2100000, guid: 5d7a604d9073e934c90d33301dd7f71e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 82
+    second: {fileID: 2100000, guid: 0da15f9630208da42bc568f6e3f1a00f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 83
+    second: {fileID: 2100000, guid: b3a18a180f70f4042b59ed424284d71e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 85
+    second: {fileID: 2100000, guid: 4e5534bdcb531d046a3687127809ccd1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 87
+    second: {fileID: 2100000, guid: 3419236b294e34041b34cb322ee5aa73, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 88
+    second: {fileID: 2100000, guid: 86689506fab0ed2438637461a7714d2c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 89
+    second: {fileID: 2100000, guid: e871f3bed24dd13419feee6362fde95e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 9
+    second: {fileID: 2100000, guid: a59f323307083954aa3f5eca3a0005f6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 90
+    second: {fileID: 2100000, guid: 3b91b067303ce8446a1a2fa3931da847, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 91
+    second: {fileID: 2100000, guid: 1045c76617d17b24da44b37e7c487050, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 93
+    second: {fileID: 2100000, guid: f174945a3738f6246bd500449cda3446, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 95
+    second: {fileID: 2100000, guid: 692a32564da8dfd41ba4fae313a4adf3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 96
+    second: {fileID: 2100000, guid: 721856c65008211429ea255e882529b2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 98
+    second: {fileID: 2100000, guid: e6a7116b6285bb946858417b87afc3e3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material 99
+    second: {fileID: 2100000, guid: 5d099478a02279e4d9055c51db09e217, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
