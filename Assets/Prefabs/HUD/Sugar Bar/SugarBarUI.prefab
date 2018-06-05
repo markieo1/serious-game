@@ -123,6 +123,9 @@ MonoBehaviour:
   SugarBar: {fileID: 114885387588318910}
   MaxSugarLevel: 100
   SugarLevel: 50
+  HighColor: {r: 1, g: 0, b: 0, a: 1}
+  GoodColor: {r: 0, g: 1, b: 0, a: 1}
+  LowColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!114 &114528105306418912
 MonoBehaviour:
   m_ObjectHideFlags: 1
