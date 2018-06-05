@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-[CreateAssetMenu(menuName = "Reactions/Open")]
-public class OpenReaction : Reaction
+[CreateAssetMenu(menuName = "Reactions/SwitchScene")]
+public class SwitchSceneReaction : Reaction
 {
 	[Scene]
 	public string LoadingScene;
