@@ -313,7 +313,7 @@ Prefab:
         type: 2}
       propertyPath: Interactions.Array.data[1].Reactions
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 40613129}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7dff911492482a2459041d0a1fb156ef, type: 2}
   m_IsPrefabParent: 0
