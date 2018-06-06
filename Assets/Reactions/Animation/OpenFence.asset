@@ -8,6 +8,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25f654b9c6e97be40b2f3abcceadf347, type: 3}
-  m_Name: OpenFenceReaction
+  m_Script: {fileID: 11500000, guid: faacdf81968f3b1429d568205935754c, type: 3}
+  m_Name: OpenFence
   m_EditorClassIdentifier: 
+  trigger: Open
