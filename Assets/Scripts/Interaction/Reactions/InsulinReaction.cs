@@ -21,16 +21,16 @@ public class InsulinReaction : Reaction
 	/// </summary>
 	private PlayerController Player;
 
-	protected override void SpecificInit()
+	protected override void SpecificInit(MonoBehaviour monoBehaviour)
 	{
-		base.SpecificInit();
+		base.SpecificInit(monoBehaviour);
 
 		// Find the player in the scene
 		Player = PlayerController.GetPlayer();
 	}
 
 
-	public override void React(MonoBehaviour monoBehaviour)
+	public override void React()
 	{
 		//Check if blood sugar level doesn't drop too low due to this action
 		if (CharacterData.BloodSugarLevel - Sugar < 10)
