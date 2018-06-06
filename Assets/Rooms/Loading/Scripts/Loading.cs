@@ -5,24 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class Loading : MonoBehaviour
 {
-
-	// Update is called once per frame
-	void Update()
+	void Start()
 	{
-		try
-		{
-			string sceneName = LoadingManager.Instance.GetNextScene();
+		string sceneName = LoadingManager.Instance.GetNextScene();
 
-			StartCoroutine(LoadSceneAsync(sceneName));
-		}
-		catch
-		{
-			Debug.LogError("Loading screen started without next scene.");
-		}
+		StartCoroutine(LoadSceneAsync(sceneName));
 	}
 
 	private IEnumerator LoadSceneAsync(string sceneName)
 	{
+		if (string.IsNullOrEmpty(sceneName))
+		{
+			Debug.LogError("Loading screen started without next scene.");
+			yield break;
+		}
+
 		AsyncOperation loadingScene = SceneManager.LoadSceneAsync(sceneName);
 
 		while (!loadingScene.isDone)
