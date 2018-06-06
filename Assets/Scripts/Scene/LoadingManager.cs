@@ -60,7 +60,7 @@ public class LoadingManager : MonoBehaviour
 	{
 		if (string.IsNullOrEmpty(spawnPoint))
 		{
-			//throw new NotSupportedException("Spawn point is not set, please correct this in the editor.");
+			throw new NotSupportedException("Spawn point is not set, please correct this in the editor.");
 		}
 
 		return spawnPoint;

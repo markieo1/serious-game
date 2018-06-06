@@ -12,8 +12,6 @@ public class SpawnManager : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		//try
-		//{
 		string spawnTag = LoadingManager.Instance.GetSpawnPoint();
 
 		GameObject spawnObject = SpawnPoints.FirstOrDefault(s => s.tag == spawnTag);
@@ -22,11 +20,6 @@ public class SpawnManager : MonoBehaviour
 		{
 			SetPlayerToSpawn(Player, spawnObject);
 		}
-		//}
-		//catch
-		//{
-		//	Debug.LogError("Spawn point is not set, please correct this in the editor.");
-		//}
 	}
 
 	public void SetPlayerToSpawn(GameObject player, GameObject spawn)
