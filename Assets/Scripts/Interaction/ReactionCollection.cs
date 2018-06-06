@@ -16,7 +16,7 @@ public class ReactionCollection : MonoBehaviour
 	public AudioSource AudioSource;
 
 	/// <summary>
-	/// The audio source for reactions that play sounds
+	/// The animator source for reactions that play animation
 	/// </summary>
 	public Animator AnimationSource;
 
