@@ -54,6 +54,15 @@ public class PlayerController : MonoBehaviour
 	}
 
 	/// <summary>
+	/// Inject insulin, which adjusts the sugar level.
+	/// </summary>
+	/// <param name="sugar">The sugar.</param>
+	public void Insulin(float sugar)
+	{
+		CharacterData.DecrementBloodSugar(sugar);
+	}
+
+	/// <summary>
 	/// Gets the player.
 	/// </summary>
 	/// <returns></returns>
