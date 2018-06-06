@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44824737, g: 0.49827445, b: 0.57558256, a: 1}
+  m_IndirectSpecularColor: {r: 0.44824737, g: 0.4982744, b: 0.5755825, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -200,19 +200,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4577177447663572, guid: cf6474fe670b07340a9941c92e753424, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.086377315
+      value: -0.08637713
       objectReference: {fileID: 0}
     - target: {fileID: 4577177447663572, guid: cf6474fe670b07340a9941c92e753424, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0.9136165
+      value: 0.91361666
       objectReference: {fileID: 0}
     - target: {fileID: 4577177447663572, guid: cf6474fe670b07340a9941c92e753424, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0.28269073
+      value: -0.28269014
       objectReference: {fileID: 0}
     - target: {fileID: 4577177447663572, guid: cf6474fe670b07340a9941c92e753424, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -0.27915922
+      value: -0.27915928
       objectReference: {fileID: 0}
     - target: {fileID: 4577177447663572, guid: cf6474fe670b07340a9941c92e753424, type: 2}
       propertyPath: m_RootOrder
@@ -431,7 +431,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 359280641}
-  m_LocalRotation: {x: 0.08637655, y: -0.9136163, z: 0.2826905, w: 0.2791604}
+  m_LocalRotation: {x: 0.086376175, y: -0.9136148, z: 0.28269026, w: 0.2791657}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -439,6 +439,82 @@ Transform:
   m_Father: {fileID: 800474538}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &565590141
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1202012681}
+    m_Modifications:
+    - target: {fileID: 400002, guid: 337e59a4d2c9ea24c864f32426cc6b13, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.01306
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 337e59a4d2c9ea24c864f32426cc6b13, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.019289996
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 337e59a4d2c9ea24c864f32426cc6b13, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.008660001
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 337e59a4d2c9ea24c864f32426cc6b13, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 337e59a4d2c9ea24c864f32426cc6b13, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 337e59a4d2c9ea24c864f32426cc6b13, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 337e59a4d2c9ea24c864f32426cc6b13, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 337e59a4d2c9ea24c864f32426cc6b13, type: 3}
+      propertyPath: m_RootOrder
+      value: 52
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 337e59a4d2c9ea24c864f32426cc6b13, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.003
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 337e59a4d2c9ea24c864f32426cc6b13, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.0029999996
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 337e59a4d2c9ea24c864f32426cc6b13, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.008
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 337e59a4d2c9ea24c864f32426cc6b13, type: 3}
+      propertyPath: m_Name
+      value: Syringe
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 337e59a4d2c9ea24c864f32426cc6b13, type: 3}
+  m_IsPrefabParent: 0
+--- !u!1 &565590142 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100002, guid: 337e59a4d2c9ea24c864f32426cc6b13, type: 3}
+  m_PrefabInternal: {fileID: 565590141}
+--- !u!114 &565590143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 565590142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38c29bafd6429a24a926068558ccdba0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Interactions:
+  - Action: Gebruik Insuline
+    Reactions: {fileID: 0}
 --- !u!1 &686938107
 GameObject:
   m_ObjectHideFlags: 0
@@ -1064,7 +1140,7 @@ Transform:
   - {fileID: 1903856301}
   - {fileID: 185772018}
   m_Father: {fileID: 1202012681}
-  m_RootOrder: 52
+  m_RootOrder: 53
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1612963877
 GameObject:
