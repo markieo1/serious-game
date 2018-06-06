@@ -14,7 +14,7 @@ public class ReactionCollection : MonoBehaviour
 	{
 		for (int i = 0; i < reactions.Length; i++)
 		{
-			reactions[i].Init();
+			reactions[i].Init(this);
 		}
 	}
 
@@ -25,7 +25,7 @@ public class ReactionCollection : MonoBehaviour
 	{
 		for (int i = 0; i < reactions.Length; i++)
 		{
-			reactions[i].React(this);
+			reactions[i].React();
 		}
 	}
 }
