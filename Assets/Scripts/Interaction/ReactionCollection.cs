@@ -10,6 +10,11 @@ public class ReactionCollection : MonoBehaviour
 	/// </summary>
 	public Reaction[] reactions = new Reaction[0];
 
+	/// <summary>
+	/// The audio source for reactions that play sounds
+	/// </summary>
+	public AudioSource AudioSource;
+
 	private void Start()
 	{
 		for (int i = 0; i < reactions.Length; i++)
