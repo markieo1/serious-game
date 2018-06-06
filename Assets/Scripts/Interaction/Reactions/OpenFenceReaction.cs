@@ -6,8 +6,18 @@ using UnityEngine;
 public class OpenFenceReaction : Reaction
 {
 
+	private Animator anim;
+
 	public override void React(MonoBehaviour monoBehaviour)
 	{
-		Debug.Log("OpenFence reaction has been called");
+		anim = monoBehaviour.GetComponentInParent<Animator>();
+
+		if (!anim.GetBool("IsOpen"))
+		{
+			anim.SetBool("IsOpen", true);
+		}else
+		{
+			anim.SetBool("IsOpen", false);
+		}
 	}
 }
