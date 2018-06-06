@@ -10,11 +10,13 @@ public class OpenFenceReaction : Reaction
 
 	public override void React(MonoBehaviour monoBehaviour)
 	{
+		Debug.Log("Hallo");
+
 		anim = monoBehaviour.GetComponentInParent<Animator>();
 
 		if (!anim.GetBool("IsOpen"))
 		{
-			anim.SetBool("IsOpen", true);
+			anim.SetBool("IsOpen", true);	
 		}else
 		{
 			anim.SetBool("IsOpen", false);
