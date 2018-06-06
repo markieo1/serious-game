@@ -12,6 +12,11 @@ public class InsulinReaction : Reaction
 	public float Sugar;
 
 	/// <summary>
+	/// The warning message to display if the blood sugar would drop too low due to this action.
+	/// </summary>
+	public string WarningMessage;
+
+	/// <summary>
 	/// The player
 	/// </summary>
 	private PlayerController Player;
@@ -30,7 +35,7 @@ public class InsulinReaction : Reaction
 		//Check if blood sugar level doesn't drop too low due to this action
 		if (CharacterData.BloodSugarLevel - Sugar < 10)
 		{
-			EventManager.TriggerEvent(new ShowPopupEvent(PopupItem.Indefinitely("Je bloedsuikerspiegel is te laag om dit te kunnen doen.")));
+			EventManager.TriggerEvent(new ShowPopupEvent(PopupItem.Indefinitely(WarningMessage)));
 		}
 		else
 		{

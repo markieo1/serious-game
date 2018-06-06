@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Name: InsulinReaction
   m_EditorClassIdentifier: 
   Sugar: 30
+  WarningMessage: Je bloedsuikerspiegel is te laag om dit te kunnen doen.
