@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class EventManager
 {
@@ -21,11 +22,14 @@ public class EventManager
 		}
 	}
 
-	private Dictionary<Type, List<Action<EventBase>>> eventDictionary;
+	public delegate void EventDelegate<T>(T e) where T : EventBase;
+
+
+	private Dictionary<Type, Delegate> delegates;
 
 	private EventManager()
 	{
-		eventDictionary = new Dictionary<Type, List<Action<EventBase>>>();
+		delegates = new Dictionary<Type, Delegate>();
 	}
 
 	/// <summary>
@@ -33,20 +37,17 @@ public class EventManager
 	/// </summary>
 	/// <typeparam name="T"></typeparam>
 	/// <param name="listener">The listener.</param>
-	public static void StartListening<T>(Action<T> listener) where T : EventBase
+	public static void StartListening<T>(EventDelegate<T> del) where T : EventBase
 	{
-		List<Action<EventBase>> listeners;
-		Action<EventBase> internalListener = (e) => listener((T)e);
-
-		if (Instance.eventDictionary.TryGetValue(typeof(T), out listeners))
+		if (Instance.delegates.ContainsKey(typeof(T)))
 		{
-			listeners.Add(internalListener);
+			System.Delegate tempDel = Instance.delegates[typeof(T)];
+
+			Instance.delegates[typeof(T)] = System.Delegate.Combine(tempDel, del);
 		}
 		else
 		{
-			listeners = new List<Action<EventBase>>();
-			listeners.Add(internalListener);
-			Instance.eventDictionary.Add(typeof(T), listeners);
+			Instance.delegates[typeof(T)] = del;
 		}
 	}
 
@@ -55,14 +56,20 @@ public class EventManager
 	/// </summary>
 	/// <typeparam name="T"></typeparam>
 	/// <param name="listener">The listener.</param>
-	public static void StopListening<T>(Action<T> listener) where T : EventBase
+	public static void StopListening<T>(EventDelegate<T> del) where T : EventBase
 	{
-		List<Action<EventBase>> listeners;
-		Action<EventBase> internalListener = (e) => listener((T)e);
-
-		if (Instance.eventDictionary.TryGetValue(typeof(T), out listeners))
+		if (Instance.delegates.ContainsKey(typeof(T)))
 		{
-			listeners.Remove(internalListener);
+			var currentDel = System.Delegate.Remove(Instance.delegates[typeof(T)], del);
+
+			if (currentDel == null)
+			{
+				Instance.delegates.Remove(typeof(T));
+			}
+			else
+			{
+				Instance.delegates[typeof(T)] = currentDel;
+			}
 		}
 	}
 
@@ -73,10 +80,15 @@ public class EventManager
 	/// <param name="event">The event.</param>
 	public static void TriggerEvent<T>(T @event) where T : EventBase
 	{
-		List<Action<EventBase>> listeners;
-		if (Instance.eventDictionary.TryGetValue(typeof(T), out listeners))
+		if (@event == null)
 		{
-			listeners.ForEach(x => x.Invoke(@event));
+			Debug.LogError("Invalid event argument: " + @event.GetType().ToString());
+			return;
+		}
+
+		if (Instance.delegates.ContainsKey(@event.GetType()))
+		{
+			Instance.delegates[@event.GetType()].DynamicInvoke(@event);
 		}
 	}
 }
