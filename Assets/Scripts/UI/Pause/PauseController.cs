@@ -84,6 +84,7 @@ public class PauseController : MonoBehaviour
 	{
 		CanvasGroup.alpha = 0;
 		CanvasGroup.interactable = false;
+		CanvasGroup.blocksRaycasts = false;
 	}
 
 	/// <summary>
@@ -93,5 +94,6 @@ public class PauseController : MonoBehaviour
 	{
 		CanvasGroup.alpha = 1;
 		CanvasGroup.interactable = true;
+		CanvasGroup.blocksRaycasts = true;
 	}
 }

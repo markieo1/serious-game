@@ -49,6 +49,7 @@ public class InteractionUiController : MonoBehaviour
 		{
 			CanvasGroup.alpha = 1;
 			CanvasGroup.interactable = true;
+			CanvasGroup.blocksRaycasts = true;
 
 			Time.timeScale = 0;
 		}
@@ -61,6 +62,7 @@ public class InteractionUiController : MonoBehaviour
 	{
 		CanvasGroup.alpha = 0;
 		CanvasGroup.interactable = false;
+		CanvasGroup.blocksRaycasts = false;
 		Time.timeScale = 1;
 	}
 
