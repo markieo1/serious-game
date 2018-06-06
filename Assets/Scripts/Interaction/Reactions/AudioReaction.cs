@@ -30,7 +30,7 @@ public class AudioReaction : Reaction
 
 		if (!audioSource)
 		{
-			throw new NotSupportedException("An audio source on \"" + monoBehaviour.name + "\" is required for the audio reaction to work.");
+			throw new NotSupportedException("An audio source on the reaction collection of: \"" + monoBehaviour.name + "\" is required for the audio reaction to work.");
 		}
 	}
 
