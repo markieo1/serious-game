@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class Loading : MonoBehaviour
 {
-	// Update is called once per frame
 	void Start()
 	{
 		string sceneName = LoadingManager.Instance.GetNextScene();
