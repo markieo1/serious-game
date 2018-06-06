@@ -253,7 +253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Interactions:
-  - Action: Eat
+  - Action: Opeten
     Reactions: {fileID: 114130078826798568}
 --- !u!114 &114130078826798568
 MonoBehaviour:
