@@ -19,7 +19,7 @@ public static class CharacterData
 
 	static CharacterData()
 	{
-		BloodSugarLevel = 100;
+		BloodSugarLevel = 50;
 		EventManager.TriggerEvent(new SugarChangedEvent(BloodSugarLevel));
 	}
 
