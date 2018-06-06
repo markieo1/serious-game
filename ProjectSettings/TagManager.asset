@@ -4,12 +4,13 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - FrontDoor
   - BotDoorA
   - BotDoorB
   - BotDoorC
-  - TopDoor
-  - MainDoor
+  - BedroomDoor
+  - HouseDoor
+  - HallwayBedroomDoor
+  - HallwayHouseDoor
   layers:
   - Default
   - TransparentFX
