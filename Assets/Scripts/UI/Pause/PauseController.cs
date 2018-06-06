@@ -40,9 +40,11 @@ public class PauseController : MonoBehaviour
 	/// </summary>
 	public void Pause()
 	{
+		isShowing = true;
 		// TODO: Move to GameManager
 		Time.timeScale = 0;
 		ShowCanvasGroup();
+		EventManager.TriggerEvent(new GamePauseChangeEvent(true));
 	}
 
 	/// <summary>
@@ -50,9 +52,11 @@ public class PauseController : MonoBehaviour
 	/// </summary>
 	public void Unpause()
 	{
+		isShowing = false;
 		// TODO: Move to GameManager
 		Time.timeScale = 1;
 		HideCanvasGroup();
+		EventManager.TriggerEvent(new GamePauseChangeEvent(false));
 	}
 
 	/// <summary>
@@ -62,19 +66,7 @@ public class PauseController : MonoBehaviour
 	{
 		SceneManager.LoadScene(LoadingScene, LoadSceneMode.Single);
 		LoadingManager.Instance.SetSceneToLoad(MainMenuScene);
-		Time.timeScale = 1;
-	}
-
-	private void OnApplicationFocus(bool hasFocus)
-	{
-		if (hasFocus)
-		{
-			Unpause();
-		}
-		else
-		{
-			Pause();
-		}
+		Unpause();
 	}
 
 	private void OnApplicationPause(bool pauseStatus)
@@ -82,10 +74,6 @@ public class PauseController : MonoBehaviour
 		if (pauseStatus)
 		{
 			Pause();
-		}
-		else
-		{
-			Unpause();
 		}
 	}
 
