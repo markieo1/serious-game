@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -727,7 +727,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 775315790}
-  m_LocalRotation: {x: 0.41041112, y: -0, z: -0, w: 0.9119007}
+  m_LocalRotation: {x: 0.41041133, y: -0, z: -0, w: 0.9119006}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1115,22 +1115,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.017422557, y: 0.028225591, z: 0.023199355}
   m_Center: {x: -0.03902031, y: 0.032507673, z: 0.011574077}
---- !u!1 &1447639228 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 100002, guid: d5533d13f20da3e45bd2da8da81de9b4, type: 3}
-  m_PrefabInternal: {fileID: 1313569443}
---- !u!65 &1447639229
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1447639228}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 11.89, y: 1.08, z: 9.24}
-  m_Center: {x: 0, y: 6.22, z: -0.51}
 --- !u!1 &1494912881
 GameObject:
   m_ObjectHideFlags: 3
@@ -1183,7 +1167,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1494912881}
-  m_LocalRotation: {x: 0.4314086, y: -0, z: -0, w: 0.90215665}
+  m_LocalRotation: {x: 0.43140855, y: -0, z: -0, w: 0.9021567}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
