@@ -5,20 +5,20 @@ using UnityEngine;
 
 public abstract class Reaction : ScriptableObject
 {
-	public void Init()
+	public void Init(MonoBehaviour monoBehaviour)
 	{
-		SpecificInit();
+		SpecificInit(monoBehaviour);
 	}
 
 	/// <summary>
 	/// Intializes for specific reactions
 	/// </summary>
-	protected virtual void SpecificInit()
+	/// <param name="monoBehaviour">The mono behaviour.</param>
+	protected virtual void SpecificInit(MonoBehaviour monoBehaviour)
 	{ }
 
 	/// <summary>
 	/// Reacts and supplies the monobehaviour
 	/// </summary>
-	/// <param name="monoBehaviour">The mono behaviour.</param>
-	public abstract void React(MonoBehaviour monoBehaviour);
+	public abstract void React();
 }
