@@ -9,11 +9,13 @@ using UnityEngine.Experimental.UIElements;
 public class PlayerController : MonoBehaviour
 {
 	private bool hasInteractions;
+	private bool isPaused = false;
 
 	private void Start()
 	{
 		EventManager.StartListening<EnterInteractionRegionEvent>(EnteringInteractionRegionEvent);
 		EventManager.StartListening<ExitInteractionRegionEvent>(ExitInteractionRegionEvent);
+		EventManager.StartListening<GamePauseChangeEvent>(OnGamePauseChangeEvent);
 	}
 
 	/// <summary>
@@ -21,10 +23,15 @@ public class PlayerController : MonoBehaviour
 	/// </summary>
 	private void Update()
 	{
-		if (hasInteractions && Input.GetButtonDown("Interact"))
+		if (hasInteractions && !isPaused && Input.GetButtonDown("Interact"))
 		{
 			EventManager.TriggerEvent(new OpenInteractionSelectorEvent());
 		}
+	}
+
+	private void OnGamePauseChangeEvent(GamePauseChangeEvent e)
+	{
+		isPaused = e.IsPaused;
 	}
 
 	private void EnteringInteractionRegionEvent(EventBase @event)
