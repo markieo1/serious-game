@@ -49,6 +49,8 @@ public class InteractionUiController : MonoBehaviour
 		{
 			CanvasGroup.alpha = 1;
 			CanvasGroup.interactable = true;
+
+			Time.timeScale = 0;
 		}
 	}
 
@@ -59,6 +61,7 @@ public class InteractionUiController : MonoBehaviour
 	{
 		CanvasGroup.alpha = 0;
 		CanvasGroup.interactable = false;
+		Time.timeScale = 1;
 	}
 
 	private void Awake()
