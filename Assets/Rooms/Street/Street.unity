@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44497427, g: 0.49455726, b: 0.5736835, a: 1}
+  m_IndirectSpecularColor: {r: 0.4449745, g: 0.4945581, b: 0.5736841, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -165,7 +165,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 15794254}
-  m_LocalRotation: {x: 0.33226627, y: -0, z: -0, w: 0.9431856}
+  m_LocalRotation: {x: 0.3322665, y: -0, z: -0, w: 0.94318557}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -182,7 +182,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 62fa28cbb204e4546a2ad5c1580ee188, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.46
+      value: -0.488
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 62fa28cbb204e4546a2ad5c1580ee188, type: 3}
       propertyPath: m_LocalPosition.y
@@ -373,7 +373,7 @@ GameObject:
   m_Component:
   - component: {fileID: 110833384}
   - component: {fileID: 110833385}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: SouthStreetCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -387,7 +387,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 110833383}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16.7, y: 6.7, z: 10.92}
+  m_LocalPosition: {x: -17.09, y: 6.7, z: 11.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1570123977}
@@ -801,7 +801,7 @@ GameObject:
   m_Component:
   - component: {fileID: 316180446}
   - component: {fileID: 316180447}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: NorthStreetCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -815,7 +815,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 316180445}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -26.43, y: 6.7, z: 3.67}
+  m_LocalPosition: {x: -26.43, y: 6.7, z: 3.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1570123977}
@@ -874,7 +874,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 62fa28cbb204e4546a2ad5c1580ee188, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.099999994
+      value: 0.115
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 62fa28cbb204e4546a2ad5c1580ee188, type: 3}
       propertyPath: m_LocalScale.y
@@ -1157,7 +1157,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 481026447}
-  m_LocalRotation: {x: 0.31034592, y: -0, z: -0, w: 0.9506237}
+  m_LocalRotation: {x: 0.31034592, y: -0, z: -0, w: 0.95062375}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1502,7 +1502,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 724378247}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 24.502272, y: 65.90882, z: 99.63}
+  m_LocalPosition: {x: 24.502272, y: 65.99, z: 99.63}
   m_LocalScale: {x: 6, y: 1, z: 0.5}
   m_Children:
   - {fileID: 1128526905}
@@ -1524,7 +1524,7 @@ GameObject:
   m_Component:
   - component: {fileID: 852570543}
   - component: {fileID: 852570544}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: RightHouseCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1565,7 +1565,7 @@ GameObject:
   m_Component:
   - component: {fileID: 950409799}
   - component: {fileID: 950409800}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: RightStreetCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1579,7 +1579,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 950409798}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -46.71, y: 6.7, z: 7.33}
+  m_LocalPosition: {x: -47.46, y: 6.7, z: 7.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1570123977}
@@ -1801,7 +1801,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1083751987}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 24.502272, y: 65.90882, z: 102.49}
+  m_LocalPosition: {x: 24.502272, y: 65.82, z: 102.49}
   m_LocalScale: {x: 6, y: 1, z: 0.049999997}
   m_Children: []
   m_Father: {fileID: 1713761061}
@@ -2367,7 +2367,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1339675501}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.14, y: -0.2800001, z: -5.460001}
+  m_LocalPosition: {x: -2.14, y: -0.28, z: -5.460001}
   m_LocalScale: {x: 2, y: 1, z: 1.8}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2712,7 +2712,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1570123977}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: StreetColliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3090,7 +3090,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1713761060}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -46.719997, y: -66.18882, z: -93.00627}
+  m_LocalPosition: {x: -46.719997, y: -66.38, z: -93.00627}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 185635960}
@@ -3160,7 +3160,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1747131547}
   - component: {fileID: 1747131548}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: NorthHouseCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3356,7 +3356,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2035578256}
   - component: {fileID: 2035578257}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: LeftHouseCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
