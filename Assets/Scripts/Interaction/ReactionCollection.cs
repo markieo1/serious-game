@@ -15,6 +15,11 @@ public class ReactionCollection : MonoBehaviour
 	/// </summary>
 	public AudioSource AudioSource;
 
+	/// <summary>
+ 	/// The animator source for reactions that play animation
+ 	/// </summary>
+ 	public Animator AnimationSource;
+
 	private void Start()
 	{
 		for (int i = 0; i < reactions.Length; i++)
