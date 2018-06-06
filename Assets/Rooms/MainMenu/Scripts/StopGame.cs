@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class StopGame : MonoBehaviour
@@ -7,9 +8,9 @@ public class StopGame : MonoBehaviour
 	public void Stop_Click()
 	{
 #if UNITY_EDITOR
-		if (UnityEditor.EditorApplication.isPlaying)
+		if (EditorApplication.isPlaying)
 		{
-			UnityEditor.EditorApplication.isPlaying = false;
+			EditorApplication.isPlaying = false;
 		}
 #endif
 		Application.Quit();

@@ -12,16 +12,13 @@ public class SpawnManager : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		if (LoadingManager.Instance.GetSpawnCheck())
+		string spawnTag = LoadingManager.Instance.GetSpawnPoint();
+
+		GameObject spawnObject = SpawnPoints.FirstOrDefault(s => s.tag == spawnTag);
+
+		if (spawnObject != null)
 		{
-			string spawnTag = LoadingManager.Instance.GetSpawnPoint();
-
-			GameObject spawnObject = SpawnPoints.FirstOrDefault(s => s.tag == spawnTag);
-
-			if (spawnObject != null)
-			{
-				SetPlayerToSpawn(Player, spawnObject);
-			}
+			SetPlayerToSpawn(Player, spawnObject);
 		}
 	}
 
