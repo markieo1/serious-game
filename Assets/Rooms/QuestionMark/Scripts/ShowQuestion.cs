@@ -1,30 +1,26 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class ShowQuestion : MonoBehaviour {
-
+public class ShowQuestion : MonoBehaviour
+{
     public Text question;
     public string questionText = "";
-    public float time = 5;
+    //public float time;    
 
     void Start()
     {
-        Text txt = question.GetComponent<Text>();
+        question = GetComponent<Text>();
     }
 
     void Update()
     {
-        if(Input.GetButton("Help"))
+        if (Input.GetButton("Help"))
         {
-            
-            DisplayText();
+            question.text = questionText;
         }
-    }
-
-    void DisplayText()
-    {
-        question.text = questionText;
-        //yield return new WaitForSeconds(time);
+        if (Input.GetButton("Cancel"))
+        {
+            question.text = "";
+        }
     }
 }

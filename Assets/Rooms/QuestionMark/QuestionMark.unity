@@ -432,8 +432,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   question: {fileID: 2090956294}
-  questionText: Question time
-  time: 20
+  questionText: Press H to give Help and press Escape to close the help text
+  time: 5
 --- !u!114 &2090956294
 MonoBehaviour:
   m_ObjectHideFlags: 0
