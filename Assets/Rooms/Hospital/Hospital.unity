@@ -123,7 +123,7 @@ GameObject:
   m_Component:
   - component: {fileID: 47882719}
   - component: {fileID: 47882720}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EastCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -284,7 +284,7 @@ GameObject:
   m_Component:
   - component: {fileID: 279401236}
   - component: {fileID: 279401237}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EastInnerCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -390,7 +390,7 @@ GameObject:
   m_Component:
   - component: {fileID: 505757136}
   - component: {fileID: 505757137}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: NorthCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -492,7 +492,7 @@ GameObject:
   m_Component:
   - component: {fileID: 679933516}
   - component: {fileID: 679933517}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SouthInnerCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -533,7 +533,7 @@ GameObject:
   m_Component:
   - component: {fileID: 757956579}
   - component: {fileID: 757956580}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SouthCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -574,7 +574,7 @@ GameObject:
   m_Component:
   - component: {fileID: 793300751}
   - component: {fileID: 793300752}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: WestCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -614,7 +614,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 810192995}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: WallColliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -961,7 +961,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1459748286}
   - component: {fileID: 1459748287}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: WestInnerCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
