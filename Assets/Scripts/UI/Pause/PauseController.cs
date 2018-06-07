@@ -83,7 +83,7 @@ public class PauseController : MonoBehaviour
 	/// </summary>
 	private void NavigateToMainMenu()
 	{
-		Unpause();
+		GameManager.Instance.Unpause();
 
 		SceneManager.LoadScene(LoadingScene, LoadSceneMode.Single);
 		LoadingManager.Instance.SetSceneToLoad(MainMenuScene);
