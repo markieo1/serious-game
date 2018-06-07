@@ -32,3 +32,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Rooms/Street/Street.unity
     guid: ef4b440f6e876ac4592a3bb16b861f0e
+  - enabled: 1
+    path: Assets/Rooms/Hospital/Hospital.unity
+    guid: 8c59abbd159bc3c4b9d8579c90b60e21
