@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -14,86 +15,77 @@ public class PauseController : MonoBehaviour
 
 	private CanvasGroup CanvasGroup;
 	private bool isShowing = false;
-	private void Awake()
+
+	private void Start()
 	{
 		CanvasGroup = GetComponent<CanvasGroup>();
-		HideCanvasGroup();
+		CanvasGroup.Hide();
+
+		// Register the listener for GamePauseChange
+		EventManager.StartListening<GamePauseChangeEvent>(OnPauseChanged);
 	}
 
-	private void Update()
+	private void OnDestroy()
 	{
-		if (Input.GetButtonDown("Cancel"))
+		EventManager.StopListening<GamePauseChangeEvent>(OnPauseChanged);
+	}
+
+	/// <summary>
+	/// Occures when the unpause button is clicked.
+	/// </summary>
+	public void UnpauseClick()
+	{
+		GameManager.Instance.Unpause();
+	}
+
+	/// <summary>
+	/// Called when pausing is changed.
+	/// </summary>
+	/// <param name="event">The event.</param>
+	private void OnPauseChanged(GamePauseChangeEvent @event)
+	{
+		if (@event.IsPaused)
 		{
-			if (isShowing)
-			{
-				Unpause();
-			}
-			else
-			{
-				Pause();
-			}
+			Pause();
+		}
+		else
+		{
+			Unpause();
 		}
 	}
 
 	/// <summary>
 	/// Pauses the game.
 	/// </summary>
-	public void Pause()
+	private void Pause()
 	{
+		// Check if we are not already showing
+		if (isShowing) return;
+
 		isShowing = true;
-		// TODO: Move to GameManager
-		Time.timeScale = 0;
-		ShowCanvasGroup();
-		EventManager.TriggerEvent(new GamePauseChangeEvent(true));
+		CanvasGroup.Show();
 	}
 
 	/// <summary>
 	/// Unpauses the game.
 	/// </summary>
-	public void Unpause()
+	private void Unpause()
 	{
+		// Check if we are not already invisible
+		if (!isShowing) return;
+
 		isShowing = false;
-		// TODO: Move to GameManager
-		Time.timeScale = 1;
-		HideCanvasGroup();
-		EventManager.TriggerEvent(new GamePauseChangeEvent(false));
+		CanvasGroup.Hide();
 	}
 
 	/// <summary>
 	/// Navigates to main menu.
 	/// </summary>
-	public void NavigateToMainMenu()
+	private void NavigateToMainMenu()
 	{
+		Unpause();
+
 		SceneManager.LoadScene(LoadingScene, LoadSceneMode.Single);
 		LoadingManager.Instance.SetSceneToLoad(MainMenuScene);
-		Unpause();
-	}
-
-	private void OnApplicationPause(bool pauseStatus)
-	{
-		if (pauseStatus)
-		{
-			Pause();
-		}
-	}
-
-	/// <summary>
-	/// Hides the canvas group.
-	/// </summary>
-	private void HideCanvasGroup()
-	{
-		CanvasGroup.alpha = 0;
-		CanvasGroup.interactable = false;
-		CanvasGroup.blocksRaycasts = false;
-	}
-
-	/// <summary>
-	/// Shows the canvas group.
-	/// </summary>
-	private void ShowCanvasGroup()
-	{
-		CanvasGroup.alpha = 1;
-		CanvasGroup.interactable = true;
-		CanvasGroup.blocksRaycasts = true;
 	}
 }
