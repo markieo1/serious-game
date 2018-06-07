@@ -6,7 +6,13 @@ ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Hospital
+    100004: HospitalSky
+    100006: Windows
     400000: //RootNode
+    400002: Hospital
+    400004: HospitalSky
+    400006: Windows
     2100000: Material 1
     2100002: Material 2
     2100004: Material 3
@@ -28,8 +34,16 @@ ModelImporter:
     2100036: Material 19
     2100038: Material 20
     2300000: //RootNode
+    2300002: Hospital
+    2300004: HospitalSky
+    2300006: Windows
     3300000: //RootNode
+    3300002: Hospital
+    3300004: HospitalSky
+    3300006: Windows
     4300000: Hospital
+    4300002: Windows
+    4300004: HospitalSky
   externalObjects:
   - first:
       type: UnityEngine:Material

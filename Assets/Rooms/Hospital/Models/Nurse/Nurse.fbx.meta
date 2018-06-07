@@ -1,0 +1,537 @@
+fileFormatVersion: 2
+guid: 493b463ce5bd2dc45b823f0037994377
+timeCreated: 1528362136
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Armature
+    100002: B_Hair_1
+    100004: B_Hair_2
+    100006: B_Hair_3
+    100008: B_Hair_4
+    100010: B_Hair_5
+    100012: B_Hair_5_end
+    100014: Body
+    100016: Breast_L
+    100018: Breast_L_end
+    100020: Breast_R
+    100022: Breast_R_end
+    100024: Cheek_Left_1
+    100026: Cheek_Left_1_end
+    100028: Cheek_Left_2
+    100030: Cheek_Left_2_end
+    100032: Cheek_Left_3
+    100034: Cheek_Left_3_end
+    100036: Cheek_Left_4
+    100038: Cheek_Left_4_end
+    100040: Cheek_Left_5
+    100042: Cheek_Left_5_end
+    100044: Cheek_Right_1
+    100046: Cheek_Right_1_end
+    100048: Cheek_Right_2
+    100050: Cheek_Right_2_end
+    100052: Cheek_Right_3
+    100054: Cheek_Right_3_end
+    100056: Cheek_Right_4
+    100058: Cheek_Right_4_end
+    100060: Cheek_Right_5
+    100062: Cheek_Right_5_end
+    100064: Chest
+    100066: Eyeball_Left
+    100068: Eyeball_Left_end
+    100070: Eyeball_Right
+    100072: Eyeball_Right_end
+    100074: Eyebrow_Left_1
+    100076: Eyebrow_Left_1_end
+    100078: Eyebrow_Left_2
+    100080: Eyebrow_Left_2_end
+    100082: Eyebrow_Left_3
+    100084: Eyebrow_Left_3_end
+    100086: Eyebrow_Right_1
+    100088: Eyebrow_Right_1_end
+    100090: Eyebrow_Right_2
+    100092: Eyebrow_Right_2_end
+    100094: Eyebrow_Right_3
+    100096: Eyebrow_Right_3_end
+    100098: Eyebrows_Middle
+    100100: Eyebrows_Middle_end
+    100102: Eyelid_Lower_Left
+    100104: Eyelid_Lower_Left2
+    100106: Eyelid_Lower_Left2_end
+    100108: Eyelid_Lower_Right
+    100110: Eyelid_Lower_Right2
+    100112: Eyelid_Lower_Right2_end
+    100114: Eyelid_Upper_Left
+    100116: Eyelid_Upper_Left_end
+    100118: Eyelid_Upper_Right
+    100120: Eyelid_Upper_Right_end
+    100122: Head
+    100124: Hips
+    100126: IndexFinger1_L
+    100128: IndexFinger1_R
+    100130: IndexFinger2_L
+    100132: IndexFinger2_R
+    100134: IndexFinger3_L
+    100136: IndexFinger3_L_end
+    100138: IndexFinger3_R
+    100140: IndexFinger3_R_end
+    100142: Jaw
+    100144: L_Arm_Adj
+    100146: L_Arm_Adj_end
+    100148: L_Leg_Adj
+    100150: L_Leg_Adj_end
+    100152: Left ankle
+    100154: Left arm
+    100156: Left elbow
+    100158: Left knee
+    100160: Left leg
+    100162: Left shoulder
+    100164: Left toe
+    100166: Left toe_end
+    100168: Left wrist
+    100170: LF_Hair_1a
+    100172: LF_Hair_1b
+    100174: LF_Hair_1c
+    100176: LF_Hair_1d
+    100178: LF_Hair_1d_end
+    100180: LF_Hair_2a
+    100182: LF_Hair_2b
+    100184: LF_Hair_2c
+    100186: LF_Hair_2d
+    100188: LF_Hair_2d_end
+    100190: Lip_Lower_Left
+    100192: Lip_Lower_Left_2
+    100194: Lip_Lower_Left_2_end
+    100196: Lip_Lower_Left_end
+    100198: Lip_Lower_Right
+    100200: Lip_Lower_Right_2
+    100202: Lip_Lower_Right_2_end
+    100204: Lip_Lower_Right_end
+    100206: Lip_Upper_Left
+    100208: Lip_Upper_Left_2
+    100210: Lip_Upper_Left_2_end
+    100212: Lip_Upper_Left_end
+    100214: Lip_Upper_Right
+    100216: Lip_Upper_Right_2
+    100218: Lip_Upper_Right_2_end
+    100220: Lip_Upper_Right_end
+    100222: LittleFinger1_L
+    100224: LittleFinger1_R
+    100226: LittleFinger2_L
+    100228: LittleFinger2_R
+    100230: LittleFinger3_L
+    100232: LittleFinger3_L_end
+    100234: LittleFinger3_R
+    100236: LittleFinger3_R_end
+    100238: MiddleFinger1_L
+    100240: MiddleFinger1_R
+    100242: MiddleFinger2_L
+    100244: MiddleFinger2_R
+    100246: MiddleFinger3_L
+    100248: MiddleFinger3_L_end
+    100250: MiddleFinger3_R
+    100252: MiddleFinger3_R_end
+    100254: Mouth_Corner_Left
+    100256: Mouth_Corner_Left_end
+    100258: Mouth_Corner_Right
+    100260: Mouth_Corner_Right_end
+    100262: Neck
+    100264: Nose_Center
+    100266: Nose_Center_end
+    100268: Nose_Upper_Left
+    100270: Nose_Upper_Left_end
+    100272: Nose_Upper_Right
+    100274: Nose_Upper_Right_end
+    100276: Nostril_Left
+    100278: Nostril_Left_end
+    100280: Nostril_Right
+    100282: //RootNode
+    100284: R_Leg_Adj
+    100286: R_Leg_Adj_end
+    100288: RF_Hair_1a
+    100290: RF_Hair_1b
+    100292: RF_Hair_1b_end
+    100294: RF_Hair_2a
+    100296: RF_Hair_2b
+    100298: RF_Hair_2b_end
+    100300: Right ankle
+    100302: Right arm
+    100304: Right elbow
+    100306: Right knee
+    100308: Right leg
+    100310: Right shoulder
+    100312: Right toe
+    100314: Right toe_end
+    100316: Right wrist
+    100318: RingFinger1_L
+    100320: RingFinger1_R
+    100322: RingFinger2_L
+    100324: RingFinger2_R
+    100326: RingFinger3_L
+    100328: RingFinger3_L_end
+    100330: RingFinger3_R
+    100332: RingFinger3_R_end
+    100334: Spine
+    100336: Thumb0_L
+    100338: Thumb0_R
+    100340: Thumb1_L
+    100342: Thumb1_R
+    100344: Thumb2_L
+    100346: Thumb2_L_end
+    100348: Thumb2_R
+    100350: Thumb2_R_end
+    100352: Tongue_1
+    100354: Tongue_2
+    100356: Tongue_2_end
+    400000: Armature
+    400002: B_Hair_1
+    400004: B_Hair_2
+    400006: B_Hair_3
+    400008: B_Hair_4
+    400010: B_Hair_5
+    400012: B_Hair_5_end
+    400014: Body
+    400016: Breast_L
+    400018: Breast_L_end
+    400020: Breast_R
+    400022: Breast_R_end
+    400024: Cheek_Left_1
+    400026: Cheek_Left_1_end
+    400028: Cheek_Left_2
+    400030: Cheek_Left_2_end
+    400032: Cheek_Left_3
+    400034: Cheek_Left_3_end
+    400036: Cheek_Left_4
+    400038: Cheek_Left_4_end
+    400040: Cheek_Left_5
+    400042: Cheek_Left_5_end
+    400044: Cheek_Right_1
+    400046: Cheek_Right_1_end
+    400048: Cheek_Right_2
+    400050: Cheek_Right_2_end
+    400052: Cheek_Right_3
+    400054: Cheek_Right_3_end
+    400056: Cheek_Right_4
+    400058: Cheek_Right_4_end
+    400060: Cheek_Right_5
+    400062: Cheek_Right_5_end
+    400064: Chest
+    400066: Eyeball_Left
+    400068: Eyeball_Left_end
+    400070: Eyeball_Right
+    400072: Eyeball_Right_end
+    400074: Eyebrow_Left_1
+    400076: Eyebrow_Left_1_end
+    400078: Eyebrow_Left_2
+    400080: Eyebrow_Left_2_end
+    400082: Eyebrow_Left_3
+    400084: Eyebrow_Left_3_end
+    400086: Eyebrow_Right_1
+    400088: Eyebrow_Right_1_end
+    400090: Eyebrow_Right_2
+    400092: Eyebrow_Right_2_end
+    400094: Eyebrow_Right_3
+    400096: Eyebrow_Right_3_end
+    400098: Eyebrows_Middle
+    400100: Eyebrows_Middle_end
+    400102: Eyelid_Lower_Left
+    400104: Eyelid_Lower_Left2
+    400106: Eyelid_Lower_Left2_end
+    400108: Eyelid_Lower_Right
+    400110: Eyelid_Lower_Right2
+    400112: Eyelid_Lower_Right2_end
+    400114: Eyelid_Upper_Left
+    400116: Eyelid_Upper_Left_end
+    400118: Eyelid_Upper_Right
+    400120: Eyelid_Upper_Right_end
+    400122: Head
+    400124: Hips
+    400126: IndexFinger1_L
+    400128: IndexFinger1_R
+    400130: IndexFinger2_L
+    400132: IndexFinger2_R
+    400134: IndexFinger3_L
+    400136: IndexFinger3_L_end
+    400138: IndexFinger3_R
+    400140: IndexFinger3_R_end
+    400142: Jaw
+    400144: L_Arm_Adj
+    400146: L_Arm_Adj_end
+    400148: L_Leg_Adj
+    400150: L_Leg_Adj_end
+    400152: Left ankle
+    400154: Left arm
+    400156: Left elbow
+    400158: Left knee
+    400160: Left leg
+    400162: Left shoulder
+    400164: Left toe
+    400166: Left toe_end
+    400168: Left wrist
+    400170: LF_Hair_1a
+    400172: LF_Hair_1b
+    400174: LF_Hair_1c
+    400176: LF_Hair_1d
+    400178: LF_Hair_1d_end
+    400180: LF_Hair_2a
+    400182: LF_Hair_2b
+    400184: LF_Hair_2c
+    400186: LF_Hair_2d
+    400188: LF_Hair_2d_end
+    400190: Lip_Lower_Left
+    400192: Lip_Lower_Left_2
+    400194: Lip_Lower_Left_2_end
+    400196: Lip_Lower_Left_end
+    400198: Lip_Lower_Right
+    400200: Lip_Lower_Right_2
+    400202: Lip_Lower_Right_2_end
+    400204: Lip_Lower_Right_end
+    400206: Lip_Upper_Left
+    400208: Lip_Upper_Left_2
+    400210: Lip_Upper_Left_2_end
+    400212: Lip_Upper_Left_end
+    400214: Lip_Upper_Right
+    400216: Lip_Upper_Right_2
+    400218: Lip_Upper_Right_2_end
+    400220: Lip_Upper_Right_end
+    400222: LittleFinger1_L
+    400224: LittleFinger1_R
+    400226: LittleFinger2_L
+    400228: LittleFinger2_R
+    400230: LittleFinger3_L
+    400232: LittleFinger3_L_end
+    400234: LittleFinger3_R
+    400236: LittleFinger3_R_end
+    400238: MiddleFinger1_L
+    400240: MiddleFinger1_R
+    400242: MiddleFinger2_L
+    400244: MiddleFinger2_R
+    400246: MiddleFinger3_L
+    400248: MiddleFinger3_L_end
+    400250: MiddleFinger3_R
+    400252: MiddleFinger3_R_end
+    400254: Mouth_Corner_Left
+    400256: Mouth_Corner_Left_end
+    400258: Mouth_Corner_Right
+    400260: Mouth_Corner_Right_end
+    400262: Neck
+    400264: Nose_Center
+    400266: Nose_Center_end
+    400268: Nose_Upper_Left
+    400270: Nose_Upper_Left_end
+    400272: Nose_Upper_Right
+    400274: Nose_Upper_Right_end
+    400276: Nostril_Left
+    400278: Nostril_Left_end
+    400280: Nostril_Right
+    400282: //RootNode
+    400284: R_Leg_Adj
+    400286: R_Leg_Adj_end
+    400288: RF_Hair_1a
+    400290: RF_Hair_1b
+    400292: RF_Hair_1b_end
+    400294: RF_Hair_2a
+    400296: RF_Hair_2b
+    400298: RF_Hair_2b_end
+    400300: Right ankle
+    400302: Right arm
+    400304: Right elbow
+    400306: Right knee
+    400308: Right leg
+    400310: Right shoulder
+    400312: Right toe
+    400314: Right toe_end
+    400316: Right wrist
+    400318: RingFinger1_L
+    400320: RingFinger1_R
+    400322: RingFinger2_L
+    400324: RingFinger2_R
+    400326: RingFinger3_L
+    400328: RingFinger3_L_end
+    400330: RingFinger3_R
+    400332: RingFinger3_R_end
+    400334: Spine
+    400336: Thumb0_L
+    400338: Thumb0_R
+    400340: Thumb1_L
+    400342: Thumb1_R
+    400344: Thumb2_L
+    400346: Thumb2_L_end
+    400348: Thumb2_R
+    400350: Thumb2_R_end
+    400352: Tongue_1
+    400354: Tongue_2
+    400356: Tongue_2_end
+    2100000: Cloth
+    2100002: Eyes
+    2100004: Hat
+    2100006: Head
+    2100008: Enveye
+    2100010: Eyeshine
+    2100012: Shadow
+    2100014: Hera
+    2100016: Eyelash2
+    4300000: Body
+    9500000: //RootNode
+    13700000: Body
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cloth
+    second: {fileID: 2100000, guid: 5235d1e06dc47ce4683da6134f8f7430, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Enveye
+    second: {fileID: 2100000, guid: 7d75f7048b7501d43abde228e4f2bf72, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eyelash2
+    second: {fileID: 2100000, guid: c6cddc1ed6670584dae68b123b714c3b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eyes
+    second: {fileID: 2100000, guid: 49a0a050d5db4d54ea762f91fceb6c01, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eyeshine
+    second: {fileID: 2100000, guid: a14d9a0260c27d348a3d5d9fd72f395d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Hat
+    second: {fileID: 2100000, guid: 59f529e0bcabba745b29e93968de817e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Head
+    second: {fileID: 2100000, guid: d11e2d69b414d5645866ccdc07be9599, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Hera
+    second: {fileID: 2100000, guid: b210fd05a7f9f8144a190d92bfe767f2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Shadow
+    second: {fileID: 2100000, guid: 8ceb378fb02ba8a4b938ca4e55e86fd6, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Miu_EyeShadow
+    second: {fileID: 2800000, guid: 5a7320aa975bc79409bc6772c4314f6d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Miu_Eye_d
+    second: {fileID: 2800000, guid: 4a670701fd8591f468138e07c01af057, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Miu_Face_D
+    second: {fileID: 2800000, guid: ffcf08d09e16daa40b3427ebfd4f35be, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Miu_Hair_D
+    second: {fileID: 2800000, guid: c2a4101a81ca85c47a8843a7bff6889b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Miu_Lashes
+    second: {fileID: 2800000, guid: 577f18580f5630740a7778fa9f706dc5, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Miu_Shine_D
+    second: {fileID: 2800000, guid: ff2b5cb04b2816145859f9fb9394a077, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: cloth
+    second: {fileID: 2800000, guid: 3bd1436292a13074cb3989be6fde0f96, type: 3}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
