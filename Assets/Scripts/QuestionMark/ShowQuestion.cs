@@ -5,24 +5,38 @@ public class ShowQuestion : MonoBehaviour
 {
     public Text question;
     public string questionText = "";
-    public Transform target;
-    public LayerMask layermask;
+    private bool showtext = false;
 
     void Start()
     {
-        question = GetComponent<Text>();
+        question.GetComponent<Text>();
+    }
+
+    void OnTriggerStay(Collider collider)
+    {
+        if(collider.tag == "Player")
+        {
+            showtext = true;
+        }
+    }
+
+    void OnTriggerExit(Collider collider)
+    {
+        if(collider.tag == "Player")
+        {
+            showtext = false;
+        }
     }
 
     void Update()
     {
-
-        //question.text = questionText;
-        //Debug.Log(Physics.Linecast(transform.position, target.position, layermask.value));
-
-        var MirrorObj = Physics.Linecast(transform.position, target.position, layermask.value);
-        if (MirrorObj)
+        if(showtext)
         {
             question.text = questionText;
+        }
+        else
+        {
+            question.text = "";
         }
     }
 }
