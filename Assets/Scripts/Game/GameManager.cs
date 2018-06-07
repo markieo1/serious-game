@@ -1,13 +1,25 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
 	public static GameManager Instance { get; protected set; }
 
-	private bool gameOver;
 	public bool IsPaused { get; protected set; }
+	public MenuType OpenedMenu { get; protected set; }
+	public bool CanInteract
+	{
+		get
+		{
+			return interactionPossiblities.Any();
+		}
+	}
+
+	private bool gameOver;
+	private List<Interaction> interactionPossiblities;
 
 	private void Awake()
 	{
@@ -24,13 +36,20 @@ public class GameManager : MonoBehaviour
 	void OnDisable()
 	{
 		EventManager.StopListening<GameOverEvent>(OnGameOver);
+		EventManager.StopListening<EnterInteractionRegionEvent>(OnEnterInteractionRegion);
+		EventManager.StopListening<ExitInteractionRegionEvent>(OnExitInteractionRegion);
 	}
 
 	// Use this for initialization
 	void Start()
 	{
+		OpenedMenu = MenuType.None;
+		interactionPossiblities = new List<Interaction>();
+
 		// Start Event Listener
 		EventManager.StartListening<GameOverEvent>(OnGameOver);
+		EventManager.StartListening<EnterInteractionRegionEvent>(OnEnterInteractionRegion);
+		EventManager.StartListening<ExitInteractionRegionEvent>(OnExitInteractionRegion);
 	}
 
 	// Update is called once per frame
@@ -92,5 +111,41 @@ public class GameManager : MonoBehaviour
 			Pause();
 		}
 	}
+	#endregion
+
+	#region "Interaction"	
+	/// <summary>
+	/// Checks the interaction.
+	/// </summary>
+	private void CheckInteraction()
+	{
+		// If we are paused we cannot do any interactions
+		if (IsPaused) return;
+
+		// If we do not have any interactions we cannot interact anyway
+		if (!interactionPossiblities.Any()) return;
+
+		// If the interaction menu is open we can close, else we cant do anything
+		if (OpenedMenu != MenuType.None && OpenedMenu != MenuType.Interaction) return;
+
+		if (Input.GetButtonDown("Interact"))
+		{
+			EventManager.TriggerEvent(new OpenInteractionSelectorEvent());
+
+		}
+	}
+
+	#region "Events"
+	private void OnExitInteractionRegion(ExitInteractionRegionEvent e)
+	{
+		interactionPossiblities.Clear();
+	}
+
+	private void OnEnterInteractionRegion(EnterInteractionRegionEvent e)
+	{
+		interactionPossiblities.Clear();
+		interactionPossiblities.AddRange(e.Interactions);
+	}
+	#endregion
 	#endregion
 }
