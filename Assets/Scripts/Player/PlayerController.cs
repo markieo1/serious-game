@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour
 	public void PlaySport(float sugar, float sportLimit)
 	{
 		// To Do: Check for day and night
-
+		// Move gameover to GameManager
 		if (bloodSugarlevel <= 20)
 		{
 			EventManager.TriggerEvent(new GameOverEvent());
