@@ -165,7 +165,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 15794254}
-  m_LocalRotation: {x: -0.04324621, y: 0.9404808, z: -0.31061175, w: -0.13094275}
+  m_LocalRotation: {x: -0.043246105, y: 0.9404808, z: -0.31061175, w: -0.13094287}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -813,6 +813,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &280134122
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 280134123}
+  m_Layer: 0
+  m_Name: DoctorDoorSpawnPoint
+  m_TagString: HospitalFrontDoor
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &280134123
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 280134122}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 0.169, z: -1.179}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1217545767}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &301444761
 GameObject:
   m_ObjectHideFlags: 0
@@ -1138,6 +1166,50 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 62fa28cbb204e4546a2ad5c1580ee188, type: 3}
+--- !u!1 &454798617
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 454798618}
+  - component: {fileID: 454798619}
+  m_Layer: 0
+  m_Name: DoctorDoorReaction
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &454798618
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 454798617}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1239465159}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &454798619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 454798617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b86a8d42731b3a24582d30b6068c8b05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reactions:
+  - {fileID: 11400000, guid: 1b61525da9cd03548831cbd1c4ca49d7, type: 2}
+  AudioSource: {fileID: 0}
+  AnimationSource: {fileID: 0}
 --- !u!1 &481026447
 GameObject:
   m_ObjectHideFlags: 3
@@ -2710,6 +2782,137 @@ Transform:
   m_Father: {fileID: 217997838}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1217545766
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 498984, guid: 43cefcf568e58d84d802bbb3c6a74777, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -34.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 498984, guid: 43cefcf568e58d84d802bbb3c6a74777, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 498984, guid: 43cefcf568e58d84d802bbb3c6a74777, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 14.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 498984, guid: 43cefcf568e58d84d802bbb3c6a74777, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 498984, guid: 43cefcf568e58d84d802bbb3c6a74777, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 498984, guid: 43cefcf568e58d84d802bbb3c6a74777, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 498984, guid: 43cefcf568e58d84d802bbb3c6a74777, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 498984, guid: 43cefcf568e58d84d802bbb3c6a74777, type: 2}
+      propertyPath: m_RootOrder
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 498984, guid: 43cefcf568e58d84d802bbb3c6a74777, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 498984, guid: 43cefcf568e58d84d802bbb3c6a74777, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 498984, guid: 43cefcf568e58d84d802bbb3c6a74777, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 151704, guid: 43cefcf568e58d84d802bbb3c6a74777, type: 2}
+      propertyPath: m_Name
+      value: Doctors Office
+      objectReference: {fileID: 0}
+    - target: {fileID: 151704, guid: 43cefcf568e58d84d802bbb3c6a74777, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 145988, guid: 43cefcf568e58d84d802bbb3c6a74777, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 109390, guid: 43cefcf568e58d84d802bbb3c6a74777, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 43cefcf568e58d84d802bbb3c6a74777, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &1217545767 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 498984, guid: 43cefcf568e58d84d802bbb3c6a74777, type: 2}
+  m_PrefabInternal: {fileID: 1217545766}
+--- !u!1 &1239465158
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1239465159}
+  - component: {fileID: 1239465160}
+  - component: {fileID: 1239465161}
+  m_Layer: 0
+  m_Name: DoctorDoorInteraction
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &1239465159
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1239465158}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.44, z: -1.027}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 454798618}
+  m_Father: {fileID: 1217545767}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1239465160
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1239465158}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 0.3455774}
+  m_Center: {x: 0, y: 0, z: 0.046419073}
+--- !u!114 &1239465161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1239465158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38c29bafd6429a24a926068558ccdba0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Interactions:
+  - Action: Huisarts bezoeken
+    Reactions: {fileID: 454798619}
 --- !u!1 &1253505470
 GameObject:
   m_ObjectHideFlags: 0
@@ -3088,6 +3291,7 @@ MonoBehaviour:
   Player: {fileID: 1703607281}
   SpawnPoints:
   - {fileID: 505955022}
+  - {fileID: 280134122}
 --- !u!4 &1507518320
 Transform:
   m_ObjectHideFlags: 0
