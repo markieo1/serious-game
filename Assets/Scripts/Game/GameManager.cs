@@ -8,7 +8,16 @@ public class GameManager : MonoBehaviour
 {
 	public static GameManager Instance { get; protected set; }
 
+	/// <summary>
+	/// Gets or sets a value indicating whether the game is paused.
+	/// </summary>
 	public bool IsPaused { get; protected set; }
+
+	/// <summary>
+	/// Gets a value indicating whether any menu is open.
+	/// </summary>
+	public bool AnyMenuOpen { get { return OpenedMenu != MenuType.None; } }
+
 	public MenuType OpenedMenu { get; protected set; }
 	public bool CanInteract
 	{
@@ -100,6 +109,14 @@ public class GameManager : MonoBehaviour
 			}
 			else
 			{
+				// Not paused, check if we have any menu open
+				if (AnyMenuOpen)
+				{
+					// We should close the menu
+					CloseMenu(OpenedMenu);
+				}
+
+				// We have nothing open so we can pause
 				Pause();
 			}
 		}
@@ -110,6 +127,27 @@ public class GameManager : MonoBehaviour
 		if (pause)
 		{
 			Pause();
+		}
+	}
+	#endregion
+
+	#region "Menu"
+	private void CloseMenu(MenuType menuType)
+	{
+		// No menu is open
+		if (menuType == MenuType.None) return;
+
+		switch (menuType)
+		{
+			case MenuType.Interaction:
+				{
+					CloseInteraction();
+					break;
+				}
+			default:
+				{
+					throw new NotImplementedException("Closing menu type: " + menuType + " is not supported!");
+				}
 		}
 	}
 	#endregion
@@ -135,16 +173,32 @@ public class GameManager : MonoBehaviour
 			if (isInteractionMenuOpen)
 			{
 				// We are closing
-				OpenedMenu = MenuType.None;
+				CloseInteraction();
 			}
 			else
 			{
 				// We are opening
-				OpenedMenu = MenuType.Interaction;
+				OpenInteraction();
 			}
-
-			EventManager.TriggerEvent(new InteractionSelectorChangeEvent(!isInteractionMenuOpen));
 		}
+	}
+
+	/// <summary>
+	/// Closes the interaction.
+	/// </summary>
+	public void CloseInteraction()
+	{
+		OpenedMenu = MenuType.None;
+		EventManager.TriggerEvent(new InteractionSelectorChangeEvent(false));
+	}
+
+	/// <summary>
+	/// Opens the interaction.
+	/// </summary>
+	public void OpenInteraction()
+	{
+		OpenedMenu = MenuType.Interaction;
+		EventManager.TriggerEvent(new InteractionSelectorChangeEvent(true));
 	}
 
 	#region "Events"
