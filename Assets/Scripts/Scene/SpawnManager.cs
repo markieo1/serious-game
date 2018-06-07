@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-	public float TimeToSpawnInSeconds;
+	public float TimeToSpawnInSeconds = 10;
 
 	public GameObject Player;
 	public List<GameObject> SpawnPoints;
