@@ -131,7 +131,8 @@ public class GameManager : MonoBehaviour
 
 		if (Input.GetButtonDown("Interact"))
 		{
-			if (OpenedMenu == MenuType.Interaction)
+			bool isInteractionMenuOpen = OpenedMenu == MenuType.Interaction;
+			if (isInteractionMenuOpen)
 			{
 				// We are closing
 				OpenedMenu = MenuType.None;
@@ -142,7 +143,7 @@ public class GameManager : MonoBehaviour
 				OpenedMenu = MenuType.Interaction;
 			}
 
-			EventManager.TriggerEvent(new InteractionSelectorChangeEvent(OpenedMenu == MenuType.Interaction));
+			EventManager.TriggerEvent(new InteractionSelectorChangeEvent(!isInteractionMenuOpen));
 		}
 	}
 

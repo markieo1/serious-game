@@ -82,7 +82,7 @@ public class InteractionUiController : MonoBehaviour
 
 		EventManager.StartListening<EnterInteractionRegionEvent>(OnInteractionRegionEntered);
 		EventManager.StartListening<ExitInteractionRegionEvent>(OnInteractionRegionExit);
-		EventManager.StartListening<InteractionSelectorChangeEvent>(OnOpenInteractionSelector);
+		EventManager.StartListening<InteractionSelectorChangeEvent>(OnInteractionSelectorChange);
 
 		InitObjectPool();
 	}
@@ -91,7 +91,7 @@ public class InteractionUiController : MonoBehaviour
 	{
 		EventManager.StopListening<EnterInteractionRegionEvent>(OnInteractionRegionEntered);
 		EventManager.StopListening<ExitInteractionRegionEvent>(OnInteractionRegionExit);
-		EventManager.StopListening<InteractionSelectorChangeEvent>(OnOpenInteractionSelector);
+		EventManager.StopListening<InteractionSelectorChangeEvent>(OnInteractionSelectorChange);
 	}
 
 	private void OnInteractionRegionEntered(EnterInteractionRegionEvent @event)
@@ -142,12 +142,12 @@ public class InteractionUiController : MonoBehaviour
 		}
 	}
 
-	private void OnOpenInteractionSelector(EventBase eventBase)
+	private void OnInteractionSelectorChange(InteractionSelectorChangeEvent @event)
 	{
 		// Check if active, if so we should hide
 		bool isOpen = CanvasGroup.IsVisible();
 
-		if (isOpen)
+		if (isOpen && !@event.ShouldOpen)
 		{
 			Close();
 		}
