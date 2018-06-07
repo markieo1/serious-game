@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 33011038023628482}
   - component: {fileID: 23336863596566486}
   m_Layer: 0
-  m_Name: (null)
+  m_Name: Syringe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54,6 +54,8 @@ GameObject:
   - component: {fileID: 4587946614316908}
   - component: {fileID: 65279794448989156}
   - component: {fileID: 114638394148163404}
+  - component: {fileID: 136816918798484698}
+  - component: {fileID: 54645585959602116}
   m_Layer: 0
   m_Name: InsulinSyringe
   m_TagString: Untagged
@@ -69,7 +71,7 @@ Transform:
   m_GameObject: {fileID: 1928285164724952}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4833565175415118}
   - {fileID: 4742474751431878}
@@ -146,7 +148,22 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1555988614238646}
-  m_Mesh: {fileID: 4300000, guid: 337e59a4d2c9ea24c864f32426cc6b13, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 09da4009a3a6d8b42b81bd8aef721d14, type: 3}
+--- !u!54 &54645585959602116
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1928285164724952}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 106
+  m_CollisionDetection: 0
 --- !u!65 &65279794448989156
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -173,6 +190,7 @@ MonoBehaviour:
   reactions:
   - {fileID: 11400000, guid: 513127b717a6fc041bc038e55ab37b50, type: 2}
   AudioSource: {fileID: 0}
+  AnimationSource: {fileID: 0}
 --- !u!114 &114638394148163404
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -187,3 +205,16 @@ MonoBehaviour:
   Interactions:
   - Action: Gebruik Insuline
     Reactions: {fileID: 114261821428909942}
+--- !u!136 &136816918798484698
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1928285164724952}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.1
+  m_Height: 0.6
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0}

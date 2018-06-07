@@ -49,6 +49,7 @@ public class InteractionUiController : MonoBehaviour
 		{
 			CanvasGroup.alpha = 1;
 			CanvasGroup.interactable = true;
+			CanvasGroup.blocksRaycasts = true;
 
 			Time.timeScale = 0;
 		}
@@ -61,6 +62,7 @@ public class InteractionUiController : MonoBehaviour
 	{
 		CanvasGroup.alpha = 0;
 		CanvasGroup.interactable = false;
+		CanvasGroup.blocksRaycasts = false;
 		Time.timeScale = 1;
 	}
 
@@ -131,19 +133,7 @@ public class InteractionUiController : MonoBehaviour
 	/// </summary>
 	private void UpdateItemList()
 	{
-		for (int i = 0; i <= ObjectPool.Count - 1; i++)
-		{
-			if (ObjectPool.Count != 0 && ObjectPool.ElementAtOrDefault(i) != null)
-			{
-				ObjectPool[i].SetActive(false);
-			}
-		}
-
-		// First de-activate the complete pool
-		//if (ObjectPool.Count != 0 || check == false)
-		//{
-		//	ObjectPool.ForEach(x => x.SetActive(false));
-		//}
+		ObjectPool.ForEach(x => x.SetActive(false));
 
 		foreach (Interaction interaction in Interactions)
 		{
@@ -177,12 +167,7 @@ public class InteractionUiController : MonoBehaviour
 	/// <returns></returns>
 	private GameObject GetNextInPool()
 	{
-		GameObject obj = null;
-
-		if (ObjectPool.Count != 0 && ObjectPool.ElementAtOrDefault(0) != null)
-		{
-			obj = ObjectPool.FirstOrDefault(x => !x.activeInHierarchy);
-		}
+		GameObject obj = ObjectPool.FirstOrDefault(x => !x.activeInHierarchy);
 
 		if (obj == null)
 		{

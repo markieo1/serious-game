@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class BloodSugar : MonoBehaviour
 {
+
+	public float MinimumBelowLevel;
+	public float MaximumAboveLevel;
+
 	/// <summary>
 	/// How much the blood sugar level should decay per second.
 	/// </summary>
@@ -34,6 +38,11 @@ public class BloodSugar : MonoBehaviour
 		float decay = DecayPerSecond * Time.deltaTime;
 
 		CharacterData.DecrementBloodSugar(decay);
+
+		if (CharacterData.BloodSugarLevel <= MinimumBelowLevel || CharacterData.BloodSugarLevel >= MaximumAboveLevel)
+		{
+			EventManager.TriggerEvent(new GameOverEvent());
+		}
 
 		animator.SetFloat("BloodSugar", CharacterData.BloodSugarLevel);
 	}
