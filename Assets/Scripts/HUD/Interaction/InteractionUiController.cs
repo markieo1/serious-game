@@ -82,7 +82,7 @@ public class InteractionUiController : MonoBehaviour
 
 		EventManager.StartListening<EnterInteractionRegionEvent>(OnInteractionRegionEntered);
 		EventManager.StartListening<ExitInteractionRegionEvent>(OnInteractionRegionExit);
-		EventManager.StartListening<OpenInteractionSelectorEvent>(OnOpenInteractionSelector);
+		EventManager.StartListening<InteractionSelectorChangeEvent>(OnOpenInteractionSelector);
 
 		InitObjectPool();
 	}
@@ -91,7 +91,7 @@ public class InteractionUiController : MonoBehaviour
 	{
 		EventManager.StopListening<EnterInteractionRegionEvent>(OnInteractionRegionEntered);
 		EventManager.StopListening<ExitInteractionRegionEvent>(OnInteractionRegionExit);
-		EventManager.StopListening<OpenInteractionSelectorEvent>(OnOpenInteractionSelector);
+		EventManager.StopListening<InteractionSelectorChangeEvent>(OnOpenInteractionSelector);
 	}
 
 	private void OnInteractionRegionEntered(EnterInteractionRegionEvent @event)

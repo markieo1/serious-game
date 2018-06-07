@@ -16,7 +16,7 @@ public class InteractionPopupController : MonoBehaviour
 	{
 		EventManager.StartListening<EnterInteractionRegionEvent>(OnInteractionRegionEntered);
 		EventManager.StartListening<ExitInteractionRegionEvent>(OnInteractionRegionExit);
-		EventManager.StartListening<OpenInteractionSelectorEvent>(OnOpenInteractionSelector);
+		EventManager.StartListening<InteractionSelectorChangeEvent>(OnOpenInteractionSelector);
 		EventManager.StartListening<GamePauseChangeEvent>(OnGamePauseChangeEvent);
 	}
 
@@ -24,7 +24,7 @@ public class InteractionPopupController : MonoBehaviour
 	{
 		EventManager.StopListening<EnterInteractionRegionEvent>(OnInteractionRegionEntered);
 		EventManager.StopListening<ExitInteractionRegionEvent>(OnInteractionRegionExit);
-		EventManager.StopListening<OpenInteractionSelectorEvent>(OnOpenInteractionSelector);
+		EventManager.StopListening<InteractionSelectorChangeEvent>(OnOpenInteractionSelector);
 		EventManager.StopListening<GamePauseChangeEvent>(OnGamePauseChangeEvent);
 	}
 

@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour
 	void Update()
 	{
 		CheckPausing();
+		CheckInteraction();
 		if (gameOver == true)
 		{
 			// Show GameOver Scene
@@ -130,8 +131,18 @@ public class GameManager : MonoBehaviour
 
 		if (Input.GetButtonDown("Interact"))
 		{
-			EventManager.TriggerEvent(new OpenInteractionSelectorEvent());
+			if (OpenedMenu == MenuType.Interaction)
+			{
+				// We are closing
+				OpenedMenu = MenuType.None;
+			}
+			else
+			{
+				// We are opening
+				OpenedMenu = MenuType.Interaction;
+			}
 
+			EventManager.TriggerEvent(new InteractionSelectorChangeEvent(OpenedMenu == MenuType.Interaction));
 		}
 	}
 
