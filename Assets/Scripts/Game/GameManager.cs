@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-	public static GameManager Instance;
+	public static GameManager Instance { get; protected set; }
 
 	private bool gameOver;
+	public bool IsPaused { get; protected set; }
 
 	private void Awake()
 	{
@@ -35,6 +36,7 @@ public class GameManager : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		CheckPausing();
 		if (gameOver == true)
 		{
 			// Show GameOver Scene
@@ -45,4 +47,50 @@ public class GameManager : MonoBehaviour
 	{
 		gameOver = true;
 	}
+
+	#region "Pausing"
+	/// <summary>
+	/// Pauses the game.
+	/// </summary>
+	public void Pause()
+	{
+		Time.timeScale = 0;
+		EventManager.TriggerEvent(new GamePauseChangeEvent(true));
+	}
+
+	/// <summary>
+	/// Unpauses the game.
+	/// </summary>
+	public void Unpause()
+	{
+		Time.timeScale = 1;
+		EventManager.TriggerEvent(new GamePauseChangeEvent(false));
+	}
+
+	/// <summary>
+	/// Checks the pausing.
+	/// </summary>
+	private void CheckPausing()
+	{
+		if (Input.GetButtonDown("Cancel"))
+		{
+			if (IsPaused)
+			{
+				Unpause();
+			}
+			else
+			{
+				Pause();
+			}
+		}
+	}
+
+	private void OnApplicationPause(bool pause)
+	{
+		if (pause)
+		{
+			Pause();
+		}
+	}
+	#endregion
 }
