@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
 {
 	private bool hasInteractions;
 	private bool isPaused = false;
-	public float bloodSugarlevel { get { return CharacterData.BloodSugarLevel; } }
+	public float BloodSugarlevel { get { return CharacterData.BloodSugarLevel; } }
 
 	private void Start()
 	{
@@ -74,16 +74,18 @@ public class PlayerController : MonoBehaviour
 	/// Lower sugar level when playing sport
 	/// </summary>
 	/// <param name="sugar">The sugar.</param>
-	public void PlaySport(float sugar, float sportLimit)
+	public void PlaySport(float sugar, float sportLimit )
 	{
 		// To Do: Check for day and night
 		// Move gameover to GameManager
-		if (bloodSugarlevel <= 20)
+		// Warning should be configurable
+
+		if (BloodSugarlevel <= 20)
 		{
 			EventManager.TriggerEvent(new GameOverEvent());
 		}
 
-		if (bloodSugarlevel <= sportLimit)
+		if (BloodSugarlevel <= sportLimit)
 		{
 			EventManager.TriggerEvent(new ShowPopupEvent(PopupItem.Indefinitely("Jouw bloed suiker spiegel is te laag om te sporten.")));
 		}

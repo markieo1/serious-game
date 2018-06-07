@@ -19,11 +19,6 @@ public class SoccerBall : MonoBehaviour {
 		Player = PlayerController.GetPlayer();
 
 	}
-	
-	// Update is called once per frame
-	void Update () {
-
-	}
 
 	private void OnCollisionStay(Collision collision)
 	{
