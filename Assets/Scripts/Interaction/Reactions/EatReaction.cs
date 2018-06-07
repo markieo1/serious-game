@@ -43,5 +43,6 @@ public class EatReaction : Reaction
 
 		// Finally destroy the element
 		Destroy(InteractableObject);
+		EventManager.TriggerEvent(new ExitInteractionRegionEvent());
 	}
 }
