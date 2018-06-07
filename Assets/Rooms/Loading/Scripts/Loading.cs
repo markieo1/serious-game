@@ -5,8 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class Loading : MonoBehaviour
 {
-	public Fade Fading;
-
 	void Start()
 	{
 		string sceneName = LoadingManager.Instance.GetNextScene();
@@ -21,10 +19,6 @@ public class Loading : MonoBehaviour
 			Debug.LogError("Loading screen started without next scene.");
 			yield break;
 		}
-
-		yield return StartCoroutine(Fading.FadeIn());
-
-		yield return StartCoroutine(Fading.FadeOut());
 
 		AsyncOperation loadingScene = SceneManager.LoadSceneAsync(sceneName);
 
