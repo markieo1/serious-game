@@ -26,7 +26,7 @@ public class SoccerBall : MonoBehaviour {
 
 			float decay = DecayPerSecond * Time.deltaTime;
 			
-			Player.PlaySport(DecayPerSecond, SportLimit);
+			Player.PlaySport(decay, SportLimit);
 		}
 	}
 }
