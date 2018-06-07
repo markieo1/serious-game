@@ -43,6 +43,6 @@ public class GameManager : MonoBehaviour
 
 	private void SetGameOver(GameOverEvent @event)
 	{
-		gameOver = @event.GameOver;
+		gameOver = true;
 	}
 }
