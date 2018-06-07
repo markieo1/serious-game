@@ -15,7 +15,7 @@ public class SwitchSceneReaction : Reaction
 	[Tag]
 	public string SpawnPoint;
 
-	public override void React(MonoBehaviour monoBehaviour)
+	public override void React()
 	{
 		SceneManager.LoadScene(LoadingScene, LoadSceneMode.Single);
 		LoadingManager.Instance.SetSceneToLoad(NewScene);

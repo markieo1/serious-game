@@ -49,6 +49,7 @@ public class InteractionUiController : MonoBehaviour
 		{
 			CanvasGroup.alpha = 1;
 			CanvasGroup.interactable = true;
+			CanvasGroup.blocksRaycasts = true;
 
 			Time.timeScale = 0;
 		}
@@ -61,6 +62,7 @@ public class InteractionUiController : MonoBehaviour
 	{
 		CanvasGroup.alpha = 0;
 		CanvasGroup.interactable = false;
+		CanvasGroup.blocksRaycasts = false;
 		Time.timeScale = 1;
 	}
 
@@ -131,7 +133,6 @@ public class InteractionUiController : MonoBehaviour
 	/// </summary>
 	private void UpdateItemList()
 	{
-		// First de-activate the complete pool
 		ObjectPool.ForEach(x => x.SetActive(false));
 
 		foreach (Interaction interaction in Interactions)
@@ -167,6 +168,7 @@ public class InteractionUiController : MonoBehaviour
 	private GameObject GetNextInPool()
 	{
 		GameObject obj = ObjectPool.FirstOrDefault(x => !x.activeInHierarchy);
+
 		if (obj == null)
 		{
 			obj = CreateEmptyInteractionItem();

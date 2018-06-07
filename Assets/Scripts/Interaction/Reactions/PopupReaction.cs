@@ -20,7 +20,7 @@ public class PopupReaction : Reaction
 	/// </summary>
 	public string Text;
 
-	public override void React(MonoBehaviour monoBehaviour)
+	public override void React()
 	{
 		EventManager.TriggerEvent(new ShowPopupEvent(PopupItem.WithDelayAndLimit(Text, DelayInSeconds, DisplayTimeInSeconds)));
 	}

@@ -6,7 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Reactions/Example")]
 public class ExampleReaction : Reaction
 {
-	public override void React(MonoBehaviour monoBehaviour)
+	public override void React()
 	{
 		Debug.Log("Example reaction has been called");
 	}

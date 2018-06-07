@@ -9,11 +9,14 @@ using UnityEngine.Experimental.UIElements;
 public class PlayerController : MonoBehaviour
 {
 	private bool hasInteractions;
+	private bool isPaused = false;
+	public float BloodSugarlevel { get { return CharacterData.BloodSugarLevel; } }
 
 	private void Start()
 	{
 		EventManager.StartListening<EnterInteractionRegionEvent>(EnteringInteractionRegionEvent);
 		EventManager.StartListening<ExitInteractionRegionEvent>(ExitInteractionRegionEvent);
+		EventManager.StartListening<GamePauseChangeEvent>(OnGamePauseChangeEvent);
 	}
 
 	/// <summary>
@@ -21,10 +24,15 @@ public class PlayerController : MonoBehaviour
 	/// </summary>
 	private void Update()
 	{
-		if (hasInteractions && Input.GetButtonDown("Interact"))
+		if (hasInteractions && !isPaused && Input.GetButtonDown("Interact"))
 		{
 			EventManager.TriggerEvent(new OpenInteractionSelectorEvent());
 		}
+	}
+
+	private void OnGamePauseChangeEvent(GamePauseChangeEvent e)
+	{
+		isPaused = e.IsPaused;
 	}
 
 	private void EnteringInteractionRegionEvent(EventBase @event)
@@ -51,6 +59,38 @@ public class PlayerController : MonoBehaviour
 	public void Eat(float sugar)
 	{
 		CharacterData.IncrementBloodSugar(sugar);
+	}
+
+	/// <summary>
+	/// Inject insulin, which adjusts the sugar level.
+	/// </summary>
+	/// <param name="sugar">The sugar.</param>
+	public void Insulin(float sugar)
+	{
+		CharacterData.DecrementBloodSugar(sugar);
+	}
+
+	/// <summary>
+	/// Lower sugar level when playing sport
+	/// </summary>
+	/// <param name="sugar">The sugar.</param>
+	public void PlaySport(float sugar, float sportLimit )
+	{
+		// To Do: Check for day and night
+		// Move gameover to GameManager
+		// Warning should be configurable
+
+		if (BloodSugarlevel <= 20)
+		{
+			EventManager.TriggerEvent(new GameOverEvent());
+		}
+
+		if (BloodSugarlevel <= sportLimit)
+		{
+			EventManager.TriggerEvent(new ShowPopupEvent(PopupItem.Indefinitely("Jouw bloed suiker spiegel is te laag om te sporten.")));
+		}
+
+		CharacterData.DecrementBloodSugar(sugar);
 	}
 
 	/// <summary>

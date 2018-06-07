@@ -9,12 +9,15 @@ public class InteractionPopupController : MonoBehaviour
 	/// </summary>
 	public string InfoMessage = "Press the \"Interact\" button to open the interaction menu.";
 
+	private bool isPaused = false;
+
 	// Use this for initialization
 	void Start()
 	{
 		EventManager.StartListening<EnterInteractionRegionEvent>(OnInteractionRegionEntered);
 		EventManager.StartListening<ExitInteractionRegionEvent>(OnInteractionRegionExit);
 		EventManager.StartListening<OpenInteractionSelectorEvent>(OnOpenInteractionSelector);
+		EventManager.StartListening<GamePauseChangeEvent>(OnGamePauseChangeEvent);
 	}
 
 	private void OnDestroy()
@@ -22,10 +25,18 @@ public class InteractionPopupController : MonoBehaviour
 		EventManager.StopListening<EnterInteractionRegionEvent>(OnInteractionRegionEntered);
 		EventManager.StopListening<ExitInteractionRegionEvent>(OnInteractionRegionExit);
 		EventManager.StopListening<OpenInteractionSelectorEvent>(OnOpenInteractionSelector);
+		EventManager.StopListening<GamePauseChangeEvent>(OnGamePauseChangeEvent);
+	}
+
+	private void OnGamePauseChangeEvent(GamePauseChangeEvent @event)
+	{
+		isPaused = @event.IsPaused;
 	}
 
 	private void OnInteractionRegionEntered(EnterInteractionRegionEvent @event)
 	{
+		if (isPaused) return;
+
 		PopupItem popupItem = PopupItem.Indefinitely(InfoMessage);
 		EventManager.TriggerEvent(new ShowPopupEvent(popupItem));
 	}
@@ -37,6 +48,8 @@ public class InteractionPopupController : MonoBehaviour
 
 	private void OnOpenInteractionSelector(EventBase eventBase)
 	{
+		if (isPaused) return;
+
 		EventManager.TriggerEvent(new ClosePopupEvent());
 	}
 }
