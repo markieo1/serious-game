@@ -1958,6 +1958,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02434c4716732014ab81e6102be47328, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MinimumBelowLevel: 20
+  MaximumAboveLevel: 70
   DecayPerSecond: 0.1
   WalkingDecayMultiplier: 1
   RunningDecayMultiplier: 2
