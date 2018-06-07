@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
 {
 	private bool hasInteractions;
 	private bool isPaused = false;
+	public float bloosSugarlevel { get { return CharacterData.BloodSugarLevel; } }
 
 	private void Start()
 	{
