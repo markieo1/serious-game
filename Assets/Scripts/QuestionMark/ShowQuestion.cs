@@ -15,12 +15,14 @@ public class ShowQuestion : MonoBehaviour
 
     void Update()
     {
+
+        question.text = questionText;
         //Debug.Log(Physics.Linecast(transform.position, target.position, layermask.value));
 
-        var MirrorObj = Physics.Linecast(transform.position, target.position, layermask.value);
-        if(MirrorObj)
-        {
-            question.text = questionText;
-        }
+        //var MirrorObj = Physics.Linecast(transform.position, target.position, layermask.value);
+        //if(MirrorObj)
+        //{
+            
+        //}
     }
 }
