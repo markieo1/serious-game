@@ -47,9 +47,7 @@ public class InteractionUiController : MonoBehaviour
 	{
 		if (CanOpen)
 		{
-			CanvasGroup.alpha = 1;
-			CanvasGroup.interactable = true;
-			CanvasGroup.blocksRaycasts = true;
+			CanvasGroup.Show();
 
 			Time.timeScale = 0;
 		}
@@ -60,9 +58,7 @@ public class InteractionUiController : MonoBehaviour
 	/// </summary>
 	public void Close()
 	{
-		CanvasGroup.alpha = 0;
-		CanvasGroup.interactable = false;
-		CanvasGroup.blocksRaycasts = false;
+		CanvasGroup.Hide();
 		Time.timeScale = 1;
 	}
 
@@ -149,7 +145,7 @@ public class InteractionUiController : MonoBehaviour
 	private void OnOpenInteractionSelector(EventBase eventBase)
 	{
 		// Check if active, if so we should hide
-		bool isOpen = CanvasGroup.alpha > 0;
+		bool isOpen = CanvasGroup.IsVisible();
 
 		if (isOpen)
 		{

@@ -12,6 +12,8 @@ TagManager:
   - LivingroomDoor
   - StreetDoor
   - HallwayStreetDoor
+  - HospitalFrontDoor
+  - HospitalInsideDoor
   layers:
   - Default
   - TransparentFX
