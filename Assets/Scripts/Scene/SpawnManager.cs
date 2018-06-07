@@ -5,13 +5,28 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
+	public float TimeToSpawnInSeconds;
 
 	public GameObject Player;
 	public List<GameObject> SpawnPoints;
 
+	public List<Transform> TransformPoints;
+	public List<GameObject> FoodObjects;
+
+	Dictionary<Transform, Interactable> TransformPointsAndFoodObjects;
+
 	// Use this for initialization
 	void Start()
 	{
+		TransformPointsAndFoodObjects = new Dictionary<Transform, Interactable>();
+
+		// loop through points insert in dictionary
+		TransformPoints.ForEach(x =>
+		{
+			TransformPointsAndFoodObjects.Add(x, null);
+		});
+
+
 		if (LoadingManager.Instance.GetSpawnCheck())
 		{
 			string spawnTag = LoadingManager.Instance.GetSpawnPoint();
@@ -21,6 +36,32 @@ public class SpawnManager : MonoBehaviour
 			if (spawnObject != null)
 			{
 				SetPlayerToSpawn(Player, spawnObject);
+			}
+		}
+
+		if (TransformPoints != null && TransformPoints.Count > 0 && FoodObjects != null && FoodObjects.Count > 0)
+		{
+			InvokeRepeating("CheckAndSpawnFood", 0, TimeToSpawnInSeconds);
+		}
+	}
+
+	public void CheckAndSpawnFood()
+	{
+		// Check in dictionary if value is null, if so spawn random
+
+		for (int i = 0; i < TransformPointsAndFoodObjects.Count; i++)
+		{
+			var x = TransformPointsAndFoodObjects.ElementAtOrDefault(i);
+			if (x.Value)
+			{
+				continue;
+			}
+			else
+			{
+				int randomNumber = Random.Range(0, FoodObjects.Count);
+				var t = Instantiate(FoodObjects[randomNumber], x.Key.position, Quaternion.identity);
+				Interactable comp = t.GetComponent<Interactable>();
+				TransformPointsAndFoodObjects[x.Key] = comp;
 			}
 		}
 	}
