@@ -88,7 +88,7 @@ Transform:
   m_GameObject: {fileID: 1000013678658166}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4416130523226176}
   - {fileID: 4000013711606732}
@@ -268,6 +268,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reactions:
   - {fileID: 11400000, guid: 7bcf58441d6ca9849a5ac78e67bb5e0e, type: 2}
+  AudioSource: {fileID: 0}
+  AnimationSource: {fileID: 0}
 --- !u!205 &205000011201749446
 LODGroup:
   m_ObjectHideFlags: 1
