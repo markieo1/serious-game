@@ -41,7 +41,7 @@ public class BloodSugar : MonoBehaviour
 
 		if (CharacterData.BloodSugarLevel <= MinimumBelowLevel || CharacterData.BloodSugarLevel >= MaximumAboveLevel)
 		{
-			EventManager.TriggerEvent(new GameOverEvent(true));
+			EventManager.TriggerEvent(new GameOverEvent());
 		}
 
 		animator.SetFloat("BloodSugar", CharacterData.BloodSugarLevel);

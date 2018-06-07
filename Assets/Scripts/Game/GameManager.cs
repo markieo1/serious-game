@@ -22,14 +22,14 @@ public class GameManager : MonoBehaviour
 
 	void OnDisable()
 	{
-		EventManager.StopListening<GameOverEvent>(SetGameOver);
+		EventManager.StopListening<GameOverEvent>(OnGameOver);
 	}
 
 	// Use this for initialization
 	void Start()
 	{
 		// Start Event Listener
-		EventManager.StartListening<GameOverEvent>(SetGameOver);
+		EventManager.StartListening<GameOverEvent>(OnGameOver);
 	}
 
 	// Update is called once per frame
@@ -41,8 +41,8 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
-	private void SetGameOver(GameOverEvent @event)
+	private void OnGameOver(GameOverEvent @event)
 	{
-		gameOver = @event.GameOver;
+		gameOver = true;
 	}
 }
