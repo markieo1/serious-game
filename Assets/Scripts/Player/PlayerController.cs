@@ -52,6 +52,16 @@ public class PlayerController : MonoBehaviour
 	}
 
 	/// <summary>
+	/// Lets the player sleep
+	/// </summary>
+	public void Sleep()
+	{
+		CharacterData.ResetBloodSugar();
+
+		// TODO: Implement the time changes
+	}
+
+	/// <summary>
 	/// Gets the player.
 	/// </summary>
 	/// <returns></returns>
