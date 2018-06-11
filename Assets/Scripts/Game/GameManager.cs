@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 {
 	public static GameManager Instance { get; protected set; }
 
+	public Achievement[] AchievmentList = new Achievement[0];
+
 	/// <summary>
 	/// Gets or sets a value indicating whether the game is paused.
 	/// </summary>
@@ -213,5 +215,9 @@ public class GameManager : MonoBehaviour
 		interactionPossiblities.AddRange(e.Interactions);
 	}
 	#endregion
+	#endregion
+
+	#region "Achievement"
+
 	#endregion
 }
