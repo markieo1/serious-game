@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+	private ITimeManager timeManager;
+
 	public static GameManager Instance { get; protected set; }
 
 	/// <summary>
@@ -52,6 +54,8 @@ public class GameManager : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
+		timeManager = new TimeManager();
+
 		OpenedMenu = MenuType.None;
 		interactionPossiblities = new List<Interaction>();
 
@@ -64,6 +68,7 @@ public class GameManager : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		timeManager.Tick();
 		CheckPausing();
 		CheckInteraction();
 		if (gameOver == true)
@@ -83,7 +88,7 @@ public class GameManager : MonoBehaviour
 	/// </summary>
 	public void Pause()
 	{
-		Time.timeScale = 0;
+		timeManager.Pause();
 		EventManager.TriggerEvent(new GamePauseChangeEvent(true));
 	}
 
@@ -92,7 +97,7 @@ public class GameManager : MonoBehaviour
 	/// </summary>
 	public void Unpause()
 	{
-		Time.timeScale = 1;
+		timeManager.Unpause();
 		EventManager.TriggerEvent(new GamePauseChangeEvent(false));
 	}
 
