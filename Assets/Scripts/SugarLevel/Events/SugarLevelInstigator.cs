@@ -5,6 +5,7 @@ using System.Text;
 
 public enum SugarLevelInstigator
 {
+	INITIAL,
 	FOOD,
 	WATER,
 	EXERCISE,

@@ -3,45 +3,50 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Assets.Scripts.AI
+public class AIManager
 {
-	public class AIManager
+	private static AIManager mInstance;
+
+	/// <summary>
+	/// Gets the instance.
+	/// </summary>
+	public static AIManager Instance
 	{
-		private static AIManager mInstance;
-
-		/// <summary>
-		/// Gets the instance.
-		/// </summary>
-		public static AIManager Instance
+		get
 		{
-			get
+			if (mInstance == null)
 			{
-				if (mInstance == null)
-				{
-					mInstance = new AIManager();
-				}
-
-				return mInstance;
-			}
-		}
-
-		private List<SugarChangedEvent> sugarChangeEvents;
-
-		private AIManager()
-		{
-			this.sugarChangeEvents = new List<SugarChangedEvent>();
-			EventManager.StartListening<SugarChangedEvent>(OnSugarChanged);
-		}
-
-		private void OnSugarChanged(SugarChangedEvent e)
-		{
-			// Don't fill up the list with natural decay events
-			if(e.Instigator == SugarLevelInstigator.DECAY)
-			{
-				return;
+				mInstance = new AIManager();
 			}
 
-			this.sugarChangeEvents.Add(e);
+			return mInstance;
 		}
+	}
+
+	public static IEnumerable<SugarChangedEvent> SugarEvents
+	{
+		get
+		{
+			return Instance.sugarChangeEvents;
+		}
+	}
+
+	private List<SugarChangedEvent> sugarChangeEvents;
+
+	private AIManager()
+	{
+		this.sugarChangeEvents = new List<SugarChangedEvent>();
+		EventManager.StartListening<SugarChangedEvent>(OnSugarChanged);
+	}
+
+	private void OnSugarChanged(SugarChangedEvent e)
+	{
+		// Don't fill up the list with natural decay events
+		if (e.Instigator == SugarLevelInstigator.DECAY)
+		{
+			return;
+		}
+
+		this.sugarChangeEvents.Add(e);
 	}
 }

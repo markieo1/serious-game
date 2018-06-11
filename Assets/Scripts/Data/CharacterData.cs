@@ -20,7 +20,7 @@ public static class CharacterData
 	static CharacterData()
 	{
 		BloodSugarLevel = 50;
-		EventManager.TriggerEvent(new SugarChangedEvent(BloodSugarLevel));
+		EventManager.TriggerEvent(new SugarChangedEvent(BloodSugarLevel, BloodSugarLevel, SugarLevelInstigator.INITIAL));
 	}
 
 	/// <summary>
@@ -29,8 +29,9 @@ public static class CharacterData
 	/// <param name="sugar">The sugar.</param>
 	public static void IncrementBloodSugar(float sugar)
 	{
+		float oldSugar = CharacterData.BloodSugarLevel;
 		CharacterData.BloodSugarLevel += sugar;
-		EventManager.TriggerEvent(new SugarChangedEvent(CharacterData.BloodSugarLevel));
+		EventManager.TriggerEvent(new SugarChangedEvent(CharacterData.BloodSugarLevel, oldSugar));
 	}
 
 	/// <summary>
@@ -40,8 +41,9 @@ public static class CharacterData
 	/// <param name="instigator">The type of instigator that caused the change.</param>
 	public static void IncrementBloodSugar(float sugar, SugarLevelInstigator instigator)
 	{
+		float oldSugar = CharacterData.BloodSugarLevel;
 		CharacterData.BloodSugarLevel += sugar;
-		EventManager.TriggerEvent(new SugarChangedEvent(CharacterData.BloodSugarLevel, instigator));
+		EventManager.TriggerEvent(new SugarChangedEvent(CharacterData.BloodSugarLevel, oldSugar, instigator));
 	}
 
 	/// <summary>
@@ -50,8 +52,9 @@ public static class CharacterData
 	/// <param name="sugar">The sugar.</param>
 	public static void DecrementBloodSugar(float sugar)
 	{
+		float oldSugar = CharacterData.BloodSugarLevel;
 		CharacterData.BloodSugarLevel -= sugar;
-		EventManager.TriggerEvent(new SugarChangedEvent(CharacterData.BloodSugarLevel));
+		EventManager.TriggerEvent(new SugarChangedEvent(CharacterData.BloodSugarLevel, oldSugar));
 	}
 
 	/// <summary>
@@ -61,8 +64,9 @@ public static class CharacterData
 	/// <param name="instigator">The type of instigator that caused the change.</param>
 	public static void DecrementBloodSugar(float sugar, SugarLevelInstigator instigator)
 	{
+		float oldSugar = CharacterData.BloodSugarLevel;
 		CharacterData.BloodSugarLevel -= sugar;
-		EventManager.TriggerEvent(new SugarChangedEvent(CharacterData.BloodSugarLevel, instigator));
+		EventManager.TriggerEvent(new SugarChangedEvent(CharacterData.BloodSugarLevel, oldSugar, instigator));
 	}
 }
 
