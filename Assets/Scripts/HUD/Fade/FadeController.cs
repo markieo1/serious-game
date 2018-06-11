@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,28 +7,70 @@ using UnityEngine.UI;
 public class FadeController : MonoBehaviour
 {
 	public Image FadeImage;
+
 	// Use this for initialization
 	void Start()
 	{
-		// Ensure the alpha is set to 0
-		FadeImage.CrossFadeAlpha(0, 0, true);
+		// Listen for the event
+		EventManager.StartListening<FadeChangeEvent>(OnFadeChangeEvent);
+	}
+
+	private void OnDestroy()
+	{
+		EventManager.StopListening<FadeChangeEvent>(OnFadeChangeEvent);
 	}
 
 	/// <summary>
 	/// Fades in an image
 	/// </summary>
 	/// <param name="duration">The duration.</param>
-	public void FadeIn(float duration = 3)
+	public IEnumerator FadeIn(float duration)
 	{
-		FadeImage.CrossFadeAlpha(1, 3, true);
+		float elapsedTime = 0.0f;
+		Color c = FadeImage.color;
+		while (elapsedTime < duration)
+		{
+			yield return null;
+			elapsedTime += Time.deltaTime;
+			c.a = Mathf.Clamp01(elapsedTime / duration);
+			FadeImage.color = c;
+		}
 	}
 
 	/// <summary>
 	/// Fades out an image
 	/// </summary>
 	/// <param name="duration">The duration.</param>
-	public void FadeOut(float duration = 3)
+	public IEnumerator FadeOut(float duration)
 	{
-		FadeImage.CrossFadeAlpha(0, 3, true);
+		float elapsedTime = 0.0f;
+		Color c = FadeImage.color;
+		while (elapsedTime < duration)
+		{
+			yield return null;
+			elapsedTime += Time.deltaTime;
+			c.a = 1.0f - Mathf.Clamp01(elapsedTime / duration);
+			FadeImage.color = c;
+		}
+	}
+
+	private void OnFadeChangeEvent(FadeChangeEvent e)
+	{
+		StopAllCoroutines();
+		switch (e.FadeType)
+		{
+			case FadeType.In:
+				{
+					StartCoroutine(FadeIn(e.Duration));
+					break;
+				}
+			case FadeType.Out:
+				{
+					StartCoroutine(FadeOut(e.Duration));
+					break;
+				}
+			default:
+				throw new NotImplementedException();
+		}
 	}
 }
