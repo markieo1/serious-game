@@ -5,28 +5,12 @@ public class ShowHint : MonoBehaviour {
 
     public Text question;
     public string questionText = "";
-    private bool showtext;
 
-	void Start () {
-        question.GetComponent<Text>();
-	}
-	
-	void Update () {
-        if (showtext)
-        {
-            question.text = questionText;
-        }
-        else
-        {
-            question.text = "";
-        }
-    }
-
-    void OnTriggerStay(Collider collider)
+    void OnTriggerEnter(Collider collider)
     {
         if (collider.tag == "Player")
         {
-            showtext = true;
+            question.text = questionText;
         }
     }
 
@@ -34,7 +18,7 @@ public class ShowHint : MonoBehaviour {
     {
         if (collider.tag == "Player")
         {
-            showtext = false;
+            question.text = "";
         }
     }
 }
