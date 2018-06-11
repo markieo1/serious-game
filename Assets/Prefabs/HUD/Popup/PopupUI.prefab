@@ -70,7 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06498f1b310b8f54d9d0ed477e86e740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InfoMessage: Druk op de "Interactie" knop om het menu te openen.
+  InfoMessage: Druk op de "E" knop om het menu te openen.
 --- !u!114 &114938878146368962
 MonoBehaviour:
   m_ObjectHideFlags: 1
