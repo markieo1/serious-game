@@ -83,6 +83,7 @@ public class GameManager : MonoBehaviour
 	/// </summary>
 	public void Pause()
 	{
+		IsPaused = true;
 		Time.timeScale = 0;
 		EventManager.TriggerEvent(new GamePauseChangeEvent(true));
 	}
@@ -92,6 +93,7 @@ public class GameManager : MonoBehaviour
 	/// </summary>
 	public void Unpause()
 	{
+		IsPaused = false;
 		Time.timeScale = 1;
 		EventManager.TriggerEvent(new GamePauseChangeEvent(false));
 	}
@@ -189,6 +191,7 @@ public class GameManager : MonoBehaviour
 	public void CloseInteraction()
 	{
 		OpenedMenu = MenuType.None;
+		Time.timeScale = 1;
 		EventManager.TriggerEvent(new InteractionSelectorChangeEvent(false));
 	}
 
@@ -198,7 +201,17 @@ public class GameManager : MonoBehaviour
 	public void OpenInteraction()
 	{
 		OpenedMenu = MenuType.Interaction;
+		Time.timeScale = 0;
 		EventManager.TriggerEvent(new InteractionSelectorChangeEvent(true));
+	}
+
+	/// <summary>
+	/// Called when [player interacted].
+	/// </summary>
+	public void OnPlayerInteracted()
+	{
+		Time.timeScale = 1;
+		OpenedMenu = MenuType.None;
 	}
 
 	#region "Events"
