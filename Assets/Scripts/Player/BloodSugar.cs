@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class BloodSugar : MonoBehaviour
 {
-
 	public float MinimumBelowLevel;
 	public float MaximumAboveLevel;
 
@@ -37,7 +36,7 @@ public class BloodSugar : MonoBehaviour
 	{
 		float decay = DecayPerSecond * Time.deltaTime;
 
-		CharacterData.DecrementBloodSugar(decay);
+		CharacterData.DecrementBloodSugar(decay, SugarLevelInstigator.DECAY);
 
 		if (CharacterData.BloodSugarLevel <= MinimumBelowLevel || CharacterData.BloodSugarLevel >= MaximumAboveLevel)
 		{

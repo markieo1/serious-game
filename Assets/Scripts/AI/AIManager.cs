@@ -25,14 +25,23 @@ namespace Assets.Scripts.AI
 			}
 		}
 
+		private List<SugarChangedEvent> sugarChangeEvents;
+
 		private AIManager()
 		{
+			this.sugarChangeEvents = new List<SugarChangedEvent>();
 			EventManager.StartListening<SugarChangedEvent>(OnSugarChanged);
 		}
 
 		private void OnSugarChanged(SugarChangedEvent e)
 		{
-			
+			// Don't fill up the list with natural decay events
+			if(e.Instigator == SugarLevelInstigator.DECAY)
+			{
+				return;
+			}
+
+			this.sugarChangeEvents.Add(e);
 		}
 	}
 }
