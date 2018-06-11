@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
 	/// <param name="sugar">The sugar.</param>
 	public void Eat(float sugar)
 	{
-		CharacterData.IncrementBloodSugar(sugar);
+		CharacterData.IncrementBloodSugar(sugar, SugarLevelInstigator.FOOD);
 	}
 
 	/// <summary>
@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
 	/// <param name="sugar">The sugar.</param>
 	public void Insulin(float sugar)
 	{
-		CharacterData.DecrementBloodSugar(sugar);
+		CharacterData.DecrementBloodSugar(sugar, SugarLevelInstigator.INSULIN);
 	}
 
 	/// <summary>
@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
 			EventManager.TriggerEvent(new ShowPopupEvent(PopupItem.Indefinitely("Jouw bloed suiker spiegel is te laag om te sporten.")));
 		}
 
-		CharacterData.DecrementBloodSugar(sugar);
+		CharacterData.DecrementBloodSugar(sugar, SugarLevelInstigator.EXERCISE);
 	}
 
 	/// <summary>

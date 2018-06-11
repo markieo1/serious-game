@@ -34,6 +34,17 @@ public static class CharacterData
 	}
 
 	/// <summary>
+	/// Increments the blood sugar.
+	/// </summary>
+	/// <param name="sugar">The sugar.</param>
+	/// <param name="instigator">The type of instigator that caused the change.</param>
+	public static void IncrementBloodSugar(float sugar, SugarLevelInstigator instigator)
+	{
+		CharacterData.BloodSugarLevel += sugar;
+		EventManager.TriggerEvent(new SugarChangedEvent(CharacterData.BloodSugarLevel, instigator));
+	}
+
+	/// <summary>
 	/// Decrements the blood sugar.
 	/// </summary>
 	/// <param name="sugar">The sugar.</param>
@@ -41,6 +52,17 @@ public static class CharacterData
 	{
 		CharacterData.BloodSugarLevel -= sugar;
 		EventManager.TriggerEvent(new SugarChangedEvent(CharacterData.BloodSugarLevel));
+	}
+
+	/// <summary>
+	/// Decrements the blood sugar.
+	/// </summary>
+	/// <param name="sugar">The sugar.</param>
+	/// <param name="instigator">The type of instigator that caused the change.</param>
+	public static void DecrementBloodSugar(float sugar, SugarLevelInstigator instigator)
+	{
+		CharacterData.BloodSugarLevel -= sugar;
+		EventManager.TriggerEvent(new SugarChangedEvent(CharacterData.BloodSugarLevel, instigator));
 	}
 }
 
