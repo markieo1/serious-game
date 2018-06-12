@@ -40,4 +40,9 @@ public class TimeManager : ITimeManager
 	{
 		this.timeScale = timeScale;
 	}
+
+	public bool IsDay()
+	{
+		return CurrentTime.Hours > 8 && CurrentTime.Hours < 20;
+	}
 }
