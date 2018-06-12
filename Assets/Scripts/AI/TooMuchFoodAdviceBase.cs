@@ -14,10 +14,9 @@ public class TooMuchFoodAdviceBase : AIAdvice
 
 	public override bool IsAdviceApplicable()
 	{
-		foreach(SugarChangedEvent e in AIManager.SugarEvents.Where(ev => ev.Instigator == SugarLevelInstigator.FOOD))
+		foreach(SugarHighEvent e in AIManager.SugarHighEvents)
 		{
-			float change = e.Value - e.OldValue;
-			if(change > 0 && e.Value > SugarWarningLevel)
+			if(e.Instigator == SugarLevelInstigator.FOOD)
 			{
 				return true;
 			}
