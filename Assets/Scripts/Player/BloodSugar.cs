@@ -35,8 +35,6 @@ public class BloodSugar : MonoBehaviour
 
 		CharacterData.DecrementBloodSugar(decay, SugarLevelInstigator.DECAY);
 
-		
-
 		animator.SetFloat("BloodSugar", CharacterData.BloodSugarLevel);
 	}
 }

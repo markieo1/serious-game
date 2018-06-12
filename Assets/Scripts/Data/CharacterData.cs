@@ -22,6 +22,17 @@ public static class CharacterData
 	/// </summary>
 	public static float BloodSugarLevel { get; private set; }
 
+	/// <summary>
+	/// Gets the blood sugar percentage, where 0% is the absolute minimum and 100% is the absolute maximum.
+	/// </summary>
+	public static float BloodSugarPercentage
+	{
+		get
+		{
+			return (BloodSugarLevel - GameManager.Instance.MinimumBloodSugarLevel) / (GameManager.Instance.MaximumBloodSugarLevel - GameManager.Instance.MinimumBloodSugarLevel);
+		}
+	}
+
 	static CharacterData()
 	{
 		ResetBloodSugar();
@@ -34,8 +45,20 @@ public static class CharacterData
 	public static void IncrementBloodSugar(float sugar)
 	{
 		float oldSugar = CharacterData.BloodSugarLevel;
+		bool isAlreadyHigh = false;
+		if (BloodSugarPercentage > 80)
+		{
+			isAlreadyHigh = true;
+		}
+
 		CharacterData.BloodSugarLevel += sugar;
 		EventManager.TriggerEvent(new SugarChangedEvent(CharacterData.BloodSugarLevel, oldSugar));
+
+		// If blood sugar is already high, don't send out another event.
+		if (BloodSugarPercentage < 80 && !isAlreadyHigh)
+		{
+			EventManager.TriggerEvent(new SugarHighEvent(CharacterData.BloodSugarLevel, oldSugar));
+		}
 	}
 
 	/// <summary>
@@ -46,8 +69,20 @@ public static class CharacterData
 	public static void IncrementBloodSugar(float sugar, SugarLevelInstigator instigator)
 	{
 		float oldSugar = CharacterData.BloodSugarLevel;
+		bool isAlreadyHigh = false;
+		if (BloodSugarPercentage > 80)
+		{
+			isAlreadyHigh = true;
+		}
+
 		CharacterData.BloodSugarLevel += sugar;
 		EventManager.TriggerEvent(new SugarChangedEvent(CharacterData.BloodSugarLevel, oldSugar, instigator));
+
+		// If blood sugar is already high, don't send out another event.
+		if (BloodSugarPercentage < 80 && !isAlreadyHigh)
+		{
+			EventManager.TriggerEvent(new SugarHighEvent(CharacterData.BloodSugarLevel, oldSugar, instigator));
+		}
 	}
 
 	/// <summary>
@@ -57,8 +92,20 @@ public static class CharacterData
 	public static void DecrementBloodSugar(float sugar)
 	{
 		float oldSugar = CharacterData.BloodSugarLevel;
+		bool isAlreadyLow = false;
+		if(BloodSugarPercentage < 20)
+		{
+			isAlreadyLow = true;
+		}
+
 		CharacterData.BloodSugarLevel -= sugar;
 		EventManager.TriggerEvent(new SugarChangedEvent(CharacterData.BloodSugarLevel, oldSugar));
+
+		// If blood sugar is already low, don't send out another event.
+		if(BloodSugarPercentage < 20 && !isAlreadyLow)
+		{
+			EventManager.TriggerEvent(new SugarLowEvent(CharacterData.BloodSugarLevel, oldSugar));
+		}
 	}
 
 	/// <summary>
@@ -69,8 +116,20 @@ public static class CharacterData
 	public static void DecrementBloodSugar(float sugar, SugarLevelInstigator instigator)
 	{
 		float oldSugar = CharacterData.BloodSugarLevel;
+		bool isAlreadyLow = false;
+		if (BloodSugarPercentage < 20)
+		{
+			isAlreadyLow = true;
+		}
+
 		CharacterData.BloodSugarLevel -= sugar;
 		EventManager.TriggerEvent(new SugarChangedEvent(CharacterData.BloodSugarLevel, oldSugar, instigator));
+
+		// If blood sugar is already low, don't send out another event.
+		if (BloodSugarPercentage < 20 && !isAlreadyLow)
+		{
+			EventManager.TriggerEvent(new SugarLowEvent(CharacterData.BloodSugarLevel, oldSugar, instigator));
+		}
 	}
 
 	/// <summary>
