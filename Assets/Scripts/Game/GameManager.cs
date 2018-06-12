@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
 	public static GameManager Instance { get; protected set; }
 
 	[Scene]
-	public string LoadingScene;
+	public string GameOverScene;
 
 	/// <summary>
 	/// The minimum blood sugar level
@@ -190,7 +190,7 @@ public class GameManager : MonoBehaviour
 	private void OnGameOver()
 	{
 		// Play Gameover scene
-		SceneManager.LoadScene(LoadingScene);
+		SceneManager.LoadScene(GameOverScene);
 	}
 	#endregion
 
@@ -305,6 +305,7 @@ public class GameManager : MonoBehaviour
 		{
 			IsGameOver = true;
 			OnGameOver();
+
 			EventManager.TriggerEvent(new GameOverEvent());
 		}
 	}
