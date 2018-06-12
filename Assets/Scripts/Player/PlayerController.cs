@@ -37,7 +37,6 @@ public class PlayerController : MonoBehaviour
 	{
 		if (!GameManager.Instance.CanPlaySport) return;
 
-		// To Do: Check for day and night
 		if (BloodSugarlevel <= GameManager.Instance.BloodSugarLevelSportLimit)
 		{
 			EventManager.TriggerEvent(new ShowPopupEvent(PopupItem.Indefinitely(WarningBloodSugarLevelBelowSportLimit)));
