@@ -61,6 +61,7 @@ public class GameManager : MonoBehaviour
 
 		Instance = this;
 		DontDestroyOnLoad(gameObject);
+		timeManager = new TimeManager();
 	}
 
 	void OnDisable()
@@ -73,9 +74,7 @@ public class GameManager : MonoBehaviour
 
 	// Use this for initialization
 	void Start()
-	{
-		timeManager = new TimeManager();
-
+	{									   
 		OpenedMenu = MenuType.None;
 		interactionPossiblities = new List<Interaction>();
 		ResetToInitial();
