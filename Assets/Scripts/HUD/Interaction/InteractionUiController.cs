@@ -48,8 +48,6 @@ public class InteractionUiController : MonoBehaviour
 		if (CanOpen)
 		{
 			CanvasGroup.Show();
-
-			Time.timeScale = 0;
 		}
 	}
 
@@ -59,7 +57,6 @@ public class InteractionUiController : MonoBehaviour
 	public void Close()
 	{
 		CanvasGroup.Hide();
-		Time.timeScale = 1;
 	}
 
 	private void Awake()
