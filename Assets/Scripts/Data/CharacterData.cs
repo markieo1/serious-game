@@ -8,6 +8,11 @@ using UnityEngine;
 public static class CharacterData
 {
 	/// <summary>
+	/// The initial blood sugar level
+	/// </summary>
+	public const float InitialBloodSugarLevel = 50;
+
+	/// <summary>
 	/// Gets or sets the character selection.
 	/// </summary>
 	public static CharacterSelection CharacterSelection { get; set; }
@@ -19,8 +24,7 @@ public static class CharacterData
 
 	static CharacterData()
 	{
-		BloodSugarLevel = 50;
-		EventManager.TriggerEvent(new SugarChangedEvent(BloodSugarLevel, BloodSugarLevel, SugarLevelInstigator.INITIAL));
+		ResetBloodSugar();
 	}
 
 	/// <summary>
@@ -67,6 +71,15 @@ public static class CharacterData
 		float oldSugar = CharacterData.BloodSugarLevel;
 		CharacterData.BloodSugarLevel -= sugar;
 		EventManager.TriggerEvent(new SugarChangedEvent(CharacterData.BloodSugarLevel, oldSugar, instigator));
+	}
+
+	/// <summary>
+	/// Resets the blood sugar.
+	/// </summary>
+	public static void ResetBloodSugar()
+	{
+		BloodSugarLevel = InitialBloodSugarLevel;
+		EventManager.TriggerEvent(new SugarChangedEvent(BloodSugarLevel, BloodSugarLevel, SugarLevelInstigator.INITIAL));
 	}
 }
 

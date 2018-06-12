@@ -5,8 +5,10 @@ using UnityEngine;
 
 public abstract class Reaction : ScriptableObject
 {
+	protected MonoBehaviour MonoBehaviour { get; set; }
 	public void Init(MonoBehaviour monoBehaviour)
 	{
+		MonoBehaviour = monoBehaviour;
 		SpecificInit(monoBehaviour);
 	}
 
