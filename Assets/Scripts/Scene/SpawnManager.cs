@@ -13,7 +13,9 @@ public class SpawnManager : MonoBehaviour
 	public List<Transform> TransformPoints;
 	public List<GameObject> FoodObjects;
 
-	Dictionary<Transform, Interactable> TransformPointsAndFoodObjects;
+    private CharacterSelect PlayerToLoad = new CharacterSelect();
+
+    Dictionary<Transform, Interactable> TransformPointsAndFoodObjects;
 
 	// Use this for initialization
 	void Start()
@@ -33,9 +35,9 @@ public class SpawnManager : MonoBehaviour
 
 			GameObject spawnObject = SpawnPoints.FirstOrDefault(s => s.tag == spawnTag);
 
-			if (spawnObject != null)
+            if (spawnObject != null)
 			{
-				SetPlayerToSpawn(Player, spawnObject);
+				SetPlayerToSpawn(PlayerToLoad.Player, spawnObject);
 			}
 		}
 
@@ -68,8 +70,10 @@ public class SpawnManager : MonoBehaviour
 
 	public void SetPlayerToSpawn(GameObject player, GameObject spawn)
 	{
-		// Set the current player position and rotation
-		player.transform.position = spawn.transform.position;
-		player.transform.rotation = spawn.transform.rotation;
+        // Set the current player position and rotation
+        PlayerToLoad.Player = player;
+
+        PlayerToLoad.Player.transform.position = spawn.transform.position;
+        PlayerToLoad.Player.transform.rotation = spawn.transform.rotation;
 	}
 }

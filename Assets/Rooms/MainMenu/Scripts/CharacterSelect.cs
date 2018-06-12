@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CharacterSelect : MonoBehaviour
 {
+    public GameObject Player;
+
 	public void SelectBoy()
 	{
 		CharacterData.CharacterSelection = CharacterSelection.MALE;
