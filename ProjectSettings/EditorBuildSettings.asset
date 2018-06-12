@@ -35,3 +35,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Rooms/Hospital/Hospital.unity
     guid: 8c59abbd159bc3c4b9d8579c90b60e21
+  - enabled: 1
+    path: Assets/Rooms/GameOver/GameOver.unity
+    guid: 5669ea6b374402d4fbe9d1f129bbc847

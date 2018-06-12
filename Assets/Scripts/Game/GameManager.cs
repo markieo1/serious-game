@@ -11,6 +11,9 @@ public class GameManager : MonoBehaviour
 
 	public static GameManager Instance { get; protected set; }
 
+	[Scene]
+	public string GameOverScene;
+
 	/// <summary>
 	/// The minimum blood sugar level
 	/// </summary>
@@ -37,9 +40,15 @@ public class GameManager : MonoBehaviour
 	public bool IsPaused { get; protected set; }
 
 	/// <summary>
+	/// Gets or sets a value indicating whether this instance is game over.
+	/// </summary>
+	public bool IsGameOver { get; protected set; }
+
+	/// <summary>
 	/// Gets a value indicating whether any menu is open.
 	/// </summary>
 	public bool AnyMenuOpen { get { return OpenedMenu != MenuType.None; } }
+
 
 	public MenuType OpenedMenu { get; protected set; }
 	public bool CanInteract
@@ -49,11 +58,6 @@ public class GameManager : MonoBehaviour
 			return interactionPossiblities.Any();
 		}
 	}
-
-	/// <summary>
-	/// Gets or sets a value indicating whether this instance is game over.
-	/// </summary>
-	public bool IsGameOver { get; protected set; }
 
 	/// <summary>
 	/// Gets a value indicating whether this instance can play sport.
@@ -187,6 +191,14 @@ public class GameManager : MonoBehaviour
 	}
 	#endregion
 
+	#region "GameOver"
+	private void OnGameOver()
+	{
+		// Play Gameover scene
+		SceneManager.LoadScene(GameOverScene);
+	}
+	#endregion
+
 	#region "Menu"
 	private void CloseMenu(MenuType menuType)
 	{
@@ -302,6 +314,8 @@ public class GameManager : MonoBehaviour
 		if (CharacterData.BloodSugarLevel <= MinimumBloodSugarLevel || CharacterData.BloodSugarLevel >= MaximumBloodSugarLevel)
 		{
 			IsGameOver = true;
+			OnGameOver();
+
 			EventManager.TriggerEvent(new GameOverEvent());
 		}
 	}
