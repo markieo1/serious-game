@@ -49,7 +49,6 @@ public class GameManager : MonoBehaviour
 	/// </summary>
 	public bool AnyMenuOpen { get { return OpenedMenu != MenuType.None; } }
 
-
 	public MenuType OpenedMenu { get; protected set; }
 	public bool CanInteract
 	{
@@ -82,6 +81,8 @@ public class GameManager : MonoBehaviour
 		Instance = this;
 		DontDestroyOnLoad(gameObject);
 		timeManager = new TimeManager();
+
+		ResetToInitial();
 	}
 
 	void OnDisable()
@@ -95,8 +96,6 @@ public class GameManager : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		ResetToInitial();
-
 		// Listen for scene changes
 		SceneManager.activeSceneChanged += ChangedActiveScene;
 
@@ -119,8 +118,11 @@ public class GameManager : MonoBehaviour
 	/// </summary>
 	private void ResetToInitial()
 	{
+		IsPaused = false;
+		IsGameOver = false;
 		OpenedMenu = MenuType.None;
 		interactionPossiblities = new List<Interaction>();
+		CharacterData.ResetBloodSugar();
 	}
 
 	#region "Scene Switching"
@@ -196,6 +198,7 @@ public class GameManager : MonoBehaviour
 	{
 		// Play Gameover scene
 		SceneManager.LoadScene(GameOverScene);
+		Destroy(this);
 	}
 	#endregion
 
