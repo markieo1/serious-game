@@ -37,7 +37,7 @@ public class SpawnManager : MonoBehaviour
 
             if (spawnObject != null)
 			{
-				SetPlayerToSpawn(PlayerToLoad.Player, spawnObject);
+				SetPlayerToSpawn(PlayerToLoad.PlayerToPlay, spawnObject);
 			}
 		}
 
@@ -70,10 +70,10 @@ public class SpawnManager : MonoBehaviour
 
 	public void SetPlayerToSpawn(GameObject player, GameObject spawn)
 	{
-        // Set the current player position and rotation
-        PlayerToLoad.Player = player;
+        PlayerToLoad.PlayerToPlay = player;
 
-        PlayerToLoad.Player.transform.position = spawn.transform.position;
-        PlayerToLoad.Player.transform.rotation = spawn.transform.rotation;
+        // Set the current player position and rotation
+        PlayerToLoad.PlayerToPlay.transform.position = spawn.transform.position;
+        PlayerToLoad.PlayerToPlay.transform.rotation = spawn.transform.rotation;
 	}
 }
