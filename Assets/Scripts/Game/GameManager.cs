@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -57,6 +58,8 @@ public class GameManager : MonoBehaviour
 
 	void OnDisable()
 	{
+		SceneManager.activeSceneChanged -= ChangedActiveScene;
+
 		EventManager.StopListening<EnterInteractionRegionEvent>(OnEnterInteractionRegion);
 		EventManager.StopListening<ExitInteractionRegionEvent>(OnExitInteractionRegion);
 	}
@@ -64,8 +67,10 @@ public class GameManager : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		OpenedMenu = MenuType.None;
-		interactionPossiblities = new List<Interaction>();
+		ResetToInitial();
+
+		// Listen for scene changes
+		SceneManager.activeSceneChanged += ChangedActiveScene;
 
 		// Start Event Listener
 		EventManager.StartListening<EnterInteractionRegionEvent>(OnEnterInteractionRegion);
@@ -79,6 +84,22 @@ public class GameManager : MonoBehaviour
 		CheckInteraction();
 		CheckBloodSugar();
 	}
+
+	/// <summary>
+	/// Resets the variables to initial.
+	/// </summary>
+	private void ResetToInitial()
+	{
+		OpenedMenu = MenuType.None;
+		interactionPossiblities = new List<Interaction>();
+	}
+
+	#region "Scene Switching"
+	private void ChangedActiveScene(Scene current, Scene next)
+	{
+		ResetToInitial();
+	}
+	#endregion
 
 	#region "Pausing"
 	/// <summary>
@@ -242,6 +263,8 @@ public class GameManager : MonoBehaviour
 	private void CheckBloodSugar()
 	{
 		if (IsGameOver) return;
+
+		if (IsPaused) return;
 
 		if (CharacterData.BloodSugarLevel <= MinimumBloodSugarLevel || CharacterData.BloodSugarLevel >= MaximumBloodSugarLevel)
 		{
