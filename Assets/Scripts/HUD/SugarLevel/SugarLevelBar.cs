@@ -32,8 +32,9 @@ public class SugarLevelBar : MonoBehaviour
 		if (SugarBar.fillRect != null) _targetBar =
 			SugarBar.fillRect.GetComponent<Image>();
 
-		HighSugarLevel = GameManager.Instance.MaximumBloodSugarLevel / 100 * 75;
-		LowSugarLevel = GameManager.Instance.MaximumBloodSugarLevel / 100 * 25;
+		float bloodSugarRange = GameManager.Instance.MaximumBloodSugarLevel - GameManager.Instance.MinimumBloodSugarLevel;
+		HighSugarLevel = bloodSugarRange / 100 * 75;
+		LowSugarLevel = bloodSugarRange / 100 * 25;
 
 		MatchHPbarColor();
 	}
