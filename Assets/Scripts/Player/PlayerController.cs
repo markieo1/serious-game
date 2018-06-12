@@ -8,48 +8,7 @@ using UnityEngine.Experimental.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
-	private bool hasInteractions;
-	private bool isPaused = false;
-
-	private void Start()
-	{
-		EventManager.StartListening<EnterInteractionRegionEvent>(EnteringInteractionRegionEvent);
-		EventManager.StartListening<ExitInteractionRegionEvent>(ExitInteractionRegionEvent);
-		EventManager.StartListening<GamePauseChangeEvent>(OnGamePauseChangeEvent);
-	}
-
-	/// <summary>
-	/// Updates this instance.
-	/// </summary>
-	private void Update()
-	{
-		if (hasInteractions && !isPaused && Input.GetButtonDown("Interact"))
-		{
-			EventManager.TriggerEvent(new OpenInteractionSelectorEvent());
-		}
-	}
-
-	private void OnGamePauseChangeEvent(GamePauseChangeEvent e)
-	{
-		isPaused = e.IsPaused;
-	}
-
-	private void EnteringInteractionRegionEvent(EventBase @event)
-	{
-		var t = (EnterInteractionRegionEvent)@event;
-		hasInteractions = t.Interactions.Any();
-	}
-
-	private void ExitInteractionRegionEvent(EventBase @event)
-	{
-		hasInteractions = false;
-	}
-
-	private void OnDisable()
-	{
-		EventManager.StopListening<EnterInteractionRegionEvent>(EnteringInteractionRegionEvent);
-		EventManager.StopListening<ExitInteractionRegionEvent>(ExitInteractionRegionEvent);
-	}
+	public float BloodSugarlevel { get { return CharacterData.BloodSugarLevel; } }
 
 	/// <summary>
 	/// Eats, which adjusts the sugar level.
@@ -67,6 +26,39 @@ public class PlayerController : MonoBehaviour
 	public void Insulin(float sugar)
 	{
 		CharacterData.DecrementBloodSugar(sugar);
+	}
+
+	/// <summary>
+	/// Lower sugar level when playing sport
+	/// </summary>
+	/// <param name="sugar">The sugar.</param>
+	public void PlaySport(float sugar, float sportLimit)
+	{
+		// To Do: Check for day and night
+		// Move gameover to GameManager
+		// Warning should be configurable
+
+		if (BloodSugarlevel <= 20)
+		{
+			EventManager.TriggerEvent(new GameOverEvent());
+		}
+
+		if (BloodSugarlevel <= sportLimit)
+		{
+			EventManager.TriggerEvent(new ShowPopupEvent(PopupItem.Indefinitely("Jouw bloed suiker spiegel is te laag om te sporten.")));
+		}
+
+		CharacterData.DecrementBloodSugar(sugar);
+	}
+
+	/// <summary>
+	/// Lets the player sleep
+	/// </summary>
+	public void Sleep()
+	{
+		CharacterData.ResetBloodSugar();
+
+		// TODO: Implement the time changes
 	}
 
 	/// <summary>

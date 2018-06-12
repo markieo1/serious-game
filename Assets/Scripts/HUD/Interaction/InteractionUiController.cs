@@ -47,11 +47,7 @@ public class InteractionUiController : MonoBehaviour
 	{
 		if (CanOpen)
 		{
-			CanvasGroup.alpha = 1;
-			CanvasGroup.interactable = true;
-			CanvasGroup.blocksRaycasts = true;
-
-			Time.timeScale = 0;
+			CanvasGroup.Show();
 		}
 	}
 
@@ -60,10 +56,7 @@ public class InteractionUiController : MonoBehaviour
 	/// </summary>
 	public void Close()
 	{
-		CanvasGroup.alpha = 0;
-		CanvasGroup.interactable = false;
-		CanvasGroup.blocksRaycasts = false;
-		Time.timeScale = 1;
+		CanvasGroup.Hide();
 	}
 
 	private void Awake()
@@ -86,7 +79,7 @@ public class InteractionUiController : MonoBehaviour
 
 		EventManager.StartListening<EnterInteractionRegionEvent>(OnInteractionRegionEntered);
 		EventManager.StartListening<ExitInteractionRegionEvent>(OnInteractionRegionExit);
-		EventManager.StartListening<OpenInteractionSelectorEvent>(OnOpenInteractionSelector);
+		EventManager.StartListening<InteractionSelectorChangeEvent>(OnInteractionSelectorChange);
 
 		InitObjectPool();
 	}
@@ -95,7 +88,7 @@ public class InteractionUiController : MonoBehaviour
 	{
 		EventManager.StopListening<EnterInteractionRegionEvent>(OnInteractionRegionEntered);
 		EventManager.StopListening<ExitInteractionRegionEvent>(OnInteractionRegionExit);
-		EventManager.StopListening<OpenInteractionSelectorEvent>(OnOpenInteractionSelector);
+		EventManager.StopListening<InteractionSelectorChangeEvent>(OnInteractionSelectorChange);
 	}
 
 	private void OnInteractionRegionEntered(EnterInteractionRegionEvent @event)
@@ -146,12 +139,12 @@ public class InteractionUiController : MonoBehaviour
 		}
 	}
 
-	private void OnOpenInteractionSelector(EventBase eventBase)
+	private void OnInteractionSelectorChange(InteractionSelectorChangeEvent @event)
 	{
 		// Check if active, if so we should hide
-		bool isOpen = CanvasGroup.alpha > 0;
+		bool isOpen = CanvasGroup.IsVisible();
 
-		if (isOpen)
+		if (isOpen && !@event.ShouldOpen)
 		{
 			Close();
 		}

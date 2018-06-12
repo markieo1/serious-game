@@ -107,7 +107,7 @@ public class PopupController : MonoBehaviour
 	/// </summary>
 	private void ShowPopup()
 	{
-		CanvasGroup.alpha = 1;
+		CanvasGroup.Show();
 	}
 
 	/// <summary>
@@ -115,6 +115,6 @@ public class PopupController : MonoBehaviour
 	/// </summary>
 	private void HidePopup()
 	{
-		CanvasGroup.alpha = 0;
+		CanvasGroup.Hide();
 	}
 }

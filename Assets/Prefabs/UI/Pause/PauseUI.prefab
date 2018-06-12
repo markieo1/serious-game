@@ -190,7 +190,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114545885991231774}
-        m_MethodName: Unpause
+        m_MethodName: UnpauseClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

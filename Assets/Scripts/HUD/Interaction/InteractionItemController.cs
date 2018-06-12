@@ -48,6 +48,9 @@ public class InteractionItemController : MonoBehaviour, IPointerClickHandler
 
 			// Now we must close the ui, since it makes no sense to keep it open
 			UiController.Close();
+
+			// Notify the game manager of the interaction
+			GameManager.Instance.OnPlayerInteracted();
 		}
 	}
 }
