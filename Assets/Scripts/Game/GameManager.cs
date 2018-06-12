@@ -27,6 +27,11 @@ public class GameManager : MonoBehaviour
 	public float BloodSugarLevelSportLimit;
 
 	/// <summary>
+	/// 
+	/// </summary>
+	public float LowSugrLevel;
+
+	/// <summary>
 	/// Gets or sets a value indicating whether the game is paused.
 	/// </summary>
 	public bool IsPaused { get; protected set; }
@@ -289,11 +294,22 @@ public class GameManager : MonoBehaviour
 
 		if (IsPaused) return;
 
+		if (CharacterData.BloodSugarPercentage <= 0.25)
+		{
+			StartCoroutine("LowSugarCoroutine");
+		}
+
 		if (CharacterData.BloodSugarLevel <= MinimumBloodSugarLevel || CharacterData.BloodSugarLevel >= MaximumBloodSugarLevel)
 		{
 			IsGameOver = true;
 			EventManager.TriggerEvent(new GameOverEvent());
 		}
+	}
+
+	IEnumerator LowSugarCoroutine()
+	{
+		Debug.Log("Test");
+		yield return null;
 	}
 	#endregion
 }
