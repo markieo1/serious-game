@@ -35,14 +35,7 @@ public class PlayerController : MonoBehaviour
 	public void PlaySport(float sugar, float sportLimit)
 	{
 		// To Do: Check for day and night
-		// Move gameover to GameManager
 		// Warning should be configurable
-
-		if (BloodSugarlevel <= 20)
-		{
-			EventManager.TriggerEvent(new GameOverEvent());
-		}
-
 		if (BloodSugarlevel <= sportLimit)
 		{
 			EventManager.TriggerEvent(new ShowPopupEvent(PopupItem.Indefinitely("Jouw bloed suiker spiegel is te laag om te sporten.")));
