@@ -11,6 +11,9 @@ public class GameManager : MonoBehaviour
 
 	public static GameManager Instance { get; protected set; }
 
+	[Scene]
+	public string GameOverScene;
+
 	/// <summary>
 	/// The minimum blood sugar level
 	/// </summary>
@@ -32,6 +35,11 @@ public class GameManager : MonoBehaviour
 	public bool IsPaused { get; protected set; }
 
 	/// <summary>
+	/// Gets or sets a value indicating whether this instance is game over.
+	/// </summary>
+	public bool IsGameOver { get; protected set; }
+
+	/// <summary>
 	/// Gets a value indicating whether any menu is open.
 	/// </summary>
 	public bool AnyMenuOpen { get { return OpenedMenu != MenuType.None; } }
@@ -44,11 +52,6 @@ public class GameManager : MonoBehaviour
 			return interactionPossiblities.Any();
 		}
 	}
-
-	/// <summary>
-	/// Gets or sets a value indicating whether this instance is game over.
-	/// </summary>
-	public bool IsGameOver { get; protected set; }
 
 	/// <summary>
 	/// Gets a value indicating whether this instance can play sport.
@@ -73,6 +76,8 @@ public class GameManager : MonoBehaviour
 		Instance = this;
 		DontDestroyOnLoad(gameObject);
 		timeManager = new TimeManager();
+
+		ResetToInitial();
 	}
 
 	void OnDisable()
@@ -86,8 +91,6 @@ public class GameManager : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		ResetToInitial();
-
 		// Listen for scene changes
 		SceneManager.activeSceneChanged += ChangedActiveScene;
 
@@ -110,8 +113,11 @@ public class GameManager : MonoBehaviour
 	/// </summary>
 	private void ResetToInitial()
 	{
+		IsPaused = false;
+		IsGameOver = false;
 		OpenedMenu = MenuType.None;
 		interactionPossiblities = new List<Interaction>();
+		CharacterData.ResetBloodSugar();
 	}
 
 	#region "Scene Switching"
@@ -179,6 +185,15 @@ public class GameManager : MonoBehaviour
 		{
 			Pause();
 		}
+	}
+	#endregion
+
+	#region "GameOver"
+	private void OnGameOver()
+	{
+		// Play Gameover scene
+		SceneManager.LoadScene(GameOverScene);
+		Destroy(this);
 	}
 	#endregion
 
@@ -292,6 +307,8 @@ public class GameManager : MonoBehaviour
 		if (CharacterData.BloodSugarLevel <= MinimumBloodSugarLevel || CharacterData.BloodSugarLevel >= MaximumBloodSugarLevel)
 		{
 			IsGameOver = true;
+			OnGameOver();
+
 			EventManager.TriggerEvent(new GameOverEvent());
 		}
 	}
