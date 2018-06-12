@@ -1960,9 +1960,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02434c4716732014ab81e6102be47328, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DecayPerSecond: 0.1
+  DecayPerSecond: 0.5
   WalkingDecayMultiplier: 1
-  RunningDecayMultiplier: 2
+  RunningDecayMultiplier: 3
 --- !u!136 &136880160850730074
 CapsuleCollider:
   m_ObjectHideFlags: 1
