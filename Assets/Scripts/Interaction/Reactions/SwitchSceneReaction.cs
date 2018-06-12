@@ -17,8 +17,8 @@ public class SwitchSceneReaction : Reaction
 
 	public override void React()
 	{
-		SceneManager.LoadScene(LoadingScene, LoadSceneMode.Single);
 		LoadingManager.Instance.SetSceneToLoad(NewScene);
 		LoadingManager.Instance.SetSpawnPoint(SpawnPoint);
+		SceneManager.LoadScene(LoadingScene, LoadSceneMode.Single);
 	}
 }

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -24,9 +25,15 @@ public class GameManager : MonoBehaviour
 	public bool IsPaused { get; protected set; }
 
 	/// <summary>
+	/// Gets or sets a value indicating whether this instance is game over.
+	/// </summary>
+	public bool IsGameOver { get; protected set; }
+
+	/// <summary>
 	/// Gets a value indicating whether any menu is open.
 	/// </summary>
 	public bool AnyMenuOpen { get { return OpenedMenu != MenuType.None; } }
+
 
 	public MenuType OpenedMenu { get; protected set; }
 	public bool CanInteract
@@ -37,10 +44,6 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
-	/// <summary>
-	/// Gets or sets a value indicating whether this instance is game over.
-	/// </summary>
-	public bool IsGameOver { get; protected set; }
 	private List<Interaction> interactionPossiblities;
 
 	private void Awake()
@@ -59,6 +62,7 @@ public class GameManager : MonoBehaviour
 	{
 		EventManager.StopListening<EnterInteractionRegionEvent>(OnEnterInteractionRegion);
 		EventManager.StopListening<ExitInteractionRegionEvent>(OnExitInteractionRegion);
+		EventManager.StopListening<GameOverEvent>(OnGameOver);
 	}
 
 	// Use this for initialization
@@ -70,6 +74,7 @@ public class GameManager : MonoBehaviour
 		// Start Event Listener
 		EventManager.StartListening<EnterInteractionRegionEvent>(OnEnterInteractionRegion);
 		EventManager.StartListening<ExitInteractionRegionEvent>(OnExitInteractionRegion);
+		EventManager.StartListening<GameOverEvent>(OnGameOver);
 	}
 
 	// Update is called once per frame
@@ -135,6 +140,16 @@ public class GameManager : MonoBehaviour
 		{
 			Pause();
 		}
+	}
+	#endregion
+
+	#region "GameOver"
+	private void OnGameOver(GameOverEvent @event)
+	{
+		IsGameOver = true;
+
+		// Play Gameover scene
+		SceneManager.LoadScene("GameOver");
 	}
 	#endregion
 
