@@ -104,6 +104,8 @@ public class GameManager : MonoBehaviour
 		// Start Event Listener
 		EventManager.StartListening<EnterInteractionRegionEvent>(OnEnterInteractionRegion);
 		EventManager.StartListening<ExitInteractionRegionEvent>(OnExitInteractionRegion);
+
+		StartCoroutine("LowSugarCoroutine");
 	}
 
 	// Update is called once per frame
@@ -313,12 +315,11 @@ public class GameManager : MonoBehaviour
 
 		if (CharacterData.BloodSugarLevel <= LowSugrLevel)
 		{
-			if (IsLowFade)
-			{
-				StartCoroutine("LowSugarCoroutine");
-				IsLowFade = false;
-			}
+			IsLowFade = true;
 
+		}else
+		{
+			IsLowFade = false;
 		}
 
 		if (CharacterData.BloodSugarLevel <= MinimumBloodSugarLevel || CharacterData.BloodSugarLevel >= MaximumBloodSugarLevel)
@@ -332,16 +333,16 @@ public class GameManager : MonoBehaviour
 
 	IEnumerator LowSugarCoroutine()
 	{
-		EventManager.TriggerEvent(new FadeChangeEvent(FadeType.In, 0.5f));
-
-		yield return new WaitForSeconds(1);
-
-		EventManager.TriggerEvent(new FadeChangeEvent(FadeType.Out, 0.5f));
-
-		yield return null;
-
-		IsLowFade = true;
+		while (true)
+		{
+			if (IsLowFade)
+			{
+				EventManager.TriggerEvent(new FadeChangeEvent(FadeType.In));
+			}
+			yield return new WaitForSecondsRealtime(1);
+		}
 
 	}
+
 	#endregion
 }
