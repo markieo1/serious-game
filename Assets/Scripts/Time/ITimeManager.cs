@@ -12,4 +12,6 @@ public interface ITimeManager
 	TimeSpan GetTime();
 
 	void Tick();
+
+	void SetTimeSpeed(float timeSpeed);
 }

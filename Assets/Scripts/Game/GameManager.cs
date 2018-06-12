@@ -82,6 +82,16 @@ public class GameManager : MonoBehaviour
 		gameOver = true;
 	}
 
+	public TimeSpan GetTime()
+	{
+		return timeManager.GetTime();
+	}
+
+	public void SetTimeSpeed(float timeSpeed)
+	{
+		timeManager.SetTimeSpeed(timeSpeed);
+	}
+
 	#region "Pausing"
 	/// <summary>
 	/// Pauses the game.
