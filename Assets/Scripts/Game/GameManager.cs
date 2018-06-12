@@ -70,6 +70,8 @@ public class GameManager : MonoBehaviour
 	}
 	private List<Interaction> interactionPossiblities;
 
+	private bool IsLowFade = false;
+
 	private void Awake()
 	{
 		if (Instance != null && Instance != this)
@@ -309,9 +311,14 @@ public class GameManager : MonoBehaviour
 
 		if (IsPaused) return;
 
-		if (CharacterData.BloodSugarPercentage <= 0.25)
+		if (CharacterData.BloodSugarLevel <= LowSugrLevel)
 		{
-			StartCoroutine("LowSugarCoroutine");
+			if (IsLowFade)
+			{
+				StartCoroutine("LowSugarCoroutine");
+				IsLowFade = false;
+			}
+
 		}
 
 		if (CharacterData.BloodSugarLevel <= MinimumBloodSugarLevel || CharacterData.BloodSugarLevel >= MaximumBloodSugarLevel)
@@ -325,8 +332,16 @@ public class GameManager : MonoBehaviour
 
 	IEnumerator LowSugarCoroutine()
 	{
-		Debug.Log("Test");
+		EventManager.TriggerEvent(new FadeChangeEvent(FadeType.In, 0.5f));
+
+		yield return new WaitForSeconds(1);
+
+		EventManager.TriggerEvent(new FadeChangeEvent(FadeType.Out, 0.5f));
+
 		yield return null;
+
+		IsLowFade = true;
+
 	}
 	#endregion
 }

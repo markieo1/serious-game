@@ -55,3 +55,4 @@ MonoBehaviour:
   MinimumBloodSugarLevel: 0
   MaximumBloodSugarLevel: 100
   BloodSugarLevelSportLimit: 20
+  LowSugrLevel: 30
