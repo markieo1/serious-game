@@ -20,6 +20,11 @@ public class GameManager : MonoBehaviour
 	public float MaximumBloodSugarLevel;
 
 	/// <summary>
+	/// The blood sugar level sport limit
+	/// </summary>
+	public float BloodSugarLevelSportLimit;
+
+	/// <summary>
 	/// Gets or sets a value indicating whether the game is paused.
 	/// </summary>
 	public bool IsPaused { get; protected set; }
