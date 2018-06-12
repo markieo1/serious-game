@@ -11,6 +11,9 @@ public class GameManager : MonoBehaviour
 
 	public static GameManager Instance { get; protected set; }
 
+	[Scene]
+	public string LoadingScene;
+
 	/// <summary>
 	/// The minimum blood sugar level
 	/// </summary>
@@ -82,7 +85,6 @@ public class GameManager : MonoBehaviour
 
 		EventManager.StopListening<EnterInteractionRegionEvent>(OnEnterInteractionRegion);
 		EventManager.StopListening<ExitInteractionRegionEvent>(OnExitInteractionRegion);
-		EventManager.StopListening<GameOverEvent>(OnGameOver);
 	}
 
 	// Use this for initialization
@@ -96,7 +98,6 @@ public class GameManager : MonoBehaviour
 		// Start Event Listener
 		EventManager.StartListening<EnterInteractionRegionEvent>(OnEnterInteractionRegion);
 		EventManager.StartListening<ExitInteractionRegionEvent>(OnExitInteractionRegion);
-		EventManager.StartListening<GameOverEvent>(OnGameOver);
 	}
 
 	// Update is called once per frame
@@ -186,12 +187,10 @@ public class GameManager : MonoBehaviour
 	#endregion
 
 	#region "GameOver"
-	private void OnGameOver(GameOverEvent @event)
+	private void OnGameOver()
 	{
-		IsGameOver = true;
-
 		// Play Gameover scene
-		SceneManager.LoadScene("GameOver");
+		SceneManager.LoadScene(LoadingScene);
 	}
 	#endregion
 
@@ -305,6 +304,7 @@ public class GameManager : MonoBehaviour
 		if (CharacterData.BloodSugarLevel <= MinimumBloodSugarLevel || CharacterData.BloodSugarLevel >= MaximumBloodSugarLevel)
 		{
 			IsGameOver = true;
+			OnGameOver();
 			EventManager.TriggerEvent(new GameOverEvent());
 		}
 	}
