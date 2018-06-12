@@ -705,7 +705,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 454376202}
-  m_LocalRotation: {x: 0.14146732, y: 0.0683244, z: -0.009786247, w: 0.98753387}
+  m_LocalRotation: {x: 0.14146711, y: 0.0683244, z: -0.009786227, w: 0.98753387}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -983,7 +983,6 @@ GameObject:
   - component: {fileID: 638872631}
   - component: {fileID: 638872634}
   - component: {fileID: 638872633}
-  - component: {fileID: 638872632}
   m_Layer: 8
   m_Name: MirrorCollider
   m_TagString: Untagged
@@ -1004,19 +1003,6 @@ Transform:
   m_Father: {fileID: 1288972322}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &638872632
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 638872630}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa50b36c4d22a80499fa8b183c00d449, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  question: {fileID: 0}
-  questionText: Zoek naar eten om je bloedsuiker op een goed niveau te houden.
 --- !u!65 &638872633
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2525,7 +2511,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1864017056}
-  m_LocalRotation: {x: 0.1642872, y: 0.068091504, z: -0.011366386, w: 0.983994}
+  m_LocalRotation: {x: 0.16428737, y: 0.06809156, z: -0.011366397, w: 0.98399395}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
