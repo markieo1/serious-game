@@ -1947,6 +1947,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13f65312a4ebd8e46bec23d5dc21558c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WarningBloodSugarLevelBelowSportLimit: Jouw bloed suiker spiegel is te laag om te
+    sporten.
 --- !u!114 &114739779734729594
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1958,8 +1960,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02434c4716732014ab81e6102be47328, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MinimumBelowLevel: 20
-  MaximumAboveLevel: 70
   DecayPerSecond: 0.1
   WalkingDecayMultiplier: 1
   RunningDecayMultiplier: 2

@@ -9,12 +9,13 @@ public class SugarLevelBar : MonoBehaviour
 {
 
 	public Slider SugarBar;
-	public float MaxSugarLevel;
-	public float SugarLevel;
 	public Color HighColor;
 	public Color GoodColor;
 	public Color LowColor;
 	private Image _targetBar;
+	private float SugarLevel;
+	private float HighSugarLevel;
+	private float LowSugarLevel;
 
 	void OnDisable()
 	{
@@ -26,10 +27,14 @@ public class SugarLevelBar : MonoBehaviour
 	{
 		EventManager.StartListening<SugarChangedEvent>(ChangeSugarLevel);
 
-		SugarBar.maxValue = MaxSugarLevel;
+		SugarBar.maxValue = GameManager.Instance.MaximumBloodSugarLevel;
 		SugarBar.value = SugarLevel;
 		if (SugarBar.fillRect != null) _targetBar =
 			SugarBar.fillRect.GetComponent<Image>();
+
+		float bloodSugarRange = GameManager.Instance.MaximumBloodSugarLevel - GameManager.Instance.MinimumBloodSugarLevel;
+		HighSugarLevel = bloodSugarRange / 100 * 75;
+		LowSugarLevel = bloodSugarRange / 100 * 25;
 
 		MatchHPbarColor();
 	}
@@ -38,9 +43,9 @@ public class SugarLevelBar : MonoBehaviour
 	{
 		SugarLevel = @event.Value;
 		SugarBar.value = SugarLevel;
-		if (SugarLevel <= 0)
+		if (SugarLevel <= GameManager.Instance.MinimumBloodSugarLevel)
 		{
-			SugarLevel = 0;
+			SugarLevel = GameManager.Instance.MinimumBloodSugarLevel;
 			SugarBar.value = SugarLevel;
 		}
 
@@ -50,15 +55,15 @@ public class SugarLevelBar : MonoBehaviour
 	void MatchHPbarColor()
 	{
 		var currentHealthPercentage = (SugarLevel * 100) / SugarBar.maxValue;
-		if (currentHealthPercentage >= 75)
+		if (currentHealthPercentage >= HighSugarLevel)
 		{
 			_targetBar.color = HighColor;
 		}
-		else if (currentHealthPercentage < 75 && currentHealthPercentage >= 25)
+		else if (currentHealthPercentage < HighSugarLevel && currentHealthPercentage >= LowSugarLevel)
 		{
 			_targetBar.color = GoodColor;
 		}
-		else if (currentHealthPercentage < 25)
+		else if (currentHealthPercentage < LowSugarLevel)
 		{
 			_targetBar.color = LowColor;
 		}

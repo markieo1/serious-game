@@ -9,6 +9,7 @@ using UnityEngine.Experimental.UIElements;
 public class PlayerController : MonoBehaviour
 {
 	public float BloodSugarlevel { get { return CharacterData.BloodSugarLevel; } }
+	public string WarningBloodSugarLevelBelowSportLimit;
 
 	/// <summary>
 	/// Eats, which adjusts the sugar level.
@@ -32,23 +33,26 @@ public class PlayerController : MonoBehaviour
 	/// Lower sugar level when playing sport
 	/// </summary>
 	/// <param name="sugar">The sugar.</param>
-	public void PlaySport(float sugar, float sportLimit)
+	public void PlaySport(float sugar)
 	{
 		// To Do: Check for day and night
-		// Move gameover to GameManager
-		// Warning should be configurable
-
-		if (BloodSugarlevel <= 20)
+		if (BloodSugarlevel <= GameManager.Instance.BloodSugarLevelSportLimit)
 		{
-			EventManager.TriggerEvent(new GameOverEvent());
-		}
-
-		if (BloodSugarlevel <= sportLimit)
-		{
-			EventManager.TriggerEvent(new ShowPopupEvent(PopupItem.Indefinitely("Jouw bloed suiker spiegel is te laag om te sporten.")));
+			EventManager.TriggerEvent(new ShowPopupEvent(PopupItem.Indefinitely(WarningBloodSugarLevelBelowSportLimit)));
+			return;
 		}
 
 		CharacterData.DecrementBloodSugar(sugar);
+	}
+
+	/// <summary>
+	/// Lets the player sleep
+	/// </summary>
+	public void Sleep()
+	{
+		CharacterData.ResetBloodSugar();
+
+		// TODO: Implement the time changes
 	}
 
 	/// <summary>
