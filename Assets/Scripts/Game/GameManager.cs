@@ -49,6 +49,17 @@ public class GameManager : MonoBehaviour
 	/// Gets or sets a value indicating whether this instance is game over.
 	/// </summary>
 	public bool IsGameOver { get; protected set; }
+
+	/// <summary>
+	/// Gets a value indicating whether this instance can play sport.
+	/// </summary>
+	public bool CanPlaySport
+	{
+		get
+		{
+			return timeManager.IsDay();
+		}
+	}
 	private List<Interaction> interactionPossiblities;
 
 	private void Awake()

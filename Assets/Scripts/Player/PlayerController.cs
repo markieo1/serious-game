@@ -35,6 +35,8 @@ public class PlayerController : MonoBehaviour
 	/// <param name="sugar">The sugar.</param>
 	public void PlaySport(float sugar)
 	{
+		if (!GameManager.Instance.CanPlaySport) return;
+
 		// To Do: Check for day and night
 		if (BloodSugarlevel <= GameManager.Instance.BloodSugarLevelSportLimit)
 		{
