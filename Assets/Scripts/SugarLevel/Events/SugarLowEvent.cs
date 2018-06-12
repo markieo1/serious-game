@@ -3,6 +3,8 @@
 	public SugarLowEvent(float sugar, float oldSugar) : base()
 	{
 		this.Value = sugar;
+		this.OldValue = oldSugar;
+		this.Instigator = SugarLevelInstigator.UNKNOWN;
 	}
 
 	public SugarLowEvent(float sugar, float oldSugar, SugarLevelInstigator instigator) : base()
