@@ -53,3 +53,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MinimumBloodSugarLevel: 0
   MaximumBloodSugarLevel: 100
+  BloodSugarLevelSportLimit: 20

@@ -33,7 +33,7 @@ public class BloodSugar : MonoBehaviour
 	{
 		float decay = DecayPerSecond * Time.deltaTime;
 
-		CharacterData.DecrementBloodSugar(decay);
+		CharacterData.DecrementBloodSugar(decay, SugarLevelInstigator.DECAY);
 
 		animator.SetFloat("BloodSugar", CharacterData.BloodSugarLevel);
 	}

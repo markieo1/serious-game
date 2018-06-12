@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+	private ITimeManager timeManager;
+
 	public static GameManager Instance { get; protected set; }
 
 	/// <summary>
@@ -18,6 +20,11 @@ public class GameManager : MonoBehaviour
 	/// The maximum blood sugar level
 	/// </summary>
 	public float MaximumBloodSugarLevel;
+
+	/// <summary>
+	/// The blood sugar level sport limit
+	/// </summary>
+	public float BloodSugarLevelSportLimit;
 
 	/// <summary>
 	/// Gets or sets a value indicating whether the game is paused.
@@ -44,6 +51,16 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// Gets a value indicating whether this instance can play sport.
+	/// </summary>
+	public bool CanPlaySport
+	{
+		get
+		{
+			return timeManager.IsDay();
+		}
+	}
 	private List<Interaction> interactionPossiblities;
 
 	private void Awake()
@@ -56,10 +73,13 @@ public class GameManager : MonoBehaviour
 
 		Instance = this;
 		DontDestroyOnLoad(gameObject);
+		timeManager = new TimeManager();
 	}
 
 	void OnDisable()
 	{
+		SceneManager.activeSceneChanged -= ChangedActiveScene;
+
 		EventManager.StopListening<EnterInteractionRegionEvent>(OnEnterInteractionRegion);
 		EventManager.StopListening<ExitInteractionRegionEvent>(OnExitInteractionRegion);
 		EventManager.StopListening<GameOverEvent>(OnGameOver);
@@ -68,8 +88,10 @@ public class GameManager : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		OpenedMenu = MenuType.None;
-		interactionPossiblities = new List<Interaction>();
+		ResetToInitial();
+
+		// Listen for scene changes
+		SceneManager.activeSceneChanged += ChangedActiveScene;
 
 		// Start Event Listener
 		EventManager.StartListening<EnterInteractionRegionEvent>(OnEnterInteractionRegion);
@@ -80,9 +102,31 @@ public class GameManager : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		timeManager.Tick();
 		CheckPausing();
 		CheckInteraction();
 		CheckBloodSugar();
+	}
+
+	/// <summary>
+	/// Resets the variables to initial.
+	/// </summary>
+	private void ResetToInitial()
+	{
+		OpenedMenu = MenuType.None;
+		interactionPossiblities = new List<Interaction>();
+	}
+
+	#region "Scene Switching"
+	private void ChangedActiveScene(Scene current, Scene next)
+	{
+		ResetToInitial();
+	}
+	#endregion
+
+	public TimeSpan GetTime()
+	{
+		return timeManager.GetTime();
 	}
 
 	#region "Pausing"
@@ -91,8 +135,7 @@ public class GameManager : MonoBehaviour
 	/// </summary>
 	public void Pause()
 	{
-		IsPaused = true;
-		Time.timeScale = 0;
+		timeManager.Pause();
 		EventManager.TriggerEvent(new GamePauseChangeEvent(true));
 	}
 
@@ -101,8 +144,7 @@ public class GameManager : MonoBehaviour
 	/// </summary>
 	public void Unpause()
 	{
-		IsPaused = false;
-		Time.timeScale = 1;
+		timeManager.Unpause();
 		EventManager.TriggerEvent(new GamePauseChangeEvent(false));
 	}
 
@@ -257,6 +299,8 @@ public class GameManager : MonoBehaviour
 	private void CheckBloodSugar()
 	{
 		if (IsGameOver) return;
+
+		if (IsPaused) return;
 
 		if (CharacterData.BloodSugarLevel <= MinimumBloodSugarLevel || CharacterData.BloodSugarLevel >= MaximumBloodSugarLevel)
 		{
