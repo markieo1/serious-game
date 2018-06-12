@@ -219,5 +219,14 @@ public class GameManager : MonoBehaviour
 
 	#region "Achievement"
 
+	public void RegisterEvent()
+	{
+
+	}
+
+	public void ParseAchievements()
+	{
+
+	}
 	#endregion
 }

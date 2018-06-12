@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Achievement/Achievement")]
+[CreateAssetMenu(menuName = "Achievements/Achievement")]
 public class Achievement : ScriptableObject
 {
 	/// <summary>
