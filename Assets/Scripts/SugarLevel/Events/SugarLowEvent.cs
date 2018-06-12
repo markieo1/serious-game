@@ -1,13 +1,13 @@
-﻿public class SugarChangedEvent : EventBase
+﻿public class SugarLowEvent : EventBase
 {
-	public SugarChangedEvent(float sugar, float oldSugar) : base()
+	public SugarLowEvent(float sugar, float oldSugar) : base()
 	{
 		this.Value = sugar;
 		this.OldValue = oldSugar;
 		this.Instigator = SugarLevelInstigator.UNKNOWN;
 	}
 
-	public SugarChangedEvent(float sugar, float oldSugar, SugarLevelInstigator instigator) : base()
+	public SugarLowEvent(float sugar, float oldSugar, SugarLevelInstigator instigator) : base()
 	{
 		this.OldValue = oldSugar;
 		this.Value = sugar;
