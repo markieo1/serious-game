@@ -16,42 +16,28 @@ public class DailyRhtythm : MonoBehaviour
 	DateTime time;
 	private new Light light;
 
-	public void SetTime(DateTime time)
-	{
-		this.time = time;
-		OnValidate();
-	}
-
-	public void SetTime(int hour, int minutes)
-	{
-		this.hour = hour;
-		this.minutes = minutes;
-		OnValidate();
-	}
-
 	private void Start()
 	{
 		light = GetComponent<Light>();
 		TimeSpan currentTime = GameManager.Instance.GetTime();
-		time = time + currentTime;
+		time = DateTime.Today + currentTime;
 		hour = currentTime.Hours;
 		minutes = currentTime.Minutes;
 	}
 
 	private void OnValidate()
 	{
-		time = time + new TimeSpan(hour, minutes, 0);
+		time = time.Date + new TimeSpan(hour, minutes, 0);
 	}
 
 	private void Update()
 	{
-		time = time + GameManager.Instance.GetTime();
+		time = time.Date + GameManager.Instance.GetTime();
 		SetPosition();
 	}
 
 	void SetPosition()
 	{
-
 		Vector3 angles = new Vector3();
 		double alt;
 		double azi;
