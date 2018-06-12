@@ -13,5 +13,5 @@ public interface ITimeManager
 
 	void Tick();
 
-	void SetTimeSpeed(float timeSpeed);
+	void SetTimeScale(float timeScale);
 }

@@ -4,14 +4,12 @@ using UnityEngine;
 public class TimeManager : ITimeManager
 {
 	public TimeSpan CurrentTime;
-	private float currentTimeScale;
-	private float speed;
+	private float timeScale;
 
 	public TimeManager()
 	{
 		Time.timeScale = 1;
-		speed = 1;
-		currentTimeScale = Time.timeScale;
+		timeScale = Time.timeScale;
 	}
 
 	public TimeSpan GetTime()
@@ -26,20 +24,20 @@ public class TimeManager : ITimeManager
 
 	public void Unpause()
 	{
-		Time.timeScale = currentTimeScale;
+		Time.timeScale = timeScale;
 	}
 
 	public void Tick()
 	{
-		CurrentTime = CurrentTime.Add(TimeSpan.FromSeconds(Time.deltaTime * Time.timeScale * speed));
+		CurrentTime = CurrentTime.Add(TimeSpan.FromSeconds(Time.deltaTime * Time.timeScale));
 		if (CurrentTime.Hours >= 24)
 		{
 			CurrentTime = CurrentTime.Subtract(TimeSpan.FromHours(24));
 		}
 	}
 
-	public void SetTimeSpeed(float timeSpeed)
+	public void SetTimeScale(float timeScale)
 	{
-		speed = timeSpeed;
+		this.timeScale = timeScale;
 	}
 }

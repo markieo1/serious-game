@@ -115,11 +115,6 @@ public class GameManager : MonoBehaviour
 		return timeManager.GetTime();
 	}
 
-	public void SetTimeSpeed(float timeSpeed)
-	{
-		timeManager.SetTimeSpeed(timeSpeed);
-	}
-
 	#region "Pausing"
 	/// <summary>
 	/// Pauses the game.
