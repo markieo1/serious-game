@@ -5,7 +5,6 @@ using UnityEngine;
 public class SoccerBall : MonoBehaviour {
 
 	public float DecayPerSecond;
-	public float SportLimit;
 
 	/// <summary>
 	/// The player
@@ -26,7 +25,7 @@ public class SoccerBall : MonoBehaviour {
 
 			float decay = DecayPerSecond * Time.deltaTime;
 			
-			Player.PlaySport(decay, SportLimit);
+			Player.PlaySport(decay);
 		}
 	}
 }

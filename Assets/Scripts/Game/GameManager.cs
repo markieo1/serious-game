@@ -3,10 +3,28 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+	private ITimeManager timeManager;
+
 	public static GameManager Instance { get; protected set; }
+
+	/// <summary>
+	/// The minimum blood sugar level
+	/// </summary>
+	public float MinimumBloodSugarLevel;
+
+	/// <summary>
+	/// The maximum blood sugar level
+	/// </summary>
+	public float MaximumBloodSugarLevel;
+
+	/// <summary>
+	/// The blood sugar level sport limit
+	/// </summary>
+	public float BloodSugarLevelSportLimit;
 
 	/// <summary>
 	/// Gets or sets a value indicating whether the game is paused.
@@ -27,7 +45,21 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
-	private bool gameOver;
+	/// <summary>
+	/// Gets or sets a value indicating whether this instance is game over.
+	/// </summary>
+	public bool IsGameOver { get; protected set; }
+
+	/// <summary>
+	/// Gets a value indicating whether this instance can play sport.
+	/// </summary>
+	public bool CanPlaySport
+	{
+		get
+		{
+			return timeManager.IsDay();
+		}
+	}
 	private List<Interaction> interactionPossiblities;
 
 	private void Awake()
@@ -40,11 +72,13 @@ public class GameManager : MonoBehaviour
 
 		Instance = this;
 		DontDestroyOnLoad(gameObject);
+		timeManager = new TimeManager();
 	}
 
 	void OnDisable()
 	{
-		EventManager.StopListening<GameOverEvent>(OnGameOver);
+		SceneManager.activeSceneChanged -= ChangedActiveScene;
+
 		EventManager.StopListening<EnterInteractionRegionEvent>(OnEnterInteractionRegion);
 		EventManager.StopListening<ExitInteractionRegionEvent>(OnExitInteractionRegion);
 	}
@@ -52,11 +86,12 @@ public class GameManager : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		OpenedMenu = MenuType.None;
-		interactionPossiblities = new List<Interaction>();
+		ResetToInitial();
+
+		// Listen for scene changes
+		SceneManager.activeSceneChanged += ChangedActiveScene;
 
 		// Start Event Listener
-		EventManager.StartListening<GameOverEvent>(OnGameOver);
 		EventManager.StartListening<EnterInteractionRegionEvent>(OnEnterInteractionRegion);
 		EventManager.StartListening<ExitInteractionRegionEvent>(OnExitInteractionRegion);
 	}
@@ -64,17 +99,31 @@ public class GameManager : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		timeManager.Tick();
 		CheckPausing();
 		CheckInteraction();
-		if (gameOver == true)
-		{
-			// Show GameOver Scene
-		}
+		CheckBloodSugar();
 	}
 
-	private void OnGameOver(GameOverEvent @event)
+	/// <summary>
+	/// Resets the variables to initial.
+	/// </summary>
+	private void ResetToInitial()
 	{
-		gameOver = true;
+		OpenedMenu = MenuType.None;
+		interactionPossiblities = new List<Interaction>();
+	}
+
+	#region "Scene Switching"
+	private void ChangedActiveScene(Scene current, Scene next)
+	{
+		ResetToInitial();
+	}
+	#endregion
+
+	public TimeSpan GetTime()
+	{
+		return timeManager.GetTime();
 	}
 
 	#region "Pausing"
@@ -83,7 +132,7 @@ public class GameManager : MonoBehaviour
 	/// </summary>
 	public void Pause()
 	{
-		Time.timeScale = 0;
+		timeManager.Pause();
 		EventManager.TriggerEvent(new GamePauseChangeEvent(true));
 	}
 
@@ -92,7 +141,7 @@ public class GameManager : MonoBehaviour
 	/// </summary>
 	public void Unpause()
 	{
-		Time.timeScale = 1;
+		timeManager.Unpause();
 		EventManager.TriggerEvent(new GamePauseChangeEvent(false));
 	}
 
@@ -101,6 +150,8 @@ public class GameManager : MonoBehaviour
 	/// </summary>
 	private void CheckPausing()
 	{
+		if (IsGameOver) return;
+
 		if (Input.GetButtonDown("Cancel"))
 		{
 			if (IsPaused)
@@ -158,6 +209,8 @@ public class GameManager : MonoBehaviour
 	/// </summary>
 	private void CheckInteraction()
 	{
+		if (IsGameOver) return;
+
 		// If we are paused we cannot do any interactions
 		if (IsPaused) return;
 
@@ -189,6 +242,7 @@ public class GameManager : MonoBehaviour
 	public void CloseInteraction()
 	{
 		OpenedMenu = MenuType.None;
+		Time.timeScale = 1;
 		EventManager.TriggerEvent(new InteractionSelectorChangeEvent(false));
 	}
 
@@ -198,7 +252,17 @@ public class GameManager : MonoBehaviour
 	public void OpenInteraction()
 	{
 		OpenedMenu = MenuType.Interaction;
+		Time.timeScale = 0;
 		EventManager.TriggerEvent(new InteractionSelectorChangeEvent(true));
+	}
+
+	/// <summary>
+	/// Called when [player interacted].
+	/// </summary>
+	public void OnPlayerInteracted()
+	{
+		Time.timeScale = 1;
+		OpenedMenu = MenuType.None;
 	}
 
 	#region "Events"
@@ -213,5 +277,23 @@ public class GameManager : MonoBehaviour
 		interactionPossiblities.AddRange(e.Interactions);
 	}
 	#endregion
+	#endregion
+
+	#region "Blood Sugar"	
+	/// <summary>
+	/// Checks the blood sugar.
+	/// </summary>
+	private void CheckBloodSugar()
+	{
+		if (IsGameOver) return;
+
+		if (IsPaused) return;
+
+		if (CharacterData.BloodSugarLevel <= MinimumBloodSugarLevel || CharacterData.BloodSugarLevel >= MaximumBloodSugarLevel)
+		{
+			IsGameOver = true;
+			EventManager.TriggerEvent(new GameOverEvent());
+		}
+	}
 	#endregion
 }

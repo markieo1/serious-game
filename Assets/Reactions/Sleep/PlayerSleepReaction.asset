@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0b7dc525ef9d484c82e8b92b192c649, type: 3}
+  m_Name: PlayerSleepReaction
+  m_EditorClassIdentifier: 
+  StartReaction: {fileID: 11400000, guid: e58ee2d13f5513e4ea489ec644d7e59b, type: 2}
+  EndReaction: {fileID: 11400000, guid: 05da78c9d02f34c4bb099a283924b3fa, type: 2}
+  SleepDuration: 5
