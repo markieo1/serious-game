@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+	private ITimeManager timeManager;
+
 	public static GameManager Instance { get; protected set; }
 
 	/// <summary>
@@ -59,6 +61,7 @@ public class GameManager : MonoBehaviour
 
 		Instance = this;
 		DontDestroyOnLoad(gameObject);
+		timeManager = new TimeManager();
 	}
 
 	void OnDisable()
@@ -85,6 +88,7 @@ public class GameManager : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		timeManager.Tick();
 		CheckPausing();
 		CheckInteraction();
 		CheckBloodSugar();
@@ -106,14 +110,18 @@ public class GameManager : MonoBehaviour
 	}
 	#endregion
 
+	public TimeSpan GetTime()
+	{
+		return timeManager.GetTime();
+	}
+
 	#region "Pausing"
 	/// <summary>
 	/// Pauses the game.
 	/// </summary>
 	public void Pause()
 	{
-		IsPaused = true;
-		Time.timeScale = 0;
+		timeManager.Pause();
 		EventManager.TriggerEvent(new GamePauseChangeEvent(true));
 	}
 
@@ -122,8 +130,7 @@ public class GameManager : MonoBehaviour
 	/// </summary>
 	public void Unpause()
 	{
-		IsPaused = false;
-		Time.timeScale = 1;
+		timeManager.Unpause();
 		EventManager.TriggerEvent(new GamePauseChangeEvent(false));
 	}
 
