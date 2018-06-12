@@ -8,6 +8,7 @@ public class TimeManager : ITimeManager
 
 	public TimeManager()
 	{
+		CurrentTime = DateTime.Now.TimeOfDay;
 		Time.timeScale = 1;
 		timeScale = Time.timeScale;
 	}
