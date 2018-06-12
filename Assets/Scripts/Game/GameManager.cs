@@ -74,9 +74,7 @@ public class GameManager : MonoBehaviour
 
 	// Use this for initialization
 	void Start()
-	{									   
-		OpenedMenu = MenuType.None;
-		interactionPossiblities = new List<Interaction>();
+	{
 		ResetToInitial();
 
 		// Listen for scene changes

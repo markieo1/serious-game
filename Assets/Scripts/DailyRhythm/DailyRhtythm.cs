@@ -6,12 +6,6 @@ using UnityEngine;
 public class DailyRhtythm : MonoBehaviour
 {
 	[SerializeField]
-	float longitude;
-
-	[SerializeField]
-	float latitude;
-
-	[SerializeField]
 	[Range(0, 24)]
 	int hour;
 
@@ -21,13 +15,6 @@ public class DailyRhtythm : MonoBehaviour
 
 	DateTime time;
 	private new Light light;
-
-	[SerializeField]
-	float timeSpeed = 1;
-
-	[SerializeField]
-	int frameSteps = 1;
-	int frameStep;
 
 	public void SetTime(DateTime time)
 	{
@@ -42,21 +29,10 @@ public class DailyRhtythm : MonoBehaviour
 		OnValidate();
 	}
 
-	public void SetUpdateSteps(int i)
-	{
-		frameSteps = i;
-	}
-
-	public void SetTimeSpeed(float speed)
-	{
-		timeSpeed = speed;
-	}
-
 	private void Start()
 	{
 		light = GetComponent<Light>();
 		TimeSpan currentTime = GameManager.Instance.GetTime();
-		GameManager.Instance.SetTimeSpeed(timeSpeed);
 		time = time + currentTime;
 		hour = currentTime.Hours;
 		minutes = currentTime.Minutes;
@@ -70,13 +46,7 @@ public class DailyRhtythm : MonoBehaviour
 	private void Update()
 	{
 		time = time + GameManager.Instance.GetTime();
-		if (frameStep == 0)
-		{
-			SetPosition();
-		}
-		frameStep = (frameStep + 1) % frameSteps;
-
-		Debug.Log(time);
+		SetPosition();
 	}
 
 	void SetPosition()
@@ -85,7 +55,7 @@ public class DailyRhtythm : MonoBehaviour
 		Vector3 angles = new Vector3();
 		double alt;
 		double azi;
-		SunPosition.CalculateSunPosition(time, (double)latitude, (double)longitude, out azi, out alt);
+		SunPosition.CalculateSunPosition(time, out azi, out alt);
 		angles.x = (float)alt * Mathf.Rad2Deg;
 		angles.y = (float)azi * Mathf.Rad2Deg;
 		transform.localRotation = Quaternion.Euler(angles);
@@ -93,17 +63,13 @@ public class DailyRhtythm : MonoBehaviour
 	}
 }
 
-/*
- * The following source came from this blog:
- * http://guideving.blogspot.co.uk/2010/08/sun-position-in-c.html
- */
 public static class SunPosition
 {
 	private const double Deg2Rad = Math.PI / 180.0;
 	private const double Rad2Deg = 180.0 / Math.PI;
 
 	public static void CalculateSunPosition(
-		DateTime dateTime, double latitude, double longitude, out double outAzimuth, out double outAltitude)
+		DateTime dateTime, out double outAzimuth, out double outAltitude)
 	{
 		// Convert to UTC  
 		dateTime = dateTime.ToUniversalTime();
@@ -123,7 +89,7 @@ public static class SunPosition
 		double siderealTimeUT = siderealTimeHours +
 			(366.2422 / 365.2422) * (double)dateTime.TimeOfDay.TotalHours;
 
-		double siderealTime = siderealTimeUT * 15 + longitude;
+		double siderealTime = siderealTimeUT * 15;
 
 		// Refine to number of days (fractional) to specific time.  
 		julianDate += (double)dateTime.TimeOfDay.TotalHours / 24.0;
@@ -160,16 +126,16 @@ public static class SunPosition
 			hourAngle -= 2 * Math.PI;
 		}
 
-		double altitude = Math.Asin(Math.Sin(latitude * Deg2Rad) *
-			Math.Sin(declination) + Math.Cos(latitude * Deg2Rad) *
+		double altitude = Math.Asin(Math.Sin(0 * Deg2Rad) *
+			Math.Sin(declination) + Math.Cos(0 * Deg2Rad) *
 			Math.Cos(declination) * Math.Cos(hourAngle));
 
 		// Nominator and denominator for calculating Azimuth  
 		// angle. Needed to test which quadrant the angle is in.  
 		double aziNom = -Math.Sin(hourAngle);
 		double aziDenom =
-			Math.Tan(declination) * Math.Cos(latitude * Deg2Rad) -
-			Math.Sin(latitude * Deg2Rad) * Math.Cos(hourAngle);
+			Math.Tan(declination) * Math.Cos(0 * Deg2Rad) -
+			Math.Sin(0 * Deg2Rad) * Math.Cos(hourAngle);
 
 		double azimuth = Math.Atan(aziNom / aziDenom);
 
