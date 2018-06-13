@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class FadeController : MonoBehaviour
 {
+
 	public Image FadeImage;
 
 	// Use this for initialization
@@ -24,10 +25,10 @@ public class FadeController : MonoBehaviour
 	/// Fades in an image
 	/// </summary>
 	/// <param name="duration">The duration.</param>
-	public IEnumerator FadeIn(float duration)
+	public IEnumerator FadeIn(float duration, Color c)
 	{
 		float elapsedTime = 0.0f;
-		Color c = FadeImage.color;
+		FadeImage.color = c;
 		while (elapsedTime < duration)
 		{
 			yield return null;
@@ -41,10 +42,10 @@ public class FadeController : MonoBehaviour
 	/// Fades out an image
 	/// </summary>
 	/// <param name="duration">The duration.</param>
-	public IEnumerator FadeOut(float duration)
+	public IEnumerator FadeOut(float duration, Color c)
 	{
 		float elapsedTime = 0.0f;
-		Color c = FadeImage.color;
+		FadeImage.color = c;
 		while (elapsedTime < duration)
 		{
 			yield return null;
@@ -61,12 +62,12 @@ public class FadeController : MonoBehaviour
 		{
 			case FadeType.In:
 				{
-					StartCoroutine(FadeIn(e.Duration));
+					StartCoroutine(FadeIn(e.Duration, e.Color));
 					break;
 				}
 			case FadeType.Out:
 				{
-					StartCoroutine(FadeOut(e.Duration));
+					StartCoroutine(FadeOut(e.Duration, e.Color));
 					break;
 				}
 			default:

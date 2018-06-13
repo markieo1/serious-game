@@ -34,6 +34,8 @@ public class GameManager : MonoBehaviour
 	/// </summary>
 	public float LowSugrLevel;
 
+	public Color LowSugarFadeColor;
+
 	/// <summary>
 	/// Gets or sets a value indicating whether the game is paused.
 	/// </summary>
@@ -105,7 +107,8 @@ public class GameManager : MonoBehaviour
 		EventManager.StartListening<EnterInteractionRegionEvent>(OnEnterInteractionRegion);
 		EventManager.StartListening<ExitInteractionRegionEvent>(OnExitInteractionRegion);
 
-		StartCoroutine("LowSugarCoroutine");
+		// Low SugarBar
+		StartCoroutine(LowSugarCoroutine(1 ,2));
 	}
 
 	// Update is called once per frame
@@ -331,15 +334,20 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
-	IEnumerator LowSugarCoroutine()
+	IEnumerator LowSugarCoroutine(float fadeDuration, float fadeInSecond)
 	{
 		while (true)
 		{
 			if (IsLowFade)
 			{
-				EventManager.TriggerEvent(new FadeChangeEvent(FadeType.In));
+				EventManager.TriggerEvent(new FadeChangeEvent(FadeType.In, fadeDuration, LowSugarFadeColor));
+
+				yield return new WaitForSecondsRealtime(fadeDuration);
+
+				EventManager.TriggerEvent(new FadeChangeEvent(FadeType.Out, fadeDuration, LowSugarFadeColor));
 			}
-			yield return new WaitForSecondsRealtime(1);
+
+			yield return new WaitForSecondsRealtime(fadeInSecond);
 		}
 
 	}

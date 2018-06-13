@@ -14,9 +14,15 @@ public class FadeChangeEvent : EventBase
 	/// </summary>
 	public float Duration { get; set; }
 
-	public FadeChangeEvent(FadeType type, float duration = 3)
+	/// <summary>
+	/// Get or set the fade color
+	/// </summary>
+	public Color Color { get; set; }
+
+	public FadeChangeEvent(FadeType type, float duration = 3, Color? color = null)
 	{
 		FadeType = type;
 		Duration = duration;
+		Color = color ?? Color.black;
 	}
 }
