@@ -52,7 +52,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimeToSpawnInSeconds: 10
-  Player: {fileID: 0}
+  BoyPlayer: {fileID: 1397964138731538, guid: 8314d35d44bc1fa46a16e9fcfd065537, type: 2}
+  GirlPlayer: {fileID: 1000014202707908, guid: 93ef639d2b0db154cb6d9e2146aa9d75, type: 2}
   SpawnPoints: []
   TransformPoints: []
   FoodObjects:

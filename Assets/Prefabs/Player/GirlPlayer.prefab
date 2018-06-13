@@ -4228,8 +4228,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000014202707908}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: 0.9999507, z: -0, w: -0.0099306395}
+  m_LocalPosition: {x: -1.234, y: 2.97, z: -3.251}
   m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_Children:
   - {fileID: 4000014141893500}
@@ -4386,7 +4386,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13f65312a4ebd8e46bec23d5dc21558c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WarningBloodSugarLevelBelowSportLimit: 
+  WarningBloodSugarLevelBelowSportLimit: Jouw bloed suiker spiegel is te laag om te
+    sporten.
 --- !u!114 &114583719859597262
 MonoBehaviour:
   m_ObjectHideFlags: 1
