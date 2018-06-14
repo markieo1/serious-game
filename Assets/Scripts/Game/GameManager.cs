@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
 	/// <summary>
 	/// The distance travelled
 	/// </summary>
-	public float DistanceTravelled;
+	public float DistanceTravelled { get; set; }
 
 	/// <summary>
 	/// Gets or sets a value indicating whether the game is paused.
