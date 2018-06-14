@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine.Analytics;
 
 public class AIManager
 {
@@ -74,11 +75,29 @@ public class AIManager
 
 	private void OnSugarLow(SugarLowEvent e)
 	{
+		Dictionary<string, object> eventData = new Dictionary<string, object>
+		{
+			{ "Value", e.Value },
+			{ "OldValue", e.OldValue },
+			{ "Instigator", e.Instigator }
+		};
+
+		AnalyticsEvent.Custom("SugarLow", eventData);
+
 		this.sugarLowEvents.Add(e);
 	}
 
 	private void OnSugarHigh(SugarHighEvent e)
 	{
+		Dictionary<string, object> eventData = new Dictionary<string, object>
+		{
+			{ "Value", e.Value },
+			{ "OldValue", e.OldValue },
+			{ "Instigator", e.Instigator }
+		};
+
+		AnalyticsEvent.Custom("SugarHigh", eventData);
+
 		this.sugarHighEvents.Add(e);
 	}
 }
