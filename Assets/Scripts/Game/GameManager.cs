@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Analytics;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -28,6 +29,11 @@ public class GameManager : MonoBehaviour
 	/// The blood sugar level sport limit
 	/// </summary>
 	public float BloodSugarLevelSportLimit;
+
+	/// <summary>
+	/// The distance travelled
+	/// </summary>
+	public float DistanceTravelled { get; set; }
 
 	/// <summary>
 	/// Gets or sets a value indicating whether the game is paused.
@@ -78,6 +84,11 @@ public class GameManager : MonoBehaviour
 		timeManager = new TimeManager();
 
 		ResetToInitial(true);
+
+		// Hacky way to initialize the AI manager
+		var AiManager = AIManager.Instance;
+
+		AnalyticsEvent.GameStart();
 	}
 
 	void OnDisable()
@@ -196,6 +207,17 @@ public class GameManager : MonoBehaviour
 	#region "GameOver"
 	private void OnGameOver()
 	{
+		IsGameOver = true;
+
+		EventManager.TriggerEvent(new GameOverEvent());
+
+		Dictionary<string, object> eventData = new Dictionary<string, object>()
+		{
+			{ "DistanceTravelled", DistanceTravelled }
+		};
+
+		AnalyticsEvent.GameOver(eventData: eventData);
+
 		// Play Gameover scene
 		SceneManager.LoadScene(GameOverScene);
 		Destroy(this);
@@ -311,10 +333,7 @@ public class GameManager : MonoBehaviour
 
 		if (CharacterData.BloodSugarLevel <= MinimumBloodSugarLevel || CharacterData.BloodSugarLevel >= MaximumBloodSugarLevel)
 		{
-			IsGameOver = true;
 			OnGameOver();
-
-			EventManager.TriggerEvent(new GameOverEvent());
 		}
 	}
 	#endregion

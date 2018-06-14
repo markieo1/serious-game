@@ -39,7 +39,7 @@ public static class CharacterData
 	{
 		get
 		{
-			return (BloodSugarLevel - GameManager.Instance.MinimumBloodSugarLevel) / (GameManager.Instance.MaximumBloodSugarLevel - GameManager.Instance.MinimumBloodSugarLevel);
+			return ((BloodSugarLevel - GameManager.Instance.MinimumBloodSugarLevel) / (GameManager.Instance.MaximumBloodSugarLevel - GameManager.Instance.MinimumBloodSugarLevel)) * 100;
 		}
 	}
 
