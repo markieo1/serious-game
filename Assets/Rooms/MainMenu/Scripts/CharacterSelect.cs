@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class CharacterSelect : MonoBehaviour
 {
-	public void SelectBoy()
-	{
-		CharacterData.CharacterSelection = CharacterSelection.MALE;
-	}
+    public GameObject PlayerToPlay;
 
-	public void SelectGirl()
-	{
-		CharacterData.CharacterSelection = CharacterSelection.FEMALE;
-	}
+    public void SelectBoy()
+    {
+        CharacterData.CharacterSelection = CharacterSelection.MALE;
+    }
+
+    public void SelectGirl()
+    {
+        CharacterData.CharacterSelection = CharacterSelection.FEMALE;
+    }
 }

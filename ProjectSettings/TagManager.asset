@@ -14,6 +14,7 @@ TagManager:
   - HallwayStreetDoor
   - HospitalFrontDoor
   - HospitalInsideDoor
+  - PlayerFollowCamera
   layers:
   - Default
   - TransparentFX
