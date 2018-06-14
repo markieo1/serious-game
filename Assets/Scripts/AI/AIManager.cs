@@ -31,12 +31,34 @@ public class AIManager
 		}
 	}
 
+	public static IEnumerable<SugarLowEvent> SugarLowEvents
+	{
+		get
+		{
+			return Instance.sugarLowEvents;
+		}
+	}
+
+	public static IEnumerable<SugarHighEvent> SugarHighEvents
+	{
+		get
+		{
+			return Instance.sugarHighEvents;
+		}
+	}
+
 	private List<SugarChangedEvent> sugarChangeEvents;
+	private List<SugarLowEvent> sugarLowEvents;
+	private List<SugarHighEvent> sugarHighEvents;
 
 	private AIManager()
 	{
 		this.sugarChangeEvents = new List<SugarChangedEvent>();
+		this.sugarLowEvents = new List<SugarLowEvent>();
+		this.sugarHighEvents = new List<SugarHighEvent>();
 		EventManager.StartListening<SugarChangedEvent>(OnSugarChanged);
+		EventManager.StartListening<SugarLowEvent>(OnSugarLow);
+		EventManager.StartListening<SugarHighEvent>(OnSugarHigh);
 	}
 
 	private void OnSugarChanged(SugarChangedEvent e)
@@ -48,5 +70,15 @@ public class AIManager
 		}
 
 		this.sugarChangeEvents.Add(e);
+	}
+
+	private void OnSugarLow(SugarLowEvent e)
+	{
+		this.sugarLowEvents.Add(e);
+	}
+
+	private void OnSugarHigh(SugarHighEvent e)
+	{
+		this.sugarHighEvents.Add(e);
 	}
 }
