@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Analytics;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -78,6 +79,8 @@ public class GameManager : MonoBehaviour
 		timeManager = new TimeManager();
 
 		ResetToInitial(true);
+
+		AnalyticsEvent.GameStart();
 	}
 
 	void OnDisable()
@@ -199,6 +202,8 @@ public class GameManager : MonoBehaviour
 		// Play Gameover scene
 		SceneManager.LoadScene(GameOverScene);
 		Destroy(this);
+
+		AnalyticsEvent.GameOver();
 	}
 	#endregion
 
