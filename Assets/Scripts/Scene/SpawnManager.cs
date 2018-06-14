@@ -24,7 +24,7 @@ public class SpawnManager : MonoBehaviour
         var playerCamera = GameObject.FindGameObjectWithTag("PlayerFollowCamera");
         var cineMachineCamera = playerCamera.GetComponent<CinemachineFreeLook>();
 
-        GameObject playerToInstantiate;
+        GameObject playerToInstantiate = null;
         if (playerCharacter == CharacterSelection.MALE)
         {
             playerToInstantiate = BoyPlayer;
@@ -34,7 +34,7 @@ public class SpawnManager : MonoBehaviour
             playerToInstantiate = GirlPlayer;
         }
 
-        Player = Instantiate(Player);
+        Player = Instantiate(playerToInstantiate);
 
         // get the armature children from the player component
         var armature = Player.transform.GetChild(0);
