@@ -13,11 +13,6 @@ public class SpawnManager : MonoBehaviour
 	public List<Transform> TransformPoints;
 	public List<GameObject> FoodObjects;
 
-    public Transform FollowGirl;
-    public Transform LookAtGirl;
-    public Transform FollowBoy;
-    public Transform LookAtBoy;
-
     private GameObject Player;
 
     Dictionary<Transform, Interactable> TransformPointsAndFoodObjects;
@@ -29,20 +24,20 @@ public class SpawnManager : MonoBehaviour
         var PlayerCamera = GameObject.FindGameObjectWithTag("PlayerFollowCamera");
         var CineMachineCamera = PlayerCamera.GetComponent<CinemachineFreeLook>();
 
-
         if (PlayerCharacter == 0)
         {
             Player = BoyPlayer;
             Instantiate(Player);
-            CineMachineCamera.Follow = LookAtBoy;
-            CineMachineCamera.Follow = FollowBoy;
+            //CineMachineCamera.Follow = BoyPlayer.
+            //CineMachineCamera.LookAt = LookAtBoy;
+            
         }
         if(PlayerCharacter == 1)
         {
             Player = GirlPlayer;            
             Instantiate(Player);
-            CineMachineCamera.Follow = FollowGirl;
-            CineMachineCamera.LookAt = LookAtGirl;
+            //CineMachineCamera.Follow = FollowGirl;
+            //CineMachineCamera.LookAt = LookAtGirl;
         }
 
         TransformPointsAndFoodObjects = new Dictionary<Transform, Interactable>();
