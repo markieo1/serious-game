@@ -207,11 +207,15 @@ public class GameManager : MonoBehaviour
 	#region "GameOver"
 	private void OnGameOver()
 	{
+		IsGameOver = true;
+
+		EventManager.TriggerEvent(new GameOverEvent());
+
+		AnalyticsEvent.GameOver();
+
 		// Play Gameover scene
 		SceneManager.LoadScene(GameOverScene);
 		Destroy(this);
-
-		AnalyticsEvent.GameOver();
 	}
 	#endregion
 
@@ -324,8 +328,6 @@ public class GameManager : MonoBehaviour
 
 		if (CharacterData.BloodSugarLevel <= MinimumBloodSugarLevel || CharacterData.BloodSugarLevel >= MaximumBloodSugarLevel)
 		{
-			IsGameOver = true;
-			EventManager.TriggerEvent(new GameOverEvent());
 			OnGameOver();
 		}
 	}
