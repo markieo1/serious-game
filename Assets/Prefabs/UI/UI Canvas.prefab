@@ -922,8 +922,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SugarBar: {fileID: 114332411415205950}
-  MaxSugarLevel: 100
-  SugarLevel: 50
   HighColor: {r: 1, g: 0, b: 0, a: 1}
   GoodColor: {r: 0, g: 1, b: 0, a: 1}
   LowColor: {r: 0, g: 0, b: 1, a: 1}
@@ -1520,7 +1518,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 30, y: 0}
-  m_SizeDelta: {x: 160, y: 20}
+  m_SizeDelta: {x: 360, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224117049309067762
 RectTransform:
@@ -1574,7 +1572,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -0.000009953725}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &224175915726113070
@@ -1647,8 +1645,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -62.3, y: 0.000002861}
-  m_SizeDelta: {x: 15, y: 15}
+  m_AnchoredPosition: {x: -185, y: 3.5}
+  m_SizeDelta: {x: 45, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224350992276736040
 RectTransform:
@@ -1983,7 +1981,7 @@ RectTransform:
   m_GameObject: {fileID: 1987247123900798}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224345444041526444}
   - {fileID: 224040138702239430}
