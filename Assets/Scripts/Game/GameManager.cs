@@ -31,6 +31,11 @@ public class GameManager : MonoBehaviour
 	public float BloodSugarLevelSportLimit;
 
 	/// <summary>
+	/// The distance travelled
+	/// </summary>
+	public float DistanceTravelled { get; set; }
+
+	/// <summary>
 	/// Gets or sets a value indicating whether the game is paused.
 	/// </summary>
 	public bool IsPaused { get; protected set; }
