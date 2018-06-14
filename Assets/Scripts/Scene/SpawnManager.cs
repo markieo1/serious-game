@@ -27,18 +27,24 @@ public class SpawnManager : MonoBehaviour
         if (PlayerCharacter == 0)
         {
             Player = BoyPlayer;
-            Instantiate(Player);
-            //CineMachineCamera.Follow = BoyPlayer.
-            //CineMachineCamera.LookAt = LookAtBoy;
-            
+            Instantiate(Player);            
         }
         if(PlayerCharacter == 1)
         {
             Player = GirlPlayer;            
             Instantiate(Player);
-            //CineMachineCamera.Follow = FollowGirl;
-            //CineMachineCamera.LookAt = LookAtGirl;
         }
+
+        //Get the cloned Player from the scene
+        var ClonedPlayer = GameObject.FindGameObjectWithTag("Player");
+
+        // get the armature children from the player component
+        var Armature = ClonedPlayer.transform.GetChild(0);
+
+        // set the Camera values follow and lookat
+        CineMachineCamera.Follow = ClonedPlayer.transform;
+        CineMachineCamera.LookAt = Armature;
+
 
         TransformPointsAndFoodObjects = new Dictionary<Transform, Interactable>();
 
