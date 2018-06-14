@@ -213,7 +213,7 @@ public class GameManager : MonoBehaviour
 
 		Dictionary<string, object> eventData = new Dictionary<string, object>()
 		{
-			{ "DistanceTraveled", DistanceTravelled }
+			{ "DistanceTravelled", DistanceTravelled }
 		};
 
 		AnalyticsEvent.GameOver(eventData: eventData);
