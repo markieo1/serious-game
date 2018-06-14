@@ -325,9 +325,8 @@ public class GameManager : MonoBehaviour
 		if (CharacterData.BloodSugarLevel <= MinimumBloodSugarLevel || CharacterData.BloodSugarLevel >= MaximumBloodSugarLevel)
 		{
 			IsGameOver = true;
-			OnGameOver();
-
 			EventManager.TriggerEvent(new GameOverEvent());
+			OnGameOver();
 		}
 	}
 	#endregion
