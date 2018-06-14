@@ -60,6 +60,7 @@ public class AIManager
 		EventManager.StartListening<SugarChangedEvent>(OnSugarChanged);
 		EventManager.StartListening<SugarLowEvent>(OnSugarLow);
 		EventManager.StartListening<SugarHighEvent>(OnSugarHigh);
+		EventManager.StartListening<GameOverEvent>(OnGameOver);
 	}
 
 	private void OnSugarChanged(SugarChangedEvent e)
@@ -99,5 +100,15 @@ public class AIManager
 		AnalyticsEvent.Custom("SugarHigh", eventData);
 
 		this.sugarHighEvents.Add(e);
+	}
+
+	private void OnGameOver(GameOverEvent e)
+	{
+		Dictionary<string, object> eventData = new Dictionary<string, object>
+		{
+			{ "Instigator", e.Instigator }
+		};
+
+		AnalyticsEvent.Custom("GameOver", eventData);
 	}
 }
