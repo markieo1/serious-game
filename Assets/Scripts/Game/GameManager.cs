@@ -80,6 +80,9 @@ public class GameManager : MonoBehaviour
 
 		ResetToInitial(true);
 
+		// Hacky way to initialize the AI manager
+		var AiManager = AIManager.Instance;
+
 		AnalyticsEvent.GameStart();
 	}
 
