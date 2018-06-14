@@ -5,45 +5,43 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-	public float TimeToSpawnInSeconds = 10;
+    public float TimeToSpawnInSeconds = 10;
     public GameObject BoyPlayer;
     public GameObject GirlPlayer;
 
     public List<GameObject> SpawnPoints;
-	public List<Transform> TransformPoints;
-	public List<GameObject> FoodObjects;
+    public List<Transform> TransformPoints;
+    public List<GameObject> FoodObjects;
 
     private GameObject Player;
 
     Dictionary<Transform, Interactable> TransformPointsAndFoodObjects;
 
-	// Use this for initialization
-	void Start()
-	{
-        var PlayerCharacter = (int)CharacterData.CharacterSelection;
-        var PlayerCamera = GameObject.FindGameObjectWithTag("PlayerFollowCamera");
-        var CineMachineCamera = PlayerCamera.GetComponent<CinemachineFreeLook>();
+    // Use this for initialization
+    void Start()
+    {
+        var playerCharacter = CharacterData.CharacterSelection;
+        var playerCamera = GameObject.FindGameObjectWithTag("PlayerFollowCamera");
+        var cineMachineCamera = playerCamera.GetComponent<CinemachineFreeLook>();
 
-        if (PlayerCharacter == 0)
+        GameObject playerToInstantiate;
+        if (playerCharacter == CharacterSelection.MALE)
         {
-            Player = BoyPlayer;
-            Instantiate(Player);            
+            playerToInstantiate = BoyPlayer;
         }
-        if(PlayerCharacter == 1)
+        else if (playerCharacter == CharacterSelection.FEMALE)
         {
-            Player = GirlPlayer;            
-            Instantiate(Player);
+            playerToInstantiate = GirlPlayer;
         }
 
-        //Get the cloned Player from the scene
-        var ClonedPlayer = GameObject.FindGameObjectWithTag("Player");
+        Player = Instantiate(Player);
 
         // get the armature children from the player component
-        var Armature = ClonedPlayer.transform.GetChild(0);
+        var armature = Player.transform.GetChild(0);
 
         // set the Camera values follow and lookat
-        CineMachineCamera.Follow = ClonedPlayer.transform;
-        CineMachineCamera.LookAt = Armature;
+        cineMachineCamera.Follow = Player.transform;
+        cineMachineCamera.LookAt = armature;
 
 
         TransformPointsAndFoodObjects = new Dictionary<Transform, Interactable>();

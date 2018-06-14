@@ -6,13 +6,13 @@ public class CharacterSelect : MonoBehaviour
 {
     public GameObject PlayerToPlay;
 
-	public void SelectBoy()
-	{
-		CharacterData.CharacterSelection = CharacterSelection.MALE;     
+    public void SelectBoy()
+    {
+        CharacterData.CharacterSelection = CharacterSelection.MALE;
     }
 
-	public void SelectGirl()
-	{
-		CharacterData.CharacterSelection = CharacterSelection.FEMALE;
+    public void SelectGirl()
+    {
+        CharacterData.CharacterSelection = CharacterSelection.FEMALE;
     }
 }
