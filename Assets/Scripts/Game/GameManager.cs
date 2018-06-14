@@ -77,7 +77,7 @@ public class GameManager : MonoBehaviour
 		DontDestroyOnLoad(gameObject);
 		timeManager = new TimeManager();
 
-		ResetToInitial();
+		ResetToInitial(true);
 	}
 
 	void OnDisable()
@@ -111,13 +111,18 @@ public class GameManager : MonoBehaviour
 	/// <summary>
 	/// Resets the variables to initial.
 	/// </summary>
-	private void ResetToInitial()
+	/// <param name="newGame">Determines if this is a new game</param>
+	private void ResetToInitial(bool newGame = false)
 	{
 		IsPaused = false;
 		IsGameOver = false;
 		OpenedMenu = MenuType.None;
 		interactionPossiblities = new List<Interaction>();
-		CharacterData.ResetBloodSugar();
+
+		if (newGame)
+		{
+			CharacterData.ResetBloodSugar();
+		}
 	}
 
 	#region "Scene Switching"
