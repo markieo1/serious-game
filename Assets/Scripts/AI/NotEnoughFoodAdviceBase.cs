@@ -7,17 +7,11 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Advice/NotEnoughFood")]
 public class NotEnoughFoodAdviceBase : AIAdvice
 {
-	/// <summary>
-	/// The sugar level below which to issue warnings at in the advice.
-	/// </summary>
-	public float SugarWarningLevel;
-
 	public override bool IsAdviceApplicable()
 	{
-		foreach(SugarChangedEvent e in AIManager.SugarEvents)
+		foreach(SugarLowEvent e in AIManager.SugarLowEvents)
 		{
-			float change = e.Value - e.OldValue;
-			if(change > 0 && e.Value > SugarWarningLevel)
+			if(e.Instigator == SugarLevelInstigator.DECAY)
 			{
 				return true;
 			}

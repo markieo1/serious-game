@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Advice/TooMuchFood")]
-public class TooMuchFoodAdviceBase : AIAdvice
+[CreateAssetMenu(menuName = "Advice/TooMuchSports")]
+public class TooMuchSportsAdviceBase : AIAdvice
 {
 	public override bool IsAdviceApplicable()
 	{
-		foreach(SugarHighEvent e in AIManager.SugarHighEvents)
+		foreach(SugarLowEvent e in AIManager.SugarLowEvents)
 		{
-			if(e.Instigator == SugarLevelInstigator.FOOD)
+			if(e.Instigator == SugarLevelInstigator.EXERCISE)
 			{
 				return true;
 			}
