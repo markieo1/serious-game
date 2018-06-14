@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
-using UnityEngine.Analytics;
-using UnityEngine.Experimental.UIElements;
+﻿using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {

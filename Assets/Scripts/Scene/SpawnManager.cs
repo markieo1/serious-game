@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using Cinemachine;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -13,6 +13,11 @@ public class SpawnManager : MonoBehaviour
 	public List<Transform> TransformPoints;
 	public List<GameObject> FoodObjects;
 
+    public Transform FollowGirl;
+    public Transform LookAtGirl;
+    public Transform FollowBoy;
+    public Transform LookAtBoy;
+
     private GameObject Player;
 
     Dictionary<Transform, Interactable> TransformPointsAndFoodObjects;
@@ -21,16 +26,23 @@ public class SpawnManager : MonoBehaviour
 	void Start()
 	{
         var PlayerCharacter = (int)CharacterData.CharacterSelection;
+        var PlayerCamera = GameObject.FindGameObjectWithTag("PlayerFollowCamera");
+        var CineMachineCamera = PlayerCamera.GetComponent<CinemachineFreeLook>();
 
-        if(PlayerCharacter == 0)
+
+        if (PlayerCharacter == 0)
         {
             Player = BoyPlayer;
             Instantiate(Player);
+            CineMachineCamera.Follow = LookAtBoy;
+            CineMachineCamera.Follow = FollowBoy;
         }
         if(PlayerCharacter == 1)
         {
-            Player = GirlPlayer;
+            Player = GirlPlayer;            
             Instantiate(Player);
+            CineMachineCamera.Follow = FollowGirl;
+            CineMachineCamera.LookAt = LookAtGirl;
         }
 
         TransformPointsAndFoodObjects = new Dictionary<Transform, Interactable>();
