@@ -436,7 +436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LoadingScene: Loading
-  NewScene: MainMenu
+  NewScene: Bedroom
   Duration: 3
 --- !u!4 &1106974209
 Transform:
