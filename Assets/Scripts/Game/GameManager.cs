@@ -211,7 +211,12 @@ public class GameManager : MonoBehaviour
 
 		EventManager.TriggerEvent(new GameOverEvent());
 
-		AnalyticsEvent.GameOver();
+		Dictionary<string, object> eventData = new Dictionary<string, object>()
+		{
+			{ "DistanceTraveled", DistanceTravelled }
+		};
+
+		AnalyticsEvent.GameOver(eventData: eventData);
 
 		// Play Gameover scene
 		SceneManager.LoadScene(GameOverScene);
