@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SeriousGameClustering
+namespace SeriousGameClustering.Models
 {
 	/// <summary>
 	/// Unique per player
@@ -14,7 +14,7 @@ namespace SeriousGameClustering
 		public long AmountOfSugarHigh { get; set; }
 		public Instigator MostOccuredLowInstigator { get; set; }
 		public Instigator MostOccuredHighInstigator { get; set; }
-		public char Gender { get; set; }
+		public Gender Gender { get; set; }
 		public int Age { get; set; }
 		public double DistanceTraveled { get; set; }
 	}

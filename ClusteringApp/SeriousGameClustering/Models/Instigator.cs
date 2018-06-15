@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SeriousGameClustering.Events
+namespace SeriousGameClustering.Models
 {
 	public enum Instigator
 	{
