@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2018
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeriousGameClustering", "SeriousGameClustering\SeriousGameClustering.csproj", "{3BBAE04C-A8FB-470C-90CC-2246CF74833D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3BBAE04C-A8FB-470C-90CC-2246CF74833D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BBAE04C-A8FB-470C-90CC-2246CF74833D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BBAE04C-A8FB-470C-90CC-2246CF74833D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BBAE04C-A8FB-470C-90CC-2246CF74833D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0E40522C-D5FD-47B3-B604-64A8F4856926}
+	EndGlobalSection
+EndGlobal
