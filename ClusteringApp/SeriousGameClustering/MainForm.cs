@@ -1,6 +1,8 @@
 ﻿using Accord.Controls;
 using Accord.MachineLearning;
 using Accord.Math;
+using Accord.Statistics.Analysis;
+using Accord.Statistics.Models.Regression.Linear;
 using SeriousGameClustering.Helpers;
 using System;
 using System.Collections.Generic;
@@ -59,7 +61,18 @@ namespace SeriousGameClustering
 			//  same cluster (thus having the same label). The same should
 			//  happen to the next four observations and to the last three.
 			int[] labels = clusters.Decide(jaggedClusteringObservations);
-			UpdateGraph(labels, jaggedClusteringObservations);
+
+			var pca = new PrincipalComponentAnalysis()
+			{
+				Method = PrincipalComponentMethod.Center,
+				Whiten = true,
+				NumberOfOutputs = 2
+			};
+
+			MultivariateLinearRegression transform = pca.Learn(jaggedClusteringObservations);
+
+			double[][] actual = pca.Transform(jaggedClusteringObservations);
+			UpdateGraph(labels, actual);
 		}
 
 		private void UpdateGraph(int[] classifications, double[][] observations)
@@ -80,13 +93,13 @@ namespace SeriousGameClustering
 			graph.Invalidate();
 		}
 
-		public void CreateScatterplot(ZedGraphControl zgc, double[][] graph, int n)
+		private void CreateScatterplot(ZedGraphControl zgc, double[][] graph, int n)
 		{
 			GraphPane myPane = zgc.GraphPane;
 			myPane.CurveList.Clear();
 
 			// Set graph pane object
-			myPane.Title.Text = "Normal (Gaussian) Distributions";
+			myPane.Title.Text = "Distributions";
 			myPane.XAxis.Title.Text = "X";
 			myPane.YAxis.Title.Text = "Y";
 			myPane.XAxis.Scale.Max = 10;
@@ -99,13 +112,11 @@ namespace SeriousGameClustering
 			myPane.XAxis.IsVisible = false;
 			myPane.Border.IsVisible = false;
 
-
 			// Create mixture pairs
 			PointPairList list = new PointPairList();
 			for (int i = 0; i < graph.Length; i++)
 				list.Add(graph[i][0], graph[i][1]);
-
-
+			
 			// Add the curve for the mixture points
 			LineItem myCurve = myPane.AddCurve("Mixture", list, Color.Gray, SymbolType.Diamond);
 			myCurve.Line.IsVisible = false;
