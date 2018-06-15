@@ -11,16 +11,17 @@ namespace SeriousGameClustering
 {
 	public static class FileHelper
 	{
-		public static List<BaseUnityAnalyticsEvent> ReadAndConvert()
+		public static List<BaseUnityAnalyticsEvent> ReadAndConvert(string fileLocation)
 		{
 			Dictionary<string, Type> map = new Dictionary<string, Type>()
 			{
-				{ "SugarLow", typeof(SugarEvent) }
+				{ "SugarLow", typeof(SugarEvent) },
+				{ "game_over", typeof(GameOverEvent) }
 			};
 
 			List<BaseUnityAnalyticsEvent> results = new List<BaseUnityAnalyticsEvent>();
 
-			string[] lines = File.ReadAllLines("");
+			string[] lines = File.ReadAllLines(fileLocation);
 
 			// Loop through all the lines and deserialize
 			foreach (string line in lines)

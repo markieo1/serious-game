@@ -24,8 +24,8 @@ namespace SeriousGameClustering.Events
 		public string Name { get; set; }
 
 		/// <summary>
-		/// The user id
+		/// Unity Analytics generated identifier for the session. If a game is reopened after more than 30 minutes of inactivity, a new session ID is generated	
 		/// </summary>
-		public string UserId { get; set; }
+		public long SessionId { get; set; }
 	}
 }

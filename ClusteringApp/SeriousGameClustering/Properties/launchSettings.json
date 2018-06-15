@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "SeriousGameClustering": {
+      "commandName": "Project",
+      "commandLineArgs": "--path \"$(SolutionDir)Test\\part-dd403182-bb0b-46bb-bb09-6d03704c959f\""
+    }
+  }
+}
