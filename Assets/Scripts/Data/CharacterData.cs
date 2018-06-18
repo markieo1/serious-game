@@ -18,6 +18,11 @@ public static class CharacterData
 	public static CharacterSelection CharacterSelection { get; set; }
 
 	/// <summary>
+	/// Gets or sets the character age.
+	/// </summary>
+	public static int CharacterAge { get; set; }
+
+	/// <summary>
 	/// Gets or sets the blood sugar level.
 	/// </summary>
 	public static float BloodSugarLevel { get; private set; }
