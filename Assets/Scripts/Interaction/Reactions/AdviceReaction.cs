@@ -36,5 +36,8 @@ public class AdviceReaction : Reaction
 		}
 
 		EventManager.TriggerEvent(new ShowPopupEvent(PopupItem.WithDelayAndLimit(adviceText, 0, 10)));
+
+		// Clear advice
+		AIManager.ClearEvents();
 	}
 }
