@@ -1425,6 +1425,16 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114025722431165968, guid: 09f96acee6b6a5e4db00301dabbacd48,
         type: 2}
+      propertyPath: FoodObjects.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114025722431165968, guid: 09f96acee6b6a5e4db00301dabbacd48,
+        type: 2}
+      propertyPath: TransformPoints.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114025722431165968, guid: 09f96acee6b6a5e4db00301dabbacd48,
+        type: 2}
       propertyPath: Player
       value: 
       objectReference: {fileID: 0}
@@ -1437,6 +1447,36 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 114025722431165968, guid: 09f96acee6b6a5e4db00301dabbacd48,
+        type: 2}
+      propertyPath: FoodObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 1000011448446114, guid: 2b2f19f165aa010448258aa7bbffbf61,
+        type: 2}
+    - target: {fileID: 114025722431165968, guid: 09f96acee6b6a5e4db00301dabbacd48,
+        type: 2}
+      propertyPath: FoodObjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 1000013571059214, guid: 79b496967591f8244b45eda1d75bd519,
+        type: 2}
+    - target: {fileID: 114025722431165968, guid: 09f96acee6b6a5e4db00301dabbacd48,
+        type: 2}
+      propertyPath: FoodObjects.Array.data[2]
+      value: 
+      objectReference: {fileID: 1000010917563242, guid: b7345f04ebe4b2b4fa24249d98671a68,
+        type: 2}
+    - target: {fileID: 114025722431165968, guid: 09f96acee6b6a5e4db00301dabbacd48,
+        type: 2}
+      propertyPath: FoodObjects.Array.data[3]
+      value: 
+      objectReference: {fileID: 1000013251634520, guid: 18338b7d507b8f74eb2b74cd579a0a78,
+        type: 2}
+    - target: {fileID: 114025722431165968, guid: 09f96acee6b6a5e4db00301dabbacd48,
+        type: 2}
+      propertyPath: FoodObjects.Array.data[4]
+      value: 
+      objectReference: {fileID: 1000012023308628, guid: f92abe7c8771b744a8a4f4b2e1b349ef,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 09f96acee6b6a5e4db00301dabbacd48, type: 2}
   m_IsPrefabParent: 0
