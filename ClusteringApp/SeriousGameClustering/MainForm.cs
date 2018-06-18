@@ -72,10 +72,10 @@ namespace SeriousGameClustering
 			MultivariateLinearRegression transform = pca.Learn(jaggedClusteringObservations);
 
 			double[][] actual = pca.Transform(jaggedClusteringObservations);
-			UpdateGraph(labels, actual);
+			UpdateGraph(labels, actual, clusteringModels.Select(x => x.ToString()).ToArray());
 		}
 
-		private void UpdateGraph(int[] classifications, double[][] observations)
+		private void UpdateGraph(int[] classifications, double[][] observations, string[] tags)
 		{
 			// Paint the clusters accordingly
 			for (int i = 0; i < 3 + 1; i++)
@@ -87,7 +87,7 @@ namespace SeriousGameClustering
 
 				var curveList = graph.GraphPane.CurveList[c + 1];
 				double[] point = observations[j];
-				curveList.AddPoint(point[0], point[1]);
+				curveList.AddPoint(new PointPair(point[0], point[1], tags[j]));
 			}
 
 			graph.Invalidate();
@@ -116,7 +116,7 @@ namespace SeriousGameClustering
 			PointPairList list = new PointPairList();
 			for (int i = 0; i < graph.Length; i++)
 				list.Add(graph[i][0], graph[i][1]);
-			
+
 			// Add the curve for the mixture points
 			LineItem myCurve = myPane.AddCurve("Mixture", list, Color.Gray, SymbolType.Diamond);
 			myCurve.Line.IsVisible = false;
