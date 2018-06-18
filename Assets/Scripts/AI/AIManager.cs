@@ -48,6 +48,13 @@ public class AIManager
 		}
 	}
 
+	public static void ClearEvents()
+	{
+		Instance.sugarChangeEvents = new List<SugarChangedEvent>();
+		Instance.sugarLowEvents = new List<SugarLowEvent>();
+		Instance.sugarHighEvents = new List<SugarHighEvent>();
+	}
+
 	private List<SugarChangedEvent> sugarChangeEvents;
 	private List<SugarLowEvent> sugarLowEvents;
 	private List<SugarHighEvent> sugarHighEvents;
