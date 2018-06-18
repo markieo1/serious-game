@@ -88,7 +88,16 @@ public class GameManager : MonoBehaviour
 		// Hacky way to initialize the AI manager
 		var AiManager = AIManager.Instance;
 
-		AnalyticsEvent.GameStart();
+		var characterSelection = CharacterData.CharacterSelection;
+		var age = CharacterData.CharacterAge;
+
+		Dictionary<string, object> eventData = new Dictionary<string, object>()
+		{
+			{ "Gender", characterSelection },
+			{ "Age", age }
+		};
+
+		AnalyticsEvent.GameStart(eventData);
 	}
 
 	void OnDisable()
