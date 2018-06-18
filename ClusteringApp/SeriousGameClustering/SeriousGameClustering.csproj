@@ -79,6 +79,8 @@
     <Compile Include="Events\CustomUnityAnalyticsEvent.cs" />
     <Compile Include="Events\Specific\GameOverEvent.cs" />
     <Compile Include="Events\Specific\GameOverEventParams.cs" />
+    <Compile Include="Events\Specific\GameStartEventParams.cs" />
+    <Compile Include="Events\Specific\GameStartEvent.cs" />
     <Compile Include="Events\Specific\SugarEvent.cs" />
     <Compile Include="Events\Specific\SugarEventParams.cs" />
     <Compile Include="Helpers\ClusteringHelper.cs" />

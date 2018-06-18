@@ -16,7 +16,8 @@ namespace SeriousGameClustering.Helpers
 			Dictionary<string, Type> map = new Dictionary<string, Type>()
 			{
 				{ "SugarLow", typeof(SugarEvent) },
-				{ "game_over", typeof(GameOverEvent) }
+				{ "game_over", typeof(GameOverEvent) },
+				{ "game_start", typeof(GameStartEvent) }
 			};
 
 			List<BaseUnityAnalyticsEvent> results = new List<BaseUnityAnalyticsEvent>();

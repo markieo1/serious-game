@@ -40,10 +40,15 @@ namespace SeriousGameClustering.Helpers
 										   where gameEvent.Name == "game_over" && gameEvent.GetType() == typeof(GameOverEvent)
 										   let gameOverEvent = gameEvent as GameOverEvent
 										   select gameOverEvent.CustomParams?.DistanceTravelled ?? 0).DefaultIfEmpty().Max(),
-					   Age = 0 //eventGroup.Where(x => x.Name == "game_start").FirstOrDefault().Name;
-
+					   Age = (from gameEvent in eventGroup
+							  where gameEvent.Name == "game_start" && gameEvent.GetType() == typeof(GameStartEvent)
+							  let gameStartEvent = gameEvent as GameStartEvent
+							  select gameStartEvent.CustomParams?.Age ?? 0).DefaultIfEmpty().First(),
+					   Gender = (from gameEvent in eventGroup
+								 where gameEvent.Name == "game_start" && gameEvent.GetType() == typeof(GameStartEvent)
+								 let gameStartEvent = gameEvent as GameStartEvent
+								 select gameStartEvent.CustomParams?.Gender ?? Gender.UNKNOWN).First(),
 				   };
-
 		}
 	}
 }
