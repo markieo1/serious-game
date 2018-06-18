@@ -18,7 +18,7 @@ public class SpawnManager : MonoBehaviour
     Dictionary<Transform, Interactable> TransformPointsAndFoodObjects;
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
         var playerCharacter = CharacterData.CharacterSelection;
         var playerCamera = GameObject.FindGameObjectWithTag("PlayerFollowCamera");
