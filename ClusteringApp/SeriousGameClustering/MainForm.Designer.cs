@@ -33,6 +33,8 @@
 			this.btnOpenFile = new System.Windows.Forms.Button();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.btnLoadModel = new System.Windows.Forms.Button();
+			this.btnReset = new System.Windows.Forms.Button();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.panel1.SuspendLayout();
 			this.SuspendLayout();
@@ -81,12 +83,34 @@
 			// 
 			// panel1
 			// 
+			this.panel1.Controls.Add(this.btnReset);
+			this.panel1.Controls.Add(this.btnLoadModel);
 			this.panel1.Controls.Add(this.btnOpenFile);
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panel1.Location = new System.Drawing.Point(3, 597);
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(1227, 25);
 			this.panel1.TabIndex = 2;
+			// 
+			// btnLoadModel
+			// 
+			this.btnLoadModel.Location = new System.Drawing.Point(90, 0);
+			this.btnLoadModel.Name = "btnLoadModel";
+			this.btnLoadModel.Size = new System.Drawing.Size(153, 23);
+			this.btnLoadModel.TabIndex = 2;
+			this.btnLoadModel.Text = "Load existing K-Means model";
+			this.btnLoadModel.UseVisualStyleBackColor = true;
+			this.btnLoadModel.Click += new System.EventHandler(this.btnLoadModel_Click);
+			// 
+			// btnReset
+			// 
+			this.btnReset.Location = new System.Drawing.Point(249, 0);
+			this.btnReset.Name = "btnReset";
+			this.btnReset.Size = new System.Drawing.Size(92, 23);
+			this.btnReset.TabIndex = 3;
+			this.btnReset.Text = "Reset clustering";
+			this.btnReset.UseVisualStyleBackColor = true;
+			this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
 			// 
 			// MainForm
 			// 
@@ -109,6 +133,8 @@
 		private System.Windows.Forms.Button btnOpenFile;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
 		private System.Windows.Forms.Panel panel1;
+		private System.Windows.Forms.Button btnLoadModel;
+		private System.Windows.Forms.Button btnReset;
 	}
 }
 

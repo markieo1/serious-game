@@ -1,4 +1,5 @@
 ﻿using Accord.Controls;
+using Accord.IO;
 using Accord.MachineLearning;
 using Accord.Math;
 using Accord.Statistics.Analysis;
@@ -9,6 +10,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +21,8 @@ namespace SeriousGameClustering
 {
 	public partial class MainForm : Form
 	{
+		const int CLUSTERS = 3;
+		private KMeans kmeans;
 		ColorSequenceCollection colors = new ColorSequenceCollection();
 
 		public MainForm()
@@ -47,12 +51,9 @@ namespace SeriousGameClustering
 
 			double[][] jaggedClusteringObservations = clusteringTable.ToJagged();
 
-			CreateScatterplot(graph, jaggedClusteringObservations, 3);
+			CreateScatterplot(graph, jaggedClusteringObservations, CLUSTERS);
 
-
-			// Create a new K-Means algorithm with 3 clusters 
-			KMeans kmeans = new KMeans(3);
-
+			// K-Means should already be initialized
 			// Compute the algorithm, retrieving an integer array
 			//  containing the labels for each of the observations
 			KMeansClusterCollection clusters = kmeans.Learn(jaggedClusteringObservations);
@@ -73,12 +74,15 @@ namespace SeriousGameClustering
 
 			double[][] actual = pca.Transform(jaggedClusteringObservations);
 			UpdateGraph(labels, actual, clusteringModels.Select(x => x.ToString()).ToArray());
+
+			// Finally we save the model
+			kmeans.Save(Path.Combine(AppContext.BaseDirectory, "Models", "kmeans.bin"));
 		}
 
 		private void UpdateGraph(int[] classifications, double[][] observations, string[] tags)
 		{
 			// Paint the clusters accordingly
-			for (int i = 0; i < 3 + 1; i++)
+			for (int i = 0; i < CLUSTERS + 1; i++)
 				graph.GraphPane.CurveList[i].Clear();
 
 			for (int j = 0; j < observations.Length; j++)
@@ -142,8 +146,40 @@ namespace SeriousGameClustering
 
 		private void MainForm_Load(object sender, EventArgs e)
 		{
+			ResetKMeans(true);
+		}
+
+		private void btnLoadModel_Click(object sender, EventArgs e)
+		{
+			var fileDialog = new System.Windows.Forms.OpenFileDialog();
+			if (fileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+			{
+				string fileToOpen = fileDialog.FileName;
+
+				kmeans = Serializer.Load<KMeans>(fileToOpen);
+			}
+		}
+
+		private void btnReset_Click(object sender, EventArgs e)
+		{
+			ResetKMeans(false);
+		}
+
+		private void ResetKMeans(bool loadIfExists)
+		{
+			string filePath = Path.Combine(AppContext.BaseDirectory, "Models", "kmeans.bin");
+			bool exists = File.Exists(filePath);
+			if (loadIfExists && exists)
+			{
+				kmeans = Serializer.Load<KMeans>(filePath);
+			}
+			else
+			{
+				kmeans = new KMeans(CLUSTERS);
+			}
+
 			double[][] t = new double[0][];
-			CreateScatterplot(graph, t, 3);
+			CreateScatterplot(graph, t, CLUSTERS);
 		}
 	}
 }
