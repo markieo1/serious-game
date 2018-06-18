@@ -139,5 +139,11 @@ namespace SeriousGameClustering
 			zgc.AxisChange();
 			zgc.Invalidate();
 		}
+
+		private void MainForm_Load(object sender, EventArgs e)
+		{
+			double[][] t = new double[0][];
+			CreateScatterplot(graph, t, 3);
+		}
 	}
 }
