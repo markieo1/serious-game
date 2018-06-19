@@ -34,7 +34,7 @@ public class EatReaction : Reaction
 			throw new NotSupportedException("Interactable component not found in parent");
 		}
 
-		InteractableObject = interactableComponent.gameObject;
+		InteractableObject = monoBehaviour.transform.parent.gameObject;
 	}
 
 	public override void React()
