@@ -5,6 +5,7 @@ using Accord.Math;
 using Accord.Statistics.Analysis;
 using Accord.Statistics.Models.Regression.Linear;
 using SeriousGameClustering.Helpers;
+using SeriousGameClustering.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,6 +24,8 @@ namespace SeriousGameClustering
 	{
 		const int CLUSTERS = 3;
 		private KMeans kmeans;
+		private double[][] currentJaggedObservations = new double[0][];
+		private List<ClusteringModel> clusteringModels = new List<ClusteringModel>();
 		ColorSequenceCollection colors = new ColorSequenceCollection();
 
 		public MainForm()
@@ -44,24 +47,26 @@ namespace SeriousGameClustering
 		private void StartClustering(string filePath)
 		{
 			var readEvents = FileHelper.ReadAndConvert(filePath);
-			var clusteringModels = ClusteringHelper.ConvertToClusteringModel(readEvents);
+			var readModels = ClusteringHelper.ConvertToClusteringModel(readEvents);
+			clusteringModels.AddRange(readModels);
 
 			// Next we need the datatable
-			DataTable clusteringTable = DataTableHelper.ConvertListToDataTable(clusteringModels);
+			DataTable clusteringTable = DataTableHelper.ConvertListToDataTable(readModels);
 
 			double[][] jaggedClusteringObservations = clusteringTable.ToJagged();
+			currentJaggedObservations = currentJaggedObservations.Concat(jaggedClusteringObservations).ToArray();
 
-			CreateScatterplot(graph, jaggedClusteringObservations, CLUSTERS);
+			CreateScatterplot(graph, currentJaggedObservations, CLUSTERS);
 
 			// K-Means should already be initialized
 			// Compute the algorithm, retrieving an integer array
 			//  containing the labels for each of the observations
-			KMeansClusterCollection clusters = kmeans.Learn(jaggedClusteringObservations);
+			KMeansClusterCollection clusters = kmeans.Learn(currentJaggedObservations);
 
 			// As a result, the first two observations should belong to the
 			//  same cluster (thus having the same label). The same should
 			//  happen to the next four observations and to the last three.
-			int[] labels = clusters.Decide(jaggedClusteringObservations);
+			int[] labels = clusters.Decide(currentJaggedObservations);
 
 			var pca = new PrincipalComponentAnalysis()
 			{
@@ -70,9 +75,9 @@ namespace SeriousGameClustering
 				NumberOfOutputs = 2
 			};
 
-			MultivariateLinearRegression transform = pca.Learn(jaggedClusteringObservations);
+			MultivariateLinearRegression transform = pca.Learn(currentJaggedObservations);
 
-			double[][] actual = pca.Transform(jaggedClusteringObservations);
+			double[][] actual = pca.Transform(currentJaggedObservations);
 			UpdateGraph(labels, actual, clusteringModels.Select(x => x.ToString()).ToArray());
 
 			// Finally we save the model
