@@ -163,6 +163,15 @@ public class GameManager : MonoBehaviour
 	/// </summary>
 	public void Pause()
 	{
+		// Not paused, check if we have any menu open
+		if (AnyMenuOpen)
+		{
+			// We should close the menu
+			CloseMenu(OpenedMenu);
+		}
+
+		// We have nothing open so we can pause
+		IsPaused = true;
 		timeManager.Pause();
 		EventManager.TriggerEvent(new GamePauseChangeEvent(true));
 	}
@@ -172,6 +181,7 @@ public class GameManager : MonoBehaviour
 	/// </summary>
 	public void Unpause()
 	{
+		IsPaused = false;
 		timeManager.Unpause();
 		EventManager.TriggerEvent(new GamePauseChangeEvent(false));
 	}
@@ -191,14 +201,6 @@ public class GameManager : MonoBehaviour
 			}
 			else
 			{
-				// Not paused, check if we have any menu open
-				if (AnyMenuOpen)
-				{
-					// We should close the menu
-					CloseMenu(OpenedMenu);
-				}
-
-				// We have nothing open so we can pause
 				Pause();
 			}
 		}
