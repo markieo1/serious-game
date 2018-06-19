@@ -737,7 +737,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LoadingScene: Loading
-  NewScene: Bedroom
+  NewScene: Introduction
 --- !u!114 &387439278
 MonoBehaviour:
   m_ObjectHideFlags: 0
