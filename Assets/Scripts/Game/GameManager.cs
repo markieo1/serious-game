@@ -229,7 +229,7 @@ public class GameManager : MonoBehaviour
 
 		// Play Gameover scene
 		SceneManager.LoadScene(GameOverScene);
-		Destroy(this);
+		Destroy(this.gameObject);
 	}
 	#endregion
 
